@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c0ew22b3w3va7"]
+
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="1_yrp48"]
+[ext_resource type="PackedScene" uid="uid://bjic1ql8gs4eo" path="res://godot-jam-93/components/dummy.tscn" id="2_6j5i3"]
+
+[node name="EnemyTest" type="Node2D" unique_id=849474123]
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_yrp48")]
+
+[node name="Dummy" parent="." unique_id=976864549 instance=ExtResource("2_6j5i3")]
+position = Vector2(133, 48)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjic1ql8gs4eo"]
 
-[ext_resource type="Script" uid="uid://bip7fe71g6pvv" path="res://script/dummy.gd" id="1_sc5ck"]
-[ext_resource type="Texture2D" uid="uid://hbjrh3gs2rkt" path="res://assets/sprites/dummy.png" id="2_wjn05"]
-[ext_resource type="PackedScene" uid="uid://cnjicptkknqda" path="res://components/health_display.tscn" id="3_wjn05"]
+[ext_resource type="Script" uid="uid://bip7fe71g6pvv" path="res://godot-jam-93/script/dummy.gd" id="1_sc5ck"]
+[ext_resource type="Texture2D" uid="uid://hbjrh3gs2rkt" path="res://godot-jam-93/assets/sprites/dummy.png" id="2_wjn05"]
+[ext_resource type="PackedScene" uid="uid://cnjicptkknqda" path="res://godot-jam-93/components/health_display.tscn" id="3_wjn05"]
 
 [sub_resource type="Animation" id="Animation_u36jo"]
 length = 0.001

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bmhgody2cjyv0"]
+
+[ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/enemy.gd" id="1_f6xrv"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=744279334]
+script = ExtResource("1_f6xrv")
+metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
