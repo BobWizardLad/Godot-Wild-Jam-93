@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://i3rqegx1ntai"]
 
-[ext_resource type="Texture2D" uid="uid://cdekh7tr0ctnb" path="res://assets/sprites/bullet.png" id="1_jdofu"]
-[ext_resource type="Script" uid="uid://xgxgimlglsrk" path="res://script/bullet.gd" id="1_omyih"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://components/damage_area.tscn" id="3_lsas8"]
+[ext_resource type="Texture2D" uid="uid://cdekh7tr0ctnb" path="res://godot-jam-93/assets/sprites/bullet.png" id="1_jdofu"]
+[ext_resource type="Script" uid="uid://xgxgimlglsrk" path="res://godot-jam-93/script/bullet.gd" id="1_omyih"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="3_lsas8"]
 
 [sub_resource type="Animation" id="Animation_omyih"]
 length = 0.001
@@ -83,7 +83,7 @@ radius = 6.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1707370551]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_omyih")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1689556670]
@@ -101,7 +101,7 @@ texture = ExtResource("1_jdofu")
 hframes = 22
 
 [node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("3_lsas8")]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 damage = 10
 is_heavy_strike = true

@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://cobai2bnueykf"]
 
-[ext_resource type="Texture2D" uid="uid://egqj6oldhyh" path="res://assets/sprites/idle full sprite sheet.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://script/player.gd" id="1_onrkg"]
-[ext_resource type="Script" uid="uid://ya52125s75l1" path="res://script/movement_blender.gd" id="3_5odhx"]
-[ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://components/animation_blender.tscn" id="3_uapwn"]
-[ext_resource type="PackedScene" uid="uid://cnjicptkknqda" path="res://components/health_display.tscn" id="4_0lm1f"]
-[ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
-[ext_resource type="Texture2D" uid="uid://cq8kq5j0w3kes" path="res://assets/sprites/attack full sprite sheet.png" id="5_kuobi"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://components/damage_area.tscn" id="8_couud"]
-[ext_resource type="Script" uid="uid://cuskbl057hwsn" path="res://script/basic_attack_area.gd" id="9_pir3r"]
+[ext_resource type="Texture2D" uid="uid://egqj6oldhyh" path="res://godot-jam-93/assets/sprites/idle full sprite sheet.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://godot-jam-93/script/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://ya52125s75l1" path="res://godot-jam-93/script/movement_blender.gd" id="3_5odhx"]
+[ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://godot-jam-93/components/animation_blender.tscn" id="3_uapwn"]
+[ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
+[ext_resource type="Texture2D" uid="uid://cq8kq5j0w3kes" path="res://godot-jam-93/assets/sprites/attack full sprite sheet.png" id="5_kuobi"]
+[ext_resource type="PackedScene" uid="uid://rs0okgph0ict" path="res://godot-jam-93/components/cursor.tscn" id="7_f6ew4"]
+[ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="8_4a1ga"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
@@ -59,18 +58,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [8]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BasicAttackArea:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6qb5m"]
@@ -133,18 +120,6 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.050000012, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -214,18 +189,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.050000012, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_1wqow"]
 resource_name = "basic_attack_3"
@@ -287,18 +250,6 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.050000012, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -368,18 +319,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.050000012, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_1dyya"]
 resource_name = "basic_attack_6"
@@ -441,18 +380,6 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.05, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -522,18 +449,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.050000012, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_ntxa4"]
 resource_name = "basic_attack_8"
@@ -599,18 +514,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.05, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_6esqw"]
 resource_name = "basic_attack_9"
@@ -672,18 +575,6 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BasicAttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.050000012, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -1880,21 +1771,14 @@ atlas = ExtResource("1_4flbx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(8, 13)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_couud"]
-radius = 20.0
-
 [node name="Player" type="CharacterBody2D" unique_id=580681997]
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-collision_layer = 3
-collision_mask = 0
 script = ExtResource("1_onrkg")
 dash_distance = 85.0
 dash_time = 0.2
 dash_cooldown_time = 0.2
-attack_queue_decay = 0.1
-attack_slowdown = 0.25
 SPEED = 100.0
 BASIC_DAMAGE = 15
 BASIC_COOLDOWN_TIME = 0.7
@@ -1904,33 +1788,10 @@ current_health = 100
 [node name="DashCooldown" type="Timer" parent="." unique_id=1403083639]
 one_shot = true
 
-[node name="BasicCooldown" type="Timer" parent="." unique_id=1841408815]
-one_shot = true
-
 [node name="MovementBlender" parent="." unique_id=770144188 node_paths=PackedStringArray("soft_animation_player", "animation_tree") instance=ExtResource("3_uapwn")]
 script = ExtResource("3_5odhx")
 soft_animation_player = NodePath("../SoftAnimationPlayer")
 animation_tree = NodePath("../MovementAnimationTree")
-
-[node name="UI Overlay" type="Control" parent="." unique_id=50064563]
-layout_mode = 3
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HealthDisplay" parent="UI Overlay" unique_id=930597288 instance=ExtResource("4_0lm1f")]
-layout_mode = 1
-anchors_preset = 5
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_left = -17.0
-offset_top = -21.0
-offset_right = 17.0
-offset_bottom = -17.0
-grow_vertical = 1
 
 [node name="SpriteAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1199128367]
 libraries/ = SubResource("AnimationLibrary_sweqy")
@@ -1958,17 +1819,11 @@ vframes = 8
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4flbx")
 
-[node name="BasicAttackArea" parent="." unique_id=1685658706 instance=ExtResource("8_couud")]
-collision_layer = 0
-collision_mask = 2
-input_pickable = false
-monitoring = false
-monitorable = false
-script = ExtResource("9_pir3r")
-damage = 15
-is_heavy_strike = true
+[node name="Cursor" parent="." unique_id=129168728 instance=ExtResource("7_f6ew4")]
+lerp_strength = 0.9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttackArea" unique_id=1775418318]
-shape = SubResource("CircleShape2D_couud")
+[node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("8_4a1ga")]
+bullet_speed = 400.0
+bullet_lifetime = 1.2
 
 [connection signal="damage_taken" from="." to="MovementBlender" method="animate_damage"]
