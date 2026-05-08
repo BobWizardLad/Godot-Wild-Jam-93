@@ -7,3 +7,6 @@ editor_description = "Test to implement a twin shooter player controller.
 "
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_r88yq")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=949263602]
+zoom = Vector2(2.5, 2.5)
