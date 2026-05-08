@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://godot-jam-93/components/animation_blender.tscn" id="3_uapwn"]
 [ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
 [ext_resource type="Texture2D" uid="uid://cq8kq5j0w3kes" path="res://godot-jam-93/assets/sprites/attack full sprite sheet.png" id="5_kuobi"]
+[ext_resource type="PackedScene" uid="uid://rs0okgph0ict" path="res://godot-jam-93/components/cursor.tscn" id="7_f6ew4"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
@@ -1818,5 +1819,8 @@ vframes = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=886688059]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="Cursor" parent="." unique_id=129168728 instance=ExtResource("7_f6ew4")]
+lerp_strength = 0.9
 
 [connection signal="damage_taken" from="." to="MovementBlender" method="animate_damage"]

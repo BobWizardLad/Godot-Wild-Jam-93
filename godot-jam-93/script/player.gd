@@ -7,6 +7,7 @@ extends Unit
 @onready var dash_cooldown: Timer = $DashCooldown
 
 @onready var animation_blender: AnimationBlender = $MovementBlender
+@onready var cursor: Cursor = $Cursor
 
 func _ready() -> void:
 	super()
@@ -26,6 +27,8 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") && dash_cooldown.is_stopped() && direction != Vector2.ZERO:
 		dash_movement(direction)
+	if event.is_action_pressed("shoot"):
+		print(cursor.get_target())
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:
