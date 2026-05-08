@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cnjicptkknqda"]
+
+[ext_resource type="Texture2D" uid="uid://cvg7so3etna8w" path="res://assets/sprites/ui_pack.png" id="1_h6tag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqobl"]
+atlas = ExtResource("1_h6tag")
+region = Rect2(675, 7, 34, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha3lb"]
+atlas = ExtResource("1_h6tag")
+region = Rect2(627, 7, 34, 4)
+
+[node name="HealthDisplay" type="TextureProgressBar" unique_id=930597288]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -2.0
+offset_right = 21.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_under = SubResource("AtlasTexture_pqobl")
+texture_progress = SubResource("AtlasTexture_ha3lb")

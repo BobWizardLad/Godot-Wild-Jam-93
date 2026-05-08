@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Game Template"
-run/main_scene="res://scenes/opening/opening.tscn"
+config/name="Godot Wild Jam 93"
+config/description="Godot Wild Jam 93 Entry"
+run/main_scene="res://example_project/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6")
-config/icon="res://icon.png"
+config/icon="uid://ctfl5lq83mmic"
 
 [autoload]
 
@@ -26,6 +27,10 @@ ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloa
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[dotnet]
+
+project/assembly_name="Game Template"
 
 [editor_plugins]
 

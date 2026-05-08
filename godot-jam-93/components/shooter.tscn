@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://uiu3flbj2gbn"]
+
+[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://assets/sprites/shooter.png" id="1_0uk4y"]
+[ext_resource type="Script" uid="uid://bwn23rgmuilk8" path="res://script/turret.gd" id="1_o6r6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6r6q"]
+size = Vector2(9, 13)
+
+[node name="Shooter" type="StaticBody2D" unique_id=442730253]
+script = ExtResource("1_o6r6q")
+bullet_speed = 115.0
+fire_rate = 1.0
+bullet_lifetime = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581781433]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_o6r6q")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=231758775]
+texture = ExtResource("1_0uk4y")
+
+[node name="ShootCooldown" type="Timer" parent="." unique_id=1290243264]
+autostart = true
+
+[connection signal="timeout" from="ShootCooldown" to="." method="shoot"]
