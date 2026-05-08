@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hk01m0jo1lwv"]
+
+[ext_resource type="Script" uid="uid://b6w7e3ha0r1xn" path="res://godot-jam-93/script/gun_controller.gd" id="1_kd1wn"]
+
+[node name="GunController" type="Node2D" unique_id=2088718377]
+script = ExtResource("1_kd1wn")
