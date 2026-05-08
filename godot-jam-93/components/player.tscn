@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
 [ext_resource type="Texture2D" uid="uid://cq8kq5j0w3kes" path="res://godot-jam-93/assets/sprites/attack full sprite sheet.png" id="5_kuobi"]
 [ext_resource type="PackedScene" uid="uid://rs0okgph0ict" path="res://godot-jam-93/components/cursor.tscn" id="7_f6ew4"]
+[ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="8_4a1ga"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
@@ -1774,8 +1775,6 @@ size = Vector2(8, 13)
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-collision_layer = 3
-collision_mask = 0
 script = ExtResource("1_onrkg")
 dash_distance = 85.0
 dash_time = 0.2
@@ -1822,5 +1821,9 @@ shape = SubResource("RectangleShape2D_4flbx")
 
 [node name="Cursor" parent="." unique_id=129168728 instance=ExtResource("7_f6ew4")]
 lerp_strength = 0.9
+
+[node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("8_4a1ga")]
+bullet_speed = 400.0
+bullet_lifetime = 1.2
 
 [connection signal="damage_taken" from="." to="MovementBlender" method="animate_damage"]

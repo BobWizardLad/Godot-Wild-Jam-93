@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 
 ## Returns the global_position of this cursor
 func get_target() -> Vector2:
-	return global_position
+	return global_position - get_parent().global_position

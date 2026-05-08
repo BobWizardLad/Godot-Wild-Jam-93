@@ -3,11 +3,14 @@ extends CharacterBody2D
 ## Bullet lifetime is assigned at bullet instantiation;
 ## Otherwise bullet has no lifetime (won't fire)
 var lifetime: float = 0.0
+var muzzle_velocity: Vector2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var lifetimer: Timer = $LifetimeTimer
 
 func _ready():
+	assert(muzzle_velocity != Vector2.ZERO, "Bullet muzzle velocity is zero!")
+	velocity = muzzle_velocity
 	expire_timer_start(lifetime)
 
 func _physics_process(delta: float):

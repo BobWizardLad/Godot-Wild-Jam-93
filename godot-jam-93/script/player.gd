@@ -8,19 +8,20 @@ extends Unit
 
 @onready var animation_blender: AnimationBlender = $MovementBlender
 @onready var cursor: Cursor = $Cursor
+@onready var gun_controller: GunController = $GunController
 
 func _ready() -> void:
 	super()
 
 func _physics_process(delta: float) -> void:
 	velocity = derive_unit_velocity()
+	animation_blender.update_animation_parameters(self)
 	if is_forced_moving:
 		pass
 	else:
 		move_and_slide()
 
 func _process(delta: float) -> void:
-	animation_blender.update_animation_parameters(self)
 	if current_health == 0:
 		pass # Do player death stuff
 
@@ -28,7 +29,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") && dash_cooldown.is_stopped() && direction != Vector2.ZERO:
 		dash_movement(direction)
 	if event.is_action_pressed("shoot"):
-		print(cursor.get_target())
+		shoot_attack(cursor.get_target())
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:
@@ -55,3 +56,6 @@ func dash_movement(dash_direction: Vector2 = direction, distance: float = dash_d
 	).set_trans(Tween.TRANS_LINEAR)
 	await tween.finished
 	is_forced_moving = false
+
+func shoot_attack(target: Vector2) -> void:
+	gun_controller.shoot(target)
