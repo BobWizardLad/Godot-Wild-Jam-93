@@ -140,7 +140,8 @@ height = 13.0
 radius = 13.038404
 
 [node name="Enemy" type="CharacterBody2D" unique_id=744279334]
-collision_layer = 5
+collision_layer = 36
+collision_mask = 4
 script = ExtResource("1_f6xrv")
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
@@ -156,7 +157,7 @@ shape = SubResource("CapsuleShape2D_rcr0p")
 
 [node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("4_y0v0w")]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 16
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
 position = Vector2(0, 3)
