@@ -3,9 +3,33 @@
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_034oa"]
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_wnyq4"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="3_dfcor"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/enemies/enemy.tscn" id="4_ks8e6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dfcor"]
+vertices = PackedVector2Array(197.09375, 389, 669.96875, 387.96875, 740.0625, 389.03125, 678.8203, 444.02344, 556.10156, 442.97656, 737.9375, 316.9375, 671.03125, 319.0625, 566.02344, 261.0078, 564.97656, 126, 869, 44, 870.9922, 567.97656, 121, 502.9297, 28.992188, 505.9297, 27, 44.96875, 106.9375, 389, 117.97656, 44.023438, 116.99219, 207.10938, 109.0625, 317, 606, 566.0078, 606, 490, 683.2031, 490, 234.03125, 505, 233.03125, 568, 121, 568, 379.97656, 259.9922, 193.90625, 317, 550.09375, 564.03125, 411.89844, 566.9531, 408.90625, 505, 178.00781, 203.89844, 381.02344, 126, 177.00781, 46.992188)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(9, 10, 2, 5), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(13, 15, 16, 17), PackedInt32Array(18, 19, 20, 10), PackedInt32Array(2, 10, 20, 3), PackedInt32Array(21, 22, 23, 11, 0), PackedInt32Array(24, 7, 6, 1, 0, 25), PackedInt32Array(26, 27, 28, 4), PackedInt32Array(0, 4, 28, 21), PackedInt32Array(14, 0, 11), PackedInt32Array(17, 14, 13), PackedInt32Array(25, 17, 16, 29, 24), PackedInt32Array(30, 24, 29, 31), PackedInt32Array(30, 31, 9, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(25, 43, 120, 42, 119, 205, 176, 202, 175, 45, 871, 42, 873, 570, 604, 568, 604, 488, 681, 488, 677, 446, 558, 445, 552, 566, 410, 569, 407, 507, 236, 507, 235, 570, 119, 570, 119, 505, 27, 508)])
+agent_radius = 2.0
 
 [node name="GameStageTest" type="Node2D" unique_id=1700074592]
 editor_description = "Testing a basic setup for the game level. Working on getting enemy spawn systems, player, and game state to behave all in one place. Big One. Make sub-tests lol"
+
+[node name="Navigation" type="Node2D" parent="." unique_id=344647094]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Navigation" unique_id=1828834817]
+navigation_polygon = SubResource("NavigationPolygon_dfcor")
+
+[node name="Polygon2D" type="Polygon2D" parent="Navigation/NavigationRegion2D" unique_id=1367907673]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(192, 319, 111, 319, 109, 387, 195, 387)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Navigation/NavigationRegion2D" unique_id=171439366]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(383, 128, 563, 128, 564, 259, 382, 258)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Navigation/NavigationRegion2D" unique_id=259396608]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(673, 321, 736, 319, 738, 387, 672, 386)
 
 [node name="Stage" type="Node2D" parent="." unique_id=2070038739]
 
@@ -23,3 +47,50 @@ position = Vector2(48, 66)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=342551543]
 zoom = Vector2(3.5, 3.5)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=928443271]
+
+[node name="Enemy" parent="Enemies" unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(821, 72)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy2" parent="Enemies" unique_id=429660990 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(608, 240)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy3" parent="Enemies" unique_id=2018215204 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(772, 289)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy4" parent="Enemies" unique_id=1811650159 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(740, 454)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy5" parent="Enemies" unique_id=317613463 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(454, 519)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy6" parent="Enemies" unique_id=102512311 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(207, 78)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy7" parent="Enemies" unique_id=1095776250 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(174, 448)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy8" parent="Enemies" unique_id=798044211 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(299, 225)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+
+[node name="Enemy9" parent="Enemies" unique_id=1162102816 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(363, 384)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
