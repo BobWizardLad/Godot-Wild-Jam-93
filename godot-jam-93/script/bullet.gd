@@ -22,6 +22,8 @@ func expire_timer_start(time: float):
 
 ## (.(
 func collide_and_expire(body: Node2D):
+	assert($DamageArea != null, "No DamageArea named DamageArea!")
+	$DamageArea.queue_free()
 	velocity = velocity * Vector2(0.25, 0.25)
 	lifetimer.stop()
 	animation_player.play("expire")
