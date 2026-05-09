@@ -2,8 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_034oa"]
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_wnyq4"]
-[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="3_dfcor"]
-[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/enemies/enemy.tscn" id="4_ks8e6"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_dfcor"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/units/enemy.tscn" id="4_ks8e6"]
+[ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="4_ox5py"]
+[ext_resource type="PackedScene" uid="uid://c33maklt8rrc6" path="res://godot-jam-93/components/units/gunner.tscn" id="5_atftp"]
+[ext_resource type="PackedScene" uid="uid://b8df8bbivw34b" path="res://godot-jam-93/components/units/striker.tscn" id="6_va1lg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dfcor"]
 vertices = PackedVector2Array(197.09375, 389, 669.96875, 387.96875, 740.0625, 389.03125, 678.8203, 444.02344, 556.10156, 442.97656, 737.9375, 316.9375, 671.03125, 319.0625, 566.02344, 261.0078, 564.97656, 126, 869, 44, 870.9922, 567.97656, 121, 502.9297, 28.992188, 505.9297, 27, 44.96875, 106.9375, 389, 117.97656, 44.023438, 116.99219, 207.10938, 109.0625, 317, 606, 566.0078, 606, 490, 683.2031, 490, 234.03125, 505, 233.03125, 568, 121, 568, 379.97656, 259.9922, 193.90625, 317, 550.09375, 564.03125, 411.89844, 566.9531, 408.90625, 505, 178.00781, 203.89844, 381.02344, 126, 177.00781, 46.992188)
@@ -50,7 +53,100 @@ zoom = Vector2(3.5, 3.5)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=928443271]
 
-[node name="Enemy" parent="Enemies" unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
-position = Vector2(821, 72)
+[node name="Charger" parent="Enemies" unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ox5py")]
+position = Vector2(481, 525)
 nav_target = NodePath("../../Player")
 SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Charger2" parent="Enemies" unique_id=1913767372 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ox5py")]
+position = Vector2(227, 339)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Gunner" parent="Enemies" unique_id=1443940406 node_paths=PackedStringArray("nav_target") instance=ExtResource("5_atftp")]
+position = Vector2(610, 239)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Gunner2" parent="Enemies" unique_id=1625332283 node_paths=PackedStringArray("nav_target") instance=ExtResource("5_atftp")]
+position = Vector2(775, 374)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Gunner3" parent="Enemies" unique_id=1576559468 node_paths=PackedStringArray("nav_target") instance=ExtResource("5_atftp")]
+position = Vector2(197, 167)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Striker" parent="Enemies" unique_id=213546058 node_paths=PackedStringArray("nav_target") instance=ExtResource("6_va1lg")]
+position = Vector2(72, 345)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Striker2" parent="Enemies" unique_id=322510988 node_paths=PackedStringArray("nav_target") instance=ExtResource("6_va1lg")]
+position = Vector2(381, 71)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Enemy" parent="Enemies" unique_id=164291785 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(678, 527)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Enemy2" parent="Enemies" unique_id=1844763080 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(431, 304)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Enemy3" parent="Enemies" unique_id=494846164 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(60, 479)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Enemy4" parent="Enemies" unique_id=1850721951 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(207, 448)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Enemy5" parent="Enemies" unique_id=1384003171 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ks8e6")]
+position = Vector2(729, 97)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Charger3" parent="Enemies" unique_id=316997692 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ox5py")]
+position = Vector2(834, 159)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100
+
+[node name="Gunner4" parent="Enemies" unique_id=895602845 node_paths=PackedStringArray("nav_target") instance=ExtResource("5_atftp")]
+position = Vector2(595, 125)
+nav_target = NodePath("../../Player")
+SPEED = 75.0
+max_health = 100
+current_health = 100

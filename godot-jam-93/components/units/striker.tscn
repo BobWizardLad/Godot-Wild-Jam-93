@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://cpxwh8pvrcosw"]
+[gd_scene format=3 uid="uid://b8df8bbivw34b"]
 
-[ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/enemy.gd" id="1_f6xrv"]
-[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_0ea54"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="4_y0v0w"]
+[ext_resource type="Script" uid="uid://cyav1k5gwuw1v" path="res://godot-jam-93/script/striker.gd" id="1_vccp7"]
+[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_vrtb2"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_svww0"]
+[ext_resource type="Script" uid="uid://bidg1k1ll68et" path="res://godot-jam-93/script/strike_area.gd" id="4_vccp7"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001
@@ -139,27 +140,30 @@ height = 13.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
 radius = 13.038404
 
-[node name="Enemy" type="CharacterBody2D" unique_id=744279334]
+[node name="Striker" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
-script = ExtResource("1_f6xrv")
+script = ExtResource("1_vccp7")
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
-texture = ExtResource("2_0ea54")
+texture = ExtResource("2_vrtb2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
 position = Vector2(0, 3.5)
 shape = SubResource("CapsuleShape2D_rcr0p")
 
-[node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("4_y0v0w")]
+[node name="StrikeArea" parent="." unique_id=1685658706 instance=ExtResource("3_svww0")]
 collision_layer = 0
 collision_mask = 16
+script = ExtResource("4_vccp7")
+offset_length = 15.0
+damage = 20
 
-[node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
+[node name="DamageCollider" type="CollisionShape2D" parent="StrikeArea" unique_id=494215728]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_y0v0w")
 
@@ -173,4 +177,8 @@ wait_time = 0.2
 one_shot = true
 autostart = true
 
+[node name="AttackCooldown" type="Timer" parent="." unique_id=534673961]
+one_shot = true
+
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

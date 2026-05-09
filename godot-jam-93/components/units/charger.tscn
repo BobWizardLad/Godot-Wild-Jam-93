@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dshwr3eoubxlh"]
 
-[ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/charger.gd" id="1_l4p5j"]
+[ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/units/charger.gd" id="1_l4p5j"]
 [ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_wpy1p"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="3_dnfwk"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_dnfwk"]
+[ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/melee_area.gd" id="4_5yspa"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001
@@ -132,14 +133,15 @@ _data = {
 &"dodge": SubResource("Animation_jhk7o")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0v0w"]
-size = Vector2(14, 26)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yspa"]
+radius = 3.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
 radius = 13.038404
 
 [node name="Charger" type="CharacterBody2D" unique_id=744279334]
-collision_layer = 4
+collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_l4p5j")
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
@@ -151,16 +153,23 @@ libraries/ = SubResource("AnimationLibrary_y0v0w")
 texture = ExtResource("2_wpy1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_y0v0w")
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_5yspa")
 
-[node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("3_dnfwk")]
+[node name="DamageArea" parent="." unique_id=1685658706 node_paths=PackedStringArray("attack_cooldown") instance=ExtResource("3_dnfwk")]
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("4_5yspa")
+attack_cooldown = NodePath("AttackCooldown")
+damage = 20
+is_heavy_strike = true
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_y0v0w")
+
+[node name="AttackCooldown" type="Timer" parent="DamageArea" unique_id=1472576812]
+one_shot = true
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0

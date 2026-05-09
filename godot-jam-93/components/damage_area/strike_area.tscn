@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dbrye8urxwap5"]
+
+[ext_resource type="Script" uid="uid://bidg1k1ll68et" path="res://godot-jam-93/script/strike_area.gd" id="1_ps23o"]
+
+[node name="StrikeArea" type="Area2D" unique_id=1685658706]
+script = ExtResource("1_ps23o")

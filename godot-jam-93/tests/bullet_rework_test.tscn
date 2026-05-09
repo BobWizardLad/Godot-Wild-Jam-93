@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://b2wy6rviawr6u"]
 
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="1_tmp2t"]
-[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/enemies/enemy.tscn" id="2_utqtc"]
-[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="3_utqtc"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/units/enemy.tscn" id="2_utqtc"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_utqtc"]
 
 [node name="BulletReworkTest" type="Node2D" unique_id=1326200386]
 editor_description = "Reworking bullets to collide with walls properly, and to collide smarter (stop detecting when colliding and exiring, move with velocity, etc)"

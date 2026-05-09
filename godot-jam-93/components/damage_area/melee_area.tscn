@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bxtg0a7lorehf"]
+
+[ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/melee_area.gd" id="1_rteqm"]
+
+[node name="MeleeArea" type="Area2D" unique_id=1685658706]
+script = ExtResource("1_rteqm")
