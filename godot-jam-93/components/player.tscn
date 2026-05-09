@@ -1771,7 +1771,7 @@ atlas = ExtResource("1_4flbx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(8, 13)
 
-[node name="Player" type="CharacterBody2D" unique_id=580681997]
+[node name="Player" type="CharacterBody2D" unique_id=580681997 groups=["Player"]]
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
