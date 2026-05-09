@@ -1,14 +1,13 @@
-[gd_scene format=3 uid="uid://rs0okgph0ict"]
+[gd_scene format=3 uid="uid://dbp248f5gthgw"]
 
 [ext_resource type="Script" uid="uid://bbwm2xdpfyi5b" path="res://godot-jam-93/script/cursor.gd" id="1_kpsn0"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2yqan"]
-load_path = "res://.godot/imported/ymera_1.png-50c656389732d6b48f30d26e9b1bcf1e.ctex"
+[ext_resource type="Texture2D" uid="uid://cxmlbbf86i4y0" path="res://godot-jam-93/assets/sprites/cursor.png" id="2_kpsn0"]
 
 [node name="Cursor" type="Node2D" unique_id=129168728]
 editor_description = "Component that follows the player's mouse to determine attack direction and object interaction. Visible marker for the player's mouse position."
 script = ExtResource("1_kpsn0")
+lerp_strength = 0.9
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=811720641]
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_2yqan")
+texture = ExtResource("2_kpsn0")
