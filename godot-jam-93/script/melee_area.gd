@@ -1,5 +1,5 @@
 class_name MeleeArea
-extends BulletArea
+extends DamageArea
 
 @export var attack_cooldown: Timer
 

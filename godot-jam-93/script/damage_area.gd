@@ -16,4 +16,4 @@ func _physics_process(delta: float) -> void:
 
 ## Default behavior for any damagearea's collision handling.
 func handle_detected_body_or_area(collided_node: CollisionObject2D):
-	print_debug("Collision occoured")
+	print_debug("Collision occoured") 
