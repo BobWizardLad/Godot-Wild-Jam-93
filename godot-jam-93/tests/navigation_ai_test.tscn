@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_c1xyg"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_ylmij"]
 [ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="4_ivh6v"]
+[ext_resource type="PackedScene" uid="uid://c33maklt8rrc6" path="res://godot-jam-93/components/units/gunner.tscn" id="5_74ncl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ivh6v"]
 vertices = PackedVector2Array(644, 388.0625, 644, 322.10156, 681.0078, 230.5625, 683.97656, 568, 309, 262.03125, 664.96875, 226.54688, 547.9375, 285, 463.22656, 285, 643.03125, 548.1094, 364.89063, 568, 619.9297, 546.8906, 313.0078, 383.28125, 312.0078, 565.0625, 276.0078, 515, 274.9922, 350.04688, 641.96875, 478.03906, 144.03125, 570.9219, 218.96875, 515, 145.03125, 506.8672, 180, 484.8828, 407.5703, 432.71875, 358.92188, 440.65625, 356.9297, 376.6875, 458.7422, 322, 549.0625, 322, 607.10156, 348.14063, 604.8906, 386.9375, 111.10156, 161, 105.109375, 40.117188, 136.92188, 41.890625, 132.89844, 141.35156, 24.90625, 38.851563, 59, 36.15625, 59, 161, 18.09375, 187.96094, 209.85156, 184.96875, 195.07813, 131.70313, 23, 487.84375, 44.03125, 486.15625, 45.03125, 552.21094, 23, 569.9297, 109.96094, 567.0625, 89.171875, 547.78906, 108.96875, 509.1172, 84.15625, 490.8672, 221.00781, 361.40625, 180, 328.72656, 229, 321.72656, 228.92188, 348.96875, 360.1328, 490, 419.46094, 490, 588.8906, 515.8672, 394.82813, 89.96094, 391.15625, 44.9375, 679.96094, 38.039063, 549.96094, 86.96094, 551.0469, 136.03125, 678.0078, 156.97656, 666.02344, 165.99219, 191.09375, 44, 331, 44, 331, 234.1875, 309, 221, 61.75, 286.0703, 16.148438, 284.07813, 20.84375, 225.03125, 213.15625, 229.04688, 21.976563, 445.96094, 21.007813, 325.03906, 67.296875, 326.04688, 138.96094, 444.03125, 137.03125, 325.90625, 93.86719, 323.89844, 620, 320.89844, 620, 347.14844, 591.1094, 476.96094, 388.96094, 228.82813, 390.95313, 134.02344, 235.9375, 260.96875, 620.9297, 517.8672, 96.11719, 290.1328, 229, 280.85938, 237.04688, 221)
@@ -53,8 +54,14 @@ position = Vector2(528, 214)
 zoom = Vector2(3.5, 3.5)
 
 [node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_ivh6v")]
-position = Vector2(442, 212)
+position = Vector2(258, 125)
 charge_distance = 65.0
 charge_speed = 225.0
 nav_target = NodePath("../Player")
 SPEED = 85.0
+
+[node name="Gunner" parent="." unique_id=510714393 node_paths=PackedStringArray("nav_target") instance=ExtResource("5_74ncl")]
+position = Vector2(494, 386)
+follow_distance = 250.0
+nav_target = NodePath("../Player")
+SPEED = 75.0

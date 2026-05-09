@@ -133,9 +133,11 @@ _data = {
 &"dodge": SubResource("Animation_jhk7o")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
-radius = 4.0
-height = 20.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_s21kk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s21kk"]
+radius = 7.0
+height = 18.0
 
 [node name="Gunner" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
@@ -154,9 +156,10 @@ libraries/ = SubResource("AnimationLibrary_y0v0w")
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
-debug_enabled = true
+path_postprocessing = 1
 
-[node name="GunCast" type="RayCast2D" parent="." unique_id=927971258]
+[node name="GunCast" type="ShapeCast2D" parent="." unique_id=1767890453]
+shape = SubResource("CircleShape2D_s21kk")
 
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("2_3fmpq")]
 bullet_resource = ExtResource("3_s21kk")
@@ -167,6 +170,7 @@ bullet_lifetime = 1.2
 texture = ExtResource("2_f4rmt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-shape = SubResource("CapsuleShape2D_rcr0p")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_s21kk")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

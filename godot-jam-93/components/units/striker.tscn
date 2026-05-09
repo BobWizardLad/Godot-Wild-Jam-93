@@ -170,7 +170,6 @@ shape = SubResource("CircleShape2D_y0v0w")
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
-debug_enabled = true
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2
