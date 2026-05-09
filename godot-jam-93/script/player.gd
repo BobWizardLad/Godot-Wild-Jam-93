@@ -3,8 +3,11 @@ extends Unit
 
 @export var dash_distance: float
 @export var dash_time: float
+@export var dash_speed: float
 @export var dash_cooldown_time: float
 @onready var dash_cooldown: Timer = $DashCooldown
+var is_dashing: bool = false
+var dash_direction: Vector2
 
 @onready var animation_blender: AnimationBlender = $MovementBlender
 @onready var cursor: Cursor = $Cursor
@@ -26,8 +29,8 @@ func _process(delta: float) -> void:
 		pass # Do player death stuff
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("dash") && dash_cooldown.is_stopped() && direction != Vector2.ZERO:
-		dash_movement(direction)
+	if event.is_action_pressed("dash") && !is_dashing && direction != Vector2.ZERO:
+		dash_movement()
 	if event.is_action_pressed("shoot"):
 		shoot_attack(cursor.get_target())
 
@@ -41,21 +44,23 @@ func derive_unit_velocity() -> Vector2:
 	if input_dir != Vector2.ZERO:
 		direction = capture_direction(input_dir.x, input_dir.y)
 	
-	return input_dir.normalized() * SPEED
+	# Dash movement check
+	if is_dashing:
+		return dash_direction * dash_speed
+	else:
+		return input_dir.normalized() * SPEED
 
-func dash_movement(dash_direction: Vector2 = direction, distance: float = dash_distance, time: float = dash_time, cooldown: float = dash_cooldown_time):
-	dash_cooldown.start(cooldown)
-	is_forced_moving = true
-	var tween = get_tree().create_tween()
+## initiate a dash for the player; This will change the velocity calculation to a fixed value based on the player's
+## state when dash is pressed.
+func dash_movement():
+	dash_cooldown.start(dash_cooldown_time)
+	is_dashing = true
+	dash_direction = direction.normalized()
 	animation_blender.animate_dodge()
-	tween.tween_property(
-		self,
-		"position",
-		position + (dash_direction.normalized() * distance),
-		time
-	).set_trans(Tween.TRANS_LINEAR)
-	await tween.finished
-	is_forced_moving = false
 
 func shoot_attack(target: Vector2) -> void:
 	gun_controller.shoot(target)
+
+
+func _on_dash_cooldown_timeout() -> void:
+	is_dashing = false

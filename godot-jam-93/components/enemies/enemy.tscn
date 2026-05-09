@@ -140,7 +140,8 @@ height = 13.0
 radius = 13.038404
 
 [node name="Enemy" type="CharacterBody2D" unique_id=744279334]
-collision_layer = 5
+collision_layer = 36
+collision_mask = 4
 script = ExtResource("1_f6xrv")
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
@@ -156,7 +157,7 @@ shape = SubResource("CapsuleShape2D_rcr0p")
 
 [node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("4_y0v0w")]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 16
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
 position = Vector2(0, 3)
@@ -164,7 +165,7 @@ shape = SubResource("CircleShape2D_y0v0w")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
-target_desired_distance = 25.0
+target_desired_distance = 15.0
 debug_enabled = true
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]

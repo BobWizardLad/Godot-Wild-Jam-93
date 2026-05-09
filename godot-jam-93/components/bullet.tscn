@@ -75,15 +75,15 @@ _data = {
 &"expire": SubResource("Animation_xqp4s")
 }
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lsas8"]
-b = Vector2(0, 0)
+[sub_resource type="CircleShape2D" id="CircleShape2D_134np"]
+radius = 4.1231055
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jdofu"]
 radius = 6.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1707370551]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_omyih")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1689556670]
@@ -93,16 +93,16 @@ libraries/ = SubResource("AnimationLibrary_xqp4s")
 autoplay = &"default"
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1594588992]
-shape = SubResource("SegmentShape2D_lsas8")
-disabled = true
+shape = SubResource("CircleShape2D_134np")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1479889049]
 texture = ExtResource("1_jdofu")
 hframes = 22
 
 [node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("3_lsas8")]
+visible = false
 collision_layer = 0
-collision_mask = 4
+collision_mask = 32
 damage = 10
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageArea" unique_id=457462107]

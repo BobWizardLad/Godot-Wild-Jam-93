@@ -10,7 +10,11 @@ extends Unit
 # attack the player (move into them, then stop for a short time)
 
 func _ready() -> void:
-	nav_agent.target_position = nav_target.global_position
+	if nav_target:
+		nav_agent.target_position = nav_target.global_position
+	else:
+		nav_target = self
+		nav_agent.target_position = nav_target.global_position
 
 func _physics_process(_delta: float) -> void:
 	velocity = derive_unit_velocity()
