@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bbwm2xdpfyi5b" path="res://godot-jam-93/script/cursor.gd" id="1_kpsn0"]
 [ext_resource type="Texture2D" uid="uid://cxmlbbf86i4y0" path="res://godot-jam-93/assets/sprites/cursor.png" id="2_kpsn0"]
+[ext_resource type="Shader" uid="uid://cwq6ip0xm0r62" path="res://godot-jam-93/assets/resources/cursor_color_invert.gdshader" id="2_xmvau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmvau"]
+shader = ExtResource("2_xmvau")
 
 [node name="Cursor" type="Node2D" unique_id=129168728]
 editor_description = "Component that follows the player's mouse to determine attack direction and object interaction. Visible marker for the player's mouse position."
@@ -9,5 +13,6 @@ script = ExtResource("1_kpsn0")
 lerp_strength = 0.9
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=811720641]
+material = SubResource("ShaderMaterial_xmvau")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_kpsn0")
