@@ -1,11 +1,19 @@
-[gd_scene format=3 uid="uid://c0ew22b3w3va7"]
+[gd_scene format=3 uid="uid://7hrupd5lxewp"]
 
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="1_yrp48"]
 [ext_resource type="PackedScene" uid="uid://bjic1ql8gs4eo" path="res://godot-jam-93/components/dummy.tscn" id="2_6j5i3"]
+[ext_resource type="PackedScene" uid="uid://b0hg76k36x71i" path="res://godot-jam-93/components/enemy.tscn" id="3_wyhur"]
 
 [node name="EnemyTest" type="Node2D" unique_id=849474123]
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_yrp48")]
+position = Vector2(374, 171)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=906359513]
+zoom = Vector2(2.5, 2.5)
 
 [node name="Dummy" parent="." unique_id=976864549 instance=ExtResource("2_6j5i3")]
-position = Vector2(133, 48)
+position = Vector2(448, 211)
+
+[node name="Enemy" parent="." unique_id=744279334 instance=ExtResource("3_wyhur")]
+position = Vector2(323, 199)

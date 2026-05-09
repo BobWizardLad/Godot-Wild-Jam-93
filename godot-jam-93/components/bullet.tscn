@@ -104,7 +104,6 @@ hframes = 22
 collision_layer = 2
 collision_mask = 2
 damage = 10
-is_heavy_strike = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageArea" unique_id=457462107]
 shape = SubResource("CircleShape2D_jdofu")
