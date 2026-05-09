@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://81viffneqgh7"]
+
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="1_yrp48"]
+[ext_resource type="PackedScene" uid="uid://bjic1ql8gs4eo" path="res://godot-jam-93/components/dummy.tscn" id="2_6j5i3"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/enemies/enemy.tscn" id="3_wyhur"]
+[ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/enemies/charger.tscn" id="4_h866h"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wyhur"]
+vertices = PackedVector2Array(1164.0078, 23.96875, 1165.9766, 550, 28.9375, 550, 22.0625, 19.023438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(17, 14, 24, 555, 1171, 555, 1169, 19)])
+agent_radius = 5.0
+
+[node name="EnemyTest" type="Node2D" unique_id=849474123]
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_yrp48")]
+position = Vector2(374, 171)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=906359513]
+zoom = Vector2(2.5, 2.5)
+
+[node name="Dummy" parent="." unique_id=976864549 instance=ExtResource("2_6j5i3")]
+position = Vector2(448, 211)
+
+[node name="Enemy" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_wyhur")]
+position = Vector2(323, 199)
+nav_target = NodePath("../Player")
+SPEED = 100.0
+
+[node name="Charger" parent="." unique_id=1566688455 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_h866h")]
+position = Vector2(564, 137)
+charge_distance = 75.0
+charge_speed = 200.0
+nav_target = NodePath("../Player")
+SPEED = 100.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1934372970]
+navigation_polygon = SubResource("NavigationPolygon_wyhur")
