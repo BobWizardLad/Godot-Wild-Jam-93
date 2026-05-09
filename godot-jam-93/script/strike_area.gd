@@ -10,10 +10,13 @@ signal strike_connected(body: Node2D)
 func start_strike_collision(target_direction: Vector2, my_offset_length: float = offset_length):
 	var offset = target_direction.normalized() * my_offset_length
 	position = position + offset
+	is_striking = true
 
 ## Ends the offset hitbox position; callable, meant to be handled by a parent's attack behavior
 func end_strike_collision():
+	print(position)
 	position = Vector2.ZERO
+	is_striking = false
 
 ## Collision is only handled when teh node is in striking mode, or when the attack is active/
 ## Offset is applied
