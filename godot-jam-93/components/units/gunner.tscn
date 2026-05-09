@@ -134,8 +134,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
-radius = 3.0
-height = 13.0
+radius = 4.0
+height = 20.0
 
 [node name="Gunner" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
@@ -167,7 +167,6 @@ bullet_lifetime = 1.2
 texture = ExtResource("2_f4rmt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-position = Vector2(0, 3.5)
 shape = SubResource("CapsuleShape2D_rcr0p")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
