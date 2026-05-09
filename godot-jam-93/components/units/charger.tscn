@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dshwr3eoubxlh"]
 
-[ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/charger.gd" id="1_l4p5j"]
+[ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/units/charger.gd" id="1_l4p5j"]
 [ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_wpy1p"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="3_dnfwk"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_dnfwk"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001

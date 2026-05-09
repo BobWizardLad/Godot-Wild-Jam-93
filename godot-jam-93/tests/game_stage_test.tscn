@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_034oa"]
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_wnyq4"]
-[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="3_dfcor"]
-[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/enemies/enemy.tscn" id="4_ks8e6"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_dfcor"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/units/enemy.tscn" id="4_ks8e6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dfcor"]
 vertices = PackedVector2Array(197.09375, 389, 669.96875, 387.96875, 740.0625, 389.03125, 678.8203, 444.02344, 556.10156, 442.97656, 737.9375, 316.9375, 671.03125, 319.0625, 566.02344, 261.0078, 564.97656, 126, 869, 44, 870.9922, 567.97656, 121, 502.9297, 28.992188, 505.9297, 27, 44.96875, 106.9375, 389, 117.97656, 44.023438, 116.99219, 207.10938, 109.0625, 317, 606, 566.0078, 606, 490, 683.2031, 490, 234.03125, 505, 233.03125, 568, 121, 568, 379.97656, 259.9922, 193.90625, 317, 550.09375, 564.03125, 411.89844, 566.9531, 408.90625, 505, 178.00781, 203.89844, 381.02344, 126, 177.00781, 46.992188)

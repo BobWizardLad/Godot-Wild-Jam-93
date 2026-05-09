@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cdekh7tr0ctnb" path="res://godot-jam-93/assets/sprites/bullet.png" id="1_jdofu"]
 [ext_resource type="Script" uid="uid://xgxgimlglsrk" path="res://godot-jam-93/script/bullet.gd" id="1_omyih"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="3_lsas8"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_lsas8"]
+[ext_resource type="Script" uid="uid://b4ts0htf6rmyk" path="res://godot-jam-93/script/bullet_area.gd" id="4_7xgn3"]
 
 [sub_resource type="Animation" id="Animation_omyih"]
 length = 0.001
@@ -100,9 +101,9 @@ texture = ExtResource("1_jdofu")
 hframes = 22
 
 [node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("3_lsas8")]
-visible = false
 collision_layer = 0
 collision_mask = 32
+script = ExtResource("4_7xgn3")
 damage = 10
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageArea" unique_id=457462107]

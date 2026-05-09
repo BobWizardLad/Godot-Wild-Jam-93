@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8jqffi4gjn7t"]
 
-[ext_resource type="Script" uid="uid://drr70m5ej8jcp" path="res://script/animation_blender.gd" id="1_1j3y0"]
+[ext_resource type="Script" uid="uid://drr70m5ej8jcp" path="res://godot-jam-93/script/animation/animation_blender.gd" id="1_1j3y0"]
 
 [node name="AnimationBlender" type="Node" unique_id=770144188]
 script = ExtResource("1_1j3y0")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cobai2bnueykf"]
 
 [ext_resource type="Texture2D" uid="uid://egqj6oldhyh" path="res://godot-jam-93/assets/sprites/idle full sprite sheet.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://godot-jam-93/script/player.gd" id="1_onrkg"]
-[ext_resource type="Script" uid="uid://ya52125s75l1" path="res://godot-jam-93/script/movement_blender.gd" id="3_5odhx"]
+[ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://godot-jam-93/script/units/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://ya52125s75l1" path="res://godot-jam-93/script/animation/movement_blender.gd" id="3_5odhx"]
 [ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://godot-jam-93/components/animation_blender.tscn" id="3_uapwn"]
 [ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
 [ext_resource type="PackedScene" uid="uid://dbp248f5gthgw" path="res://godot-jam-93/components/cursor.tscn" id="7_f6ew4"]
@@ -60,7 +60,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f6ew4"]
-load_path = "res://.godot/imported/attack full sprite sheet.png-7ea04ec9dff675f3f7129a13a0bf036d.ctex"
 
 [sub_resource type="Animation" id="Animation_6qb5m"]
 resource_name = "basic_attack_1"

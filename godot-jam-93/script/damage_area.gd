@@ -6,13 +6,14 @@ signal attacked_body(body: Node2D)
 @export var damage: int
 @export var is_heavy_strike: bool
 
-## The damage area cannot cause damage if it is 'dead'
-var is_dead: bool = false
+func _physics_process(delta: float) -> void:
+	if has_overlapping_bodies():
+		var body = get_overlapping_bodies()[0]
+		handle_detected_body_or_area(body)
+	elif has_overlapping_areas():
+		var area = get_overlapping_areas()[0]
+		handle_detected_body_or_area(area)
 
-func on_body_entered(body: Node2D):
-	if body is Unit && !is_dead:
-		attacked_body.emit(body)
-		body.take_damage(damage, self, is_heavy_strike)
-		is_dead = true
-	else:
-		return
+## Default behavior for any damagearea's collision handling.
+func handle_detected_body_or_area(collided_node: CollisionObject2D):
+	print_debug("Collision occoured")

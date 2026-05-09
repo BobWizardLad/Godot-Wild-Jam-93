@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbo11vxjwx8ih"]
 
-[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="1_r88yq"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_r88yq"]
 
 [node name="TwinShooterTest" type="Node2D" unique_id=95416450]
 editor_description = "Test to implement a twin shooter player controller.
