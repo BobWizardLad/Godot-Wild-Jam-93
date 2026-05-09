@@ -13,18 +13,21 @@ func _ready() -> void:
 	nav_agent.target_position = nav_target.global_position
 
 func _physics_process(_delta: float) -> void:
+	velocity = derive_unit_velocity()
+	move_and_slide()
+
+## Function that returns the calculated velocity of a unit.
+func derive_unit_velocity() -> Vector2:
 	#nav_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
 	if !nav_agent.is_target_reached():
 		var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = nav_point_direction * SPEED
+		return nav_point_direction * SPEED
 	else:
-		velocity = Vector2.ZERO
-	move_and_slide()
+		return Vector2.ZERO
 
 func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
 	super(value, source, heavy_strike)
 	soft_animation_player.play("damage")
-
 
 func _on_pathfinder_timer_timeout() -> void:
 	if nav_agent.target_position != nav_target.global_position:

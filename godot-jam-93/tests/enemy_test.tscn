@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://7hrupd5lxewp"]
+[gd_scene format=3 uid="uid://81viffneqgh7"]
 
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/player.tscn" id="1_yrp48"]
 [ext_resource type="PackedScene" uid="uid://bjic1ql8gs4eo" path="res://godot-jam-93/components/dummy.tscn" id="2_6j5i3"]
-[ext_resource type="PackedScene" uid="uid://b0hg76k36x71i" path="res://godot-jam-93/components/enemy.tscn" id="3_wyhur"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/enemies/enemy.tscn" id="3_wyhur"]
+[ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/enemies/charger.tscn" id="4_h866h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wyhur"]
 vertices = PackedVector2Array(1164.0078, 23.96875, 1165.9766, 550, 28.9375, 550, 22.0625, 19.023438)
@@ -23,6 +24,13 @@ position = Vector2(448, 211)
 
 [node name="Enemy" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_wyhur")]
 position = Vector2(323, 199)
+nav_target = NodePath("../Player")
+SPEED = 100.0
+
+[node name="Charger" parent="." unique_id=1566688455 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_h866h")]
+position = Vector2(564, 137)
+charge_distance = 75.0
+charge_speed = 200.0
 nav_target = NodePath("../Player")
 SPEED = 100.0
 

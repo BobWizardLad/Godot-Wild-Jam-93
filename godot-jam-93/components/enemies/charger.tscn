@@ -1,9 +1,8 @@
-[gd_scene format=3 uid="uid://b0hg76k36x71i"]
+[gd_scene format=3 uid="uid://dshwr3eoubxlh"]
 
-[ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/enemy.gd" id="1_f6xrv"]
-[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_0ea54"]
-[ext_resource type="Script" uid="uid://bkl1eugawnwqn" path="res://godot-jam-93/script/enemy_controller.gd" id="3_6ngbr"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="4_y0v0w"]
+[ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/charger.gd" id="1_l4p5j"]
+[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_wpy1p"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area.tscn" id="3_dnfwk"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001
@@ -136,45 +135,46 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0v0w"]
 size = Vector2(14, 26)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0v0w"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
+radius = 13.038404
 
-[node name="Enemy" type="CharacterBody2D" unique_id=744279334]
-collision_layer = 3
-script = ExtResource("1_f6xrv")
+[node name="Charger" type="CharacterBody2D" unique_id=744279334]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_l4p5j")
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
-texture = ExtResource("2_0ea54")
+texture = ExtResource("2_wpy1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-visible = false
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_y0v0w")
 
-[node name="EnemyController" type="Node2D" parent="." unique_id=1803890183]
-script = ExtResource("3_6ngbr")
-
-[node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("4_y0v0w")]
-visible = false
+[node name="DamageArea" parent="." unique_id=1685658706 instance=ExtResource("3_dnfwk")]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 2
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
 position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_y0v0w")
+shape = SubResource("CircleShape2D_y0v0w")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
-path_desired_distance = 3.0
-target_desired_distance = 3.0
+path_desired_distance = 5.0
+target_desired_distance = 25.0
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
-wait_time = 0.6
+wait_time = 0.2
 one_shot = true
 autostart = true
 
+[node name="ChargingTimer" type="Timer" parent="." unique_id=747525829]
+wait_time = 0.7
+one_shot = true
+
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
+[connection signal="timeout" from="ChargingTimer" to="." method="_on_charging_timer_timeout"]
