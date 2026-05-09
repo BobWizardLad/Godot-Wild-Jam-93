@@ -28,6 +28,7 @@ position = Vector2(110, 226)
 position = Vector2(119, 236)
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("3_utqtc")]
+dash_cooldown_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=810886483]
 zoom = Vector2(3, 3)
