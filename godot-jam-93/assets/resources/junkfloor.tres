@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" format=3 uid="uid://bbbx62xw1pmuj"]
+
+[ext_resource type="Texture2D" uid="uid://b1b5wpc07t3la" path="res://godot-jam-93/assets/sprites/junkfloor.png" id="1_0yttg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5jxf"]
+texture = ExtResource("1_0yttg")
+0:0/0 = 0
+0:0/0/probability = 20.0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+2:2/size_in_atlas = Vector2i(2, 2)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(-8, -8)
+2:2/0/z_index = 2
+2:2/0/probability = 0.5
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(-8, -8)
+0:2/0/z_index = 1
+0:2/0/probability = 0.5
+
+[resource]
+sources/1 = SubResource("TileSetAtlasSource_p5jxf")
