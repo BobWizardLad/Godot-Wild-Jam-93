@@ -4,3 +4,6 @@
 
 [node name="GunController" type="Node2D" unique_id=2088718377]
 script = ExtResource("1_kd1wn")
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1812763559]
+one_shot = true
