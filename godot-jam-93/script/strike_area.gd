@@ -20,7 +20,7 @@ func end_strike_collision():
 
 ## Collision is only handled when teh node is in striking mode, or when the attack is active/
 ## Offset is applied
-func handle_detected_body_or_area(collided_node: CollisionObject2D):
+func handle_detected_body_or_area(collided_node: Node2D):
 	## Collide and disable
 	if collided_node is Unit && is_striking:
 		strike_connected.emit() # Notify when a strike attempt succeeds
