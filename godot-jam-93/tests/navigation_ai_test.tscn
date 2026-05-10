@@ -59,9 +59,13 @@ charge_distance = 65.0
 charge_speed = 225.0
 nav_target = NodePath("../Player")
 SPEED = 85.0
+max_health = 100
+current_health = 100
 
 [node name="Gunner" parent="." unique_id=510714393 node_paths=PackedStringArray("nav_target") instance=ExtResource("5_74ncl")]
 position = Vector2(494, 386)
 follow_distance = 250.0
 nav_target = NodePath("../Player")
 SPEED = 75.0
+max_health = 100
+current_health = 100

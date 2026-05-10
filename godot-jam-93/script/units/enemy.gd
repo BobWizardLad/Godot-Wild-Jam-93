@@ -20,6 +20,10 @@ func _physics_process(_delta: float) -> void:
 	velocity = derive_unit_velocity()
 	move_and_slide()
 
+func _process(_delta: float) -> void:
+	if current_health <= 0:
+		die()
+
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:
 	#nav_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
