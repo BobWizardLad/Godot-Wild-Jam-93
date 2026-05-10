@@ -74,6 +74,5 @@ func get_spawn_from_pool() -> PackedScene:
 			return spawn_pool[each]
 	return spawn_pool[0] # Return the first option if we do not reach a conclusion
 
-
 func _on_button_pressed() -> void:
 	start_wave(8)

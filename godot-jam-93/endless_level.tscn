@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cj1mrw3dyh463"]
+[gd_scene format=4 uid="uid://q8wa6djegpey"]
 
 [ext_resource type="PackedScene" uid="uid://bqvxin4hxu3yw" path="res://godot-jam-93/components/game_state_manager.tscn" id="1_06gfm"]
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_aph6e"]
@@ -34,6 +34,13 @@ layer = 10
 
 [node name="GameplayInterface" parent="Interface" unique_id=1266861447 instance=ExtResource("6_tuos5")]
 mouse_filter = 1
+
+[node name="Button" type="Button" parent="Interface" unique_id=214660920]
+offset_left = 17.0
+offset_top = 85.0
+offset_right = 109.0
+offset_bottom = 116.0
+text = "Start Wave"
 
 [node name="Spawners" type="Node2D" parent="." unique_id=486939272]
 
@@ -142,3 +149,4 @@ script = null
 
 [connection signal="points_changed" from="GameStateManager" to="Interface/GameplayInterface" method="update_points"]
 [connection signal="wave_count_changed" from="GameStateManager" to="Interface/GameplayInterface" method="update_wave_count"]
+[connection signal="pressed" from="Interface/Button" to="SpawnerController" method="_on_button_pressed"]
