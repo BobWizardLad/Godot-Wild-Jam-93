@@ -14,9 +14,19 @@ extends Node
 ## 1.0 as the list is summed will not have a chance of spawning
 @export var spawn_chance: Array[float]
 
+@export var spawn_interval: float
+
 @onready var spawners: Array[SpawnerNode]
+@onready  var spawn_interval_timer: Timer = $SpawnIntervalTimer
+
+var wave_spawning: bool = false
+var spawns_left: int = 0
+
+signal wave_ended
+signal wave_begin(count: int)
 
 func _ready() -> void:
+	# Check to see if the sum of spawn odds are correct (between 1 and 0)
 	var spawn_odds_sum: float = 0.0
 	for each in spawn_chance:
 		spawn_odds_sum += each
@@ -24,6 +34,17 @@ func _ready() -> void:
 	
 	# Get all spawners in global group and add them to my references at the end of the first frame
 	call_deferred("register_spawners_in_tree")
+
+func _process(_delta: float) -> void:
+	if get_tree().get_node_count_in_group("Enemy") == 0:
+		wave_ended.emit()
+	if wave_spawning and spawns_left > 0 and spawn_interval_timer.is_stopped():
+		spawners[randi_range(0, spawners.size()-1)].spawn_unit(get_spawn_from_pool())
+		spawns_left -= 1
+		spawn_interval_timer.start(spawn_interval)
+	elif spawns_left <= 0:
+		spawns_left = 0
+		wave_spawning = false
 
 func register_spawners_in_tree():
 	for each in get_tree().get_nodes_in_group("Spawner"):
@@ -33,8 +54,8 @@ func register_spawners_in_tree():
 func start_wave(unit_count: int):
 	if get_tree().get_node_count_in_group("Enemy") > 0:
 		return
-	for each in unit_count:
-		spawners[randi_range(0, spawners.size()-1)].spawn_unit(get_spawn_from_pool())
+	spawns_left = unit_count
+	wave_spawning = true
 
 ## Decides what randomized spawn will occour
 ## Spawns are decided by subtracting the spawn chance from the rolled

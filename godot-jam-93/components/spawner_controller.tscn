@@ -4,4 +4,6 @@
 
 [node name="SpawnerController" type="Node" unique_id=1917664061]
 script = ExtResource("1_rqq4t")
-spawn_chance = null
+
+[node name="SpawnIntervalTimer" type="Timer" parent="." unique_id=903734110]
+one_shot = true

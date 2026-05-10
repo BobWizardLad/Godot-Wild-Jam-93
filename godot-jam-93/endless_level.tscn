@@ -28,6 +28,7 @@ agent_radius = 5.0
 [node name="SpawnerController" parent="." unique_id=1917664061 instance=ExtResource("1_u5g52")]
 spawn_pool = Array[PackedScene]([ExtResource("2_saos5"), ExtResource("3_8tt0i"), ExtResource("4_tuos5"), ExtResource("5_06gfm")])
 spawn_chance = Array[float]([0.6, 0.2, 0.1, 0.1])
+spawn_interval = 0.3
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=379411093]
 layer = 10
