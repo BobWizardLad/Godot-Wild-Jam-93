@@ -1,0 +1,2 @@
+class_name HittableObject
+extends StaticBody2D

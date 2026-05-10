@@ -200,6 +200,11 @@ _data = {
 collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_l4p5j")
+charge_distance = 85.0
+charge_speed = 225.0
+SPEED = 85.0
+max_health = 25
+current_health = 25
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
@@ -217,7 +222,7 @@ collision_layer = 0
 collision_mask = 16
 script = ExtResource("4_5yspa")
 attack_cooldown = NodePath("AttackCooldown")
-damage = 20
+damage = 18
 is_heavy_strike = true
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]

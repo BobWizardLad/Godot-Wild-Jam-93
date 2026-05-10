@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal damage_taken(value: int)
 signal damage_stopped(value: int)
+signal health_recalculated(new_value: float)
 signal died
 
 @export var SPEED: float
@@ -28,9 +29,9 @@ func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
 		if current_health <= 0:
 			current_health = 0
 			died.emit()
-		
 		if heavy_strike:
 			forced_move(-1 * global_position.direction_to(source.global_position), 35.0, 0.3)
+		health_recalculated.emit(current_health)
 	else:
 		damage_stopped.emit(value)
 

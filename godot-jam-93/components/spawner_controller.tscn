@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://q8kr5ops2rob"]
+
+[ext_resource type="Script" uid="uid://de65bwokshwji" path="res://godot-jam-93/script/spawner_controller.gd" id="1_rqq4t"]
+
+[node name="SpawnerController" type="Node" unique_id=1917664061]
+script = ExtResource("1_rqq4t")
+
+[node name="SpawnIntervalTimer" type="Timer" parent="." unique_id=903734110]
+one_shot = true

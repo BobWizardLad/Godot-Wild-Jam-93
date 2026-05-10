@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcu5dt4ql2nys"]
+
+[ext_resource type="Script" uid="uid://bdmh716eo0kgj" path="res://godot-jam-93/script/spawner_node.gd" id="1_u3n1a"]
+
+[node name="SpawnerNode" type="Node2D" unique_id=819696957]
+script = ExtResource("1_u3n1a")
