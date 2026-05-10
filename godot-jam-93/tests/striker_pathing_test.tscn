@@ -11,6 +11,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(25, 43, 120, 42, 119, 205, 176, 202, 175, 45, 871, 42, 873, 570, 604, 568, 604, 488, 681, 488, 677, 446, 558, 445, 552, 566, 410, 569, 407, 507, 236, 507, 235, 570, 119, 570, 119, 505, 27, 508)])
 agent_radius = 2.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsxd7"]
+radius = 45.0
+
 [node name="StrikerPathingTest" type="Node2D" unique_id=1373561712]
 
 [node name="Navigation" type="Node2D" parent="." unique_id=1636331853]
@@ -49,7 +52,10 @@ zoom = Vector2(3.5, 3.5)
 
 [node name="Striker" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_wsxd7")]
 position = Vector2(325, 361)
+encircle_pattern = SubResource("CircleShape2D_wsxd7")
+stalking_cooldown = 10.0
+radius_attack_range = 75.0
 nav_target = NodePath("../Player")
-SPEED = 75.0
+SPEED = 125.0
 max_health = 100
 current_health = 100

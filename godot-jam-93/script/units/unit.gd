@@ -6,8 +6,6 @@ signal damage_stopped(value: int)
 signal died
 
 @export var SPEED: float
-@export var BASIC_DAMAGE: int
-@export var BASIC_COOLDOWN_TIME: float
 
 var direction: Vector2
 
