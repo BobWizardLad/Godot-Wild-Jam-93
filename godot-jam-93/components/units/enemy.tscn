@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpxwh8pvrcosw"]
 
 [ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/units/enemy.gd" id="1_f6xrv"]
-[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_0ea54"]
+[ext_resource type="Texture2D" uid="uid://b0ntlqt5anlng" path="res://godot-jam-93/assets/sprites/NMEcommon.png" id="2_3rqhp"]
 [ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/melee_area.gd" id="4_3rqhp"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="4_y0v0w"]
 
@@ -140,6 +140,62 @@ height = 13.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
 radius = 13.038404
 
+[sub_resource type="Animation" id="Animation_f4rmt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3fmpq"]
+resource_name = "standing"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rl4ja"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01666665, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fe2q1"]
+_data = {
+&"RESET": SubResource("Animation_f4rmt"),
+&"standing": SubResource("Animation_3fmpq"),
+&"walk": SubResource("Animation_rl4ja")
+}
+
 [node name="Enemy" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
@@ -150,7 +206,8 @@ metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
-texture = ExtResource("2_0ea54")
+texture = ExtResource("2_3rqhp")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
 shape = SubResource("CapsuleShape2D_rcr0p")
@@ -177,5 +234,8 @@ target_desired_distance = 15.0
 wait_time = 0.2
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2120292566]
+libraries/ = SubResource("AnimationLibrary_fe2q1")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

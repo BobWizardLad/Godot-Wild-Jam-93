@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c33maklt8rrc6"]
 
-[ext_resource type="Script" uid="uid://dltyno6xrpy8d" path="res://godot-jam-93/script/gunner.gd" id="1_s21kk"]
+[ext_resource type="Script" path="res://godot-jam-93/script/units/gunner.gd" id="1_s21kk"]
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="2_3fmpq"]
-[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_f4rmt"]
 [ext_resource type="PackedScene" uid="uid://bi4moickma36" path="res://godot-jam-93/components/enemy_bullet.tscn" id="3_s21kk"]
+[ext_resource type="Texture2D" uid="uid://cmsl0b36ir75u" path="res://godot-jam-93/assets/sprites/NMEshooter.png" id="4_s21kk"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001
@@ -139,6 +139,62 @@ _data = {
 radius = 7.0
 height = 18.0
 
+[sub_resource type="Animation" id="Animation_f4rmt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3fmpq"]
+resource_name = "standing"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rl4ja"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01666665, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jtp7"]
+_data = {
+&"RESET": SubResource("Animation_f4rmt"),
+&"standing": SubResource("Animation_3fmpq"),
+&"walk": SubResource("Animation_rl4ja")
+}
+
 [node name="Gunner" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
@@ -159,18 +215,25 @@ target_desired_distance = 15.0
 path_postprocessing = 1
 
 [node name="GunCast" type="ShapeCast2D" parent="." unique_id=1767890453]
+visible = false
 shape = SubResource("CircleShape2D_s21kk")
 
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("2_3fmpq")]
+visible = false
 bullet_resource = ExtResource("3_s21kk")
 bullet_speed = 400.0
 bullet_lifetime = 1.2
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
-texture = ExtResource("2_f4rmt")
+texture = ExtResource("4_s21kk")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
+visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_s21kk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=161789002]
+libraries/ = SubResource("AnimationLibrary_5jtp7")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

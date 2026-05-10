@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dshwr3eoubxlh"]
 
 [ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/units/charger.gd" id="1_l4p5j"]
-[ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_wpy1p"]
+[ext_resource type="Texture2D" uid="uid://bgrm5d6f4g61s" path="res://godot-jam-93/assets/sprites/NMEcharger.png" id="2_5yspa"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_dnfwk"]
 [ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/melee_area.gd" id="4_5yspa"]
 
@@ -140,6 +140,62 @@ height = 14.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
 radius = 13.038404
 
+[sub_resource type="Animation" id="Animation_f4rmt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3fmpq"]
+resource_name = "standing"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rl4ja"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01666665, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwlck"]
+_data = {
+&"RESET": SubResource("Animation_f4rmt"),
+&"standing": SubResource("Animation_3fmpq"),
+&"walk": SubResource("Animation_rl4ja")
+}
+
 [node name="Charger" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
@@ -150,7 +206,8 @@ metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
-texture = ExtResource("2_wpy1p")
+texture = ExtResource("2_5yspa")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
 shape = SubResource("CapsuleShape2D_5yspa")
@@ -182,6 +239,9 @@ autostart = true
 [node name="ChargingTimer" type="Timer" parent="." unique_id=747525829]
 wait_time = 0.9
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=890460197]
+libraries/ = SubResource("AnimationLibrary_iwlck")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
 [connection signal="timeout" from="ChargingTimer" to="." method="_on_charging_timer_timeout"]
