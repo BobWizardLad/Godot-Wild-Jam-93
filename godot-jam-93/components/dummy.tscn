@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://g1co2ervkb0x"]
+
+[ext_resource type="Script" path="res://godot-jam-93/script/dummy.gd" id="1_pbcg5"]
+[ext_resource type="Texture2D" uid="uid://hbjrh3gs2rkt" path="res://godot-jam-93/assets/sprites/dummy.png" id="2_wjn05"]
+
+[sub_resource type="Animation" id="Animation_u36jo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lng2a"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yrfgi"]
+resource_name = "take_damage"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.29803923, 0.22745098, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.45490196), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75ow0"]
+_data = {
+&"RESET": SubResource("Animation_u36jo"),
+&"idle": SubResource("Animation_lng2a"),
+&"take_damage": SubResource("Animation_yrfgi")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjn05"]
+radius = 8.0
+height = 22.0
+
+[node name="Dummy" type="CharacterBody2D" unique_id=976864549]
+collision_layer = 36
+collision_mask = 4
+script = ExtResource("1_pbcg5")
+metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=843953511]
+texture = ExtResource("2_wjn05")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1130488523]
+libraries/ = SubResource("AnimationLibrary_75ow0")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=678354808]
+shape = SubResource("CapsuleShape2D_wjn05")

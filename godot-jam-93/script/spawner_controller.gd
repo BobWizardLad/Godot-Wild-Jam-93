@@ -23,7 +23,7 @@ var wave_spawning: bool = false
 var spawns_left: int = 0
 
 signal wave_ended
-signal wave_begin(count: int)
+signal wave_begin
 
 func _ready() -> void:
 	# Check to see if the sum of spawn odds are correct (between 1 and 0)
@@ -31,6 +31,9 @@ func _ready() -> void:
 	for each in spawn_chance:
 		spawn_odds_sum += each
 	assert(spawn_odds_sum == 1.0, "Spawner Controller Error: Spawn chance pool does not add up to 1.0")
+	
+	# Connections
+	wave_begin.connect(get_tree().get_first_node_in_group("GameStateManager").update_wave_count.bind(1))
 	
 	# Get all spawners in global group and add them to my references at the end of the first frame
 	call_deferred("register_spawners_in_tree")
@@ -56,6 +59,7 @@ func start_wave(unit_count: int):
 		return
 	spawns_left = unit_count
 	wave_spawning = true
+	wave_begin.emit()
 
 ## Decides what randomized spawn will occour
 ## Spawns are decided by subtracting the spawn chance from the rolled

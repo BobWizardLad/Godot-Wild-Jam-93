@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	if current_health == 0:
 		pass # Do player death stuff
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") && !is_dashing && direction != Vector2.ZERO:
 		dash_movement()
 	if event.is_action_pressed("shoot"):
