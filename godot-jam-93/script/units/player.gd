@@ -10,6 +10,7 @@ var dash_direction: Vector2
 @onready var animation_blender: AnimationBlender = $MovementBlender
 @onready var cursor: Cursor = $Cursor
 @onready var gun_controller: GunController = $GunController
+@onready var health_display: HealthDisplay = $HealthDisplay
 
 func _ready() -> void:
 	super()
@@ -23,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _process(delta: float) -> void:
+	health_display.update_health_bar(current_health)
 	if current_health == 0:
 		pass # Do player death stuff
 
@@ -58,7 +60,6 @@ func dash_movement():
 
 func shoot_attack(target: Vector2) -> void:
 	gun_controller.shoot(target)
-
 
 func _on_dash_cooldown_timeout() -> void:
 	is_dashing = false
