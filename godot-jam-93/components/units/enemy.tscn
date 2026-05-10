@@ -153,7 +153,6 @@ libraries/ = SubResource("AnimationLibrary_y0v0w")
 texture = ExtResource("2_0ea54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-position = Vector2(0, 3.5)
 shape = SubResource("CapsuleShape2D_rcr0p")
 
 [node name="DamageArea" parent="." unique_id=1685658706 node_paths=PackedStringArray("attack_cooldown") instance=ExtResource("4_y0v0w")]
@@ -173,7 +172,6 @@ one_shot = true
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
-debug_enabled = true
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2

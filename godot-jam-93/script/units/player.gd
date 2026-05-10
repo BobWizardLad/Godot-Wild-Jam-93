@@ -1,8 +1,6 @@
 class_name Player
 extends Unit
 
-@export var dash_distance: float
-@export var dash_time: float
 @export var dash_speed: float
 @export var dash_cooldown_time: float
 @onready var dash_cooldown: Timer = $DashCooldown

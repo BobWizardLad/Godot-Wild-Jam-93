@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://tyinm4ogi1f0"]
+
+[ext_resource type="Script" uid="uid://bjv8vjosl3xbh" path="res://godot-jam-93/tests/circle_test.gd" id="1_8f0i6"]
+[ext_resource type="Texture2D" uid="uid://cxmlbbf86i4y0" path="res://godot-jam-93/assets/sprites/cursor.png" id="2_d0627"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0627"]
+radius = 200.0
+
+[node name="CircleTest" type="Node2D" unique_id=173579468]
+editor_description = "test circle, circle test of the test circle test yessss"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1577360451]
+position = Vector2(621, 349)
+script = ExtResource("1_8f0i6")
+path_orbit = SubResource("CircleShape2D_d0627")
+
+[node name="Angle" type="HSlider" parent="Node2D" unique_id=186782844]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = 159.0
+offset_right = 286.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 6.28
+step = 0.196
+
+[node name="Marker" type="Sprite2D" parent="Node2D" unique_id=1767286794]
+texture = ExtResource("2_d0627")

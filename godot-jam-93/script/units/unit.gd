@@ -6,8 +6,6 @@ signal damage_stopped(value: int)
 signal died
 
 @export var SPEED: float
-@export var BASIC_DAMAGE: int
-@export var BASIC_COOLDOWN_TIME: float
 
 var direction: Vector2
 
@@ -70,3 +68,7 @@ func forced_move(forced_direction: Vector2, distance: float, time: float):
 	).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 	is_forced_moving = false
+
+## By default (and usually at least) a unit is freed qhen they die
+func die() -> void:
+	queue_free()
