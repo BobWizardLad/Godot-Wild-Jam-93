@@ -10,6 +10,8 @@ extends Unit
 # attack the player (move into them, then stop for a short time)
 
 func _ready() -> void:
+	super()
+	add_to_group("Enemy", true)
 	if nav_target:
 		nav_agent.target_position = nav_target.global_position
 	else:

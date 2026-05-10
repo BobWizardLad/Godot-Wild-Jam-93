@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b8df8bbivw34b"]
 
-[ext_resource type="Script" uid="uid://cyav1k5gwuw1v" path="res://godot-jam-93/script/striker.gd" id="1_vccp7"]
+[ext_resource type="Script" uid="uid://cyav1k5gwuw1v" path="res://godot-jam-93/script/units/striker.gd" id="1_vccp7"]
 [ext_resource type="Texture2D" uid="uid://dntkmfv0qjjxp" path="res://godot-jam-93/assets/sprites/shooter.png" id="2_vrtb2"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_svww0"]
 [ext_resource type="Script" uid="uid://bidg1k1ll68et" path="res://godot-jam-93/script/strike_area.gd" id="4_vccp7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vccp7"]
+radius = 65.0
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001
@@ -144,6 +147,12 @@ radius = 13.038404
 collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_vccp7")
+encircle_pattern = SubResource("CircleShape2D_vccp7")
+stalking_cooldown = 11.0
+radius_attack_range = 55.0
+SPEED = 65.0
+max_health = 25
+current_health = 25
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
@@ -161,7 +170,7 @@ collision_layer = 0
 collision_mask = 16
 script = ExtResource("4_vccp7")
 offset_length = 15.0
-damage = 20
+damage = 15
 
 [node name="DamageCollider" type="CollisionShape2D" parent="StrikeArea" unique_id=494215728]
 position = Vector2(0, 3)

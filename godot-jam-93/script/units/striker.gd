@@ -23,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 		super(_delta) # move and slide basically; see Enemy ^
 
 func _process(_delta: float) -> void:
+	super(_delta)
 	if not is_stalking && stalking_cooldown_timer.is_stopped() && nav_target.global_position.distance_to(self.global_position) <= encircle_pattern.radius + radius_attack_range:
 		is_stalking = true
 		stalking_cooldown_timer.start(stalking_cooldown)

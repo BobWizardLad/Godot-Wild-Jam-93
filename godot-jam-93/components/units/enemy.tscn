@@ -144,6 +144,9 @@ radius = 13.038404
 collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_f6xrv")
+SPEED = 55.0
+max_health = 20
+current_health = 20
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
@@ -160,7 +163,7 @@ collision_layer = 0
 collision_mask = 16
 script = ExtResource("4_3rqhp")
 attack_cooldown = NodePath("AttackCooldown")
-damage = 20
+damage = 10
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
 position = Vector2(0, 3)
