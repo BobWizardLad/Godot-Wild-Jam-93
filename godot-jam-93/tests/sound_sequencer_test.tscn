@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://8fdpq2wj087p"]
+
+[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/sound_sequencer_2d.tscn" id="1_6kmga"]
+
+[sub_resource type="GDScript" id="GDScript_6kmga"]
+script/source = "extends Node2D
+
+var track1: AudioStream = load(\"res://godot-jam-93/assets/sfx/zap-freesound-clean.wav\")
+var track2: AudioStream = load(\"res://godot-jam-93/assets/sfx/retro-gun-shot-freesound-clean.wav\")
+var track3: AudioStream = load(\"res://godot-jam-93/assets/sfx/hurt-freesound-clean.wav\")
+var track4: AudioStream = load(\"res://godot-jam-93/assets/sfx/8-bit-explosion-freesound-clean.wav\")
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(\"ui_up\"):
+		$SoundSequencer2D._queue_audio_track(track1)
+	if Input.is_action_pressed(\"ui_down\"):
+		$SoundSequencer2D._queue_audio_track(track2)
+	if Input.is_action_pressed(\"ui_left\"):
+		$SoundSequencer2D._queue_audio_track(track3)
+	if Input.is_action_pressed(\"ui_right\"):
+		$SoundSequencer2D._queue_audio_track(track4)
+"
+
+[node name="SoundSequencerTest" type="Node2D" unique_id=1535777045]
+script = SubResource("GDScript_6kmga")
+
+[node name="SoundSequencer2D" parent="." unique_id=615471713 instance=ExtResource("1_6kmga")]
+position = Vector2(475, 240)
+max_players_per_sound = 2
