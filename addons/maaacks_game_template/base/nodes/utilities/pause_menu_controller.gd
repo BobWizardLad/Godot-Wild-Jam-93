@@ -28,4 +28,4 @@ func _unhandled_input(event : InputEvent) -> void:
 func _ready() -> void:
 	pause_menu = pause_menu_packed.instantiate()
 	pause_menu.hide()
-	get_tree().current_scene.call_deferred("add_child", pause_menu)
+	get_parent().call_deferred("add_child", pause_menu)

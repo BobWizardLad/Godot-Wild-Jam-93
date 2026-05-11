@@ -2,13 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://egqj6oldhyh" path="res://godot-jam-93/assets/sprites/idle full sprite sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://godot-jam-93/script/units/player.gd" id="1_onrkg"]
+[ext_resource type="AudioStream" uid="uid://e5pgnpvsphu0" path="res://godot-jam-93/assets/sfx/hurt-freesound-clean.wav" id="2_mblpy"]
 [ext_resource type="Script" uid="uid://ya52125s75l1" path="res://godot-jam-93/script/animation/movement_blender.gd" id="3_5odhx"]
 [ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://godot-jam-93/components/animation_blender.tscn" id="3_uapwn"]
 [ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
+[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/sound_sequencer_2d.tscn" id="6_lxiwh"]
 [ext_resource type="PackedScene" uid="uid://dbp248f5gthgw" path="res://godot-jam-93/components/cursor.tscn" id="7_f6ew4"]
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="8_4a1ga"]
 [ext_resource type="PackedScene" uid="uid://i3rqegx1ntai" path="res://godot-jam-93/components/bullet.tscn" id="8_ljwhr"]
 [ext_resource type="PackedScene" uid="uid://cbx2p766c676s" path="res://godot-jam-93/components/health_display.tscn" id="9_4hbu0"]
+[ext_resource type="AudioStream" uid="uid://dtojotnq1i4qo" path="res://godot-jam-93/assets/sfx/player-zap-freesound-edit.wav" id="10_17egq"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
@@ -1782,6 +1785,7 @@ collision_layer = 17
 script = ExtResource("1_onrkg")
 dash_speed = 175.0
 dash_cooldown_time = 0.2
+sfx_damage = ExtResource("2_mblpy")
 SPEED = 100.0
 max_health = 100
 current_health = 100
@@ -1811,6 +1815,8 @@ libraries/ = SubResource("AnimationLibrary_jhk7o")
 [node name="DashCooldown" type="Timer" parent="." unique_id=1403083639]
 one_shot = true
 
+[node name="SoundSequencer2D" parent="." unique_id=615471713 instance=ExtResource("6_lxiwh")]
+
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1816484827]
 texture = SubResource("AtlasTexture_gl7no")
 hframes = 12
@@ -1826,8 +1832,9 @@ z_index = 10
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("8_4a1ga")]
 bullet_resource = ExtResource("8_ljwhr")
 bullet_speed = 400.0
-fire_cooldown = 0.7
+fire_cooldown = 0.6
 bullet_lifetime = 1.2
+sfx_shoot = ExtResource("10_17egq")
 
 [node name="HealthDisplay" parent="." unique_id=382223720 instance=ExtResource("9_4hbu0")]
 offset_top = 20.0

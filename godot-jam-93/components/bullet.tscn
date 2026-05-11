@@ -83,8 +83,8 @@ radius = 4.1231055
 radius = 6.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1707370551]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_omyih")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1689556670]

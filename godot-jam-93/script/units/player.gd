@@ -7,32 +7,48 @@ extends Unit
 var is_dashing: bool = false
 var dash_direction: Vector2
 
+@export_group("Sound FX")
+@export var sfx_damage: AudioStream
+
 @onready var animation_blender: AnimationBlender = $MovementBlender
 @onready var cursor: Cursor = $Cursor
 @onready var gun_controller: GunController = $GunController
 @onready var health_display: HealthDisplay = $HealthDisplay
+@onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 func _ready() -> void:
 	super()
 
-func _physics_process(delta: float) -> void:
-	velocity = derive_unit_velocity()
+func _physics_process(_delta: float) -> void:
+	super(_delta)
 	animation_blender.update_animation_parameters(self)
-	if is_forced_moving:
-		pass
-	else:
-		move_and_slide()
 
 func _process(delta: float) -> void:
 	health_display.update_health_bar(current_health)
 	if current_health == 0:
 		pass # Do player death stuff
+	if Input.is_action_pressed("shoot"):
+		shoot_attack(cursor.get_target())
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") && !is_dashing && direction != Vector2.ZERO:
 		dash_movement()
-	if event.is_action_pressed("shoot"):
-		shoot_attack(cursor.get_target())
+
+func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
+	if is_invincible:
+		damage_stopped.emit()
+	else:
+		current_health -= value
+		sound_sequencer._queue_audio_track(sfx_damage)
+		damage_taken.emit(value)
+		if current_health > max_health:
+			current_health = max_health
+		if current_health <= 0:
+			current_health = 0
+			died.emit()
+		if heavy_strike:
+			forced_move(-1 * global_position.direction_to(source.global_position), 115.0, 0.3)
+		health_recalculated.emit(current_health)
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:

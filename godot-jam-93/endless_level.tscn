@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bqvxin4hxu3yw" path="res://godot-jam-93/components/game_state_manager.tscn" id="1_06gfm"]
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_aph6e"]
 [ext_resource type="PackedScene" uid="uid://q8kr5ops2rob" path="res://godot-jam-93/components/spawner_controller.tscn" id="1_u5g52"]
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_wstwg"]
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_4wduo"]
+[ext_resource type="PackedScene" uid="uid://bycujkkfhamed" path="res://godot-jam-93/pause_menu.tscn" id="2_7sqls"]
 [ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/units/enemy.tscn" id="2_saos5"]
 [ext_resource type="PackedScene" uid="uid://c33maklt8rrc6" path="res://godot-jam-93/components/units/gunner.tscn" id="3_8tt0i"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_e5m24"]
@@ -11,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b8df8bbivw34b" path="res://godot-jam-93/components/units/striker.tscn" id="5_06gfm"]
 [ext_resource type="Script" uid="uid://bdmh716eo0kgj" path="res://godot-jam-93/script/spawner_node.gd" id="6_8tt0i"]
 [ext_resource type="PackedScene" uid="uid://bshfqnr4d8e5a" path="res://godot-jam-93/components/gameplay_interface.tscn" id="6_tuos5"]
-[ext_resource type="PackedScene" uid="uid://g1co2ervkb0x" path="res://godot-jam-93/components/dummy.tscn" id="12_re462"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8tt0i"]
 vertices = PackedVector2Array(778.28125, 583, 999.4531, 583, 245, 616.10156, 392, 456.10156, 1192, 522, 231, 486.10156, 7.9921875, 40, 1322, 40, 344.02344, 90, 296.02344, 90, 744, 392, 617, 392, 330, 454.89844, 1289, 522, 231, 440, 1192, 218, 744, 250, 392, 410, 995.59375, 538, 775.71094, 538, 1289, 664, 1163, 664, 7.0078125, 378, 294.97656, 329, 40.023438, 378, 330, 410, 245, 570, 345.14063, 551.8672, 297.14063, 553.1328, 151, 551, 183, 570, 1322, 218, 617, 250, 342.97656, 329, 169, 440, 295.85938, 507, 151, 511, 343.85938, 507, 169, 484.89844, 1163, 697, 39.023438, 697, 183, 614.89844, 122.15625, 511, 120.828125, 551)
@@ -22,7 +23,7 @@ agent_radius = 5.0
 
 [node name="EndlessLevel" type="Node2D" unique_id=368954809]
 
-[node name="GameStateManager" parent="." unique_id=1943298023 instance=ExtResource("1_06gfm")]
+[node name="EndlessGameManager" parent="." unique_id=1943298023 instance=ExtResource("1_06gfm")]
 
 [node name="SpawnerController" parent="." unique_id=1917664061 instance=ExtResource("1_u5g52")]
 spawn_pool = Array[PackedScene]([ExtResource("2_saos5"), ExtResource("3_8tt0i"), ExtResource("4_tuos5"), ExtResource("5_06gfm")])
@@ -31,6 +32,10 @@ spawn_interval = 0.3
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=379411093]
 layer = 10
+
+[node name="PauseMenuController" type="Node" parent="Interface" unique_id=1533617071]
+script = ExtResource("1_wstwg")
+pause_menu_packed = ExtResource("2_7sqls")
 
 [node name="GameplayInterface" parent="Interface" unique_id=1266861447 instance=ExtResource("6_tuos5")]
 mouse_filter = 1
@@ -143,10 +148,10 @@ position = Vector2(111, 120)
 [node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=509651857]
 zoom = Vector2(2, 2)
 
-[node name="Dummy" parent="." unique_id=976864549 instance=ExtResource("12_re462")]
-position = Vector2(266, 199)
-script = null
+[node name="Gunner" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_8tt0i")]
+position = Vector2(206, 220)
+nav_target = NodePath("../Player")
 
-[connection signal="points_changed" from="GameStateManager" to="Interface/GameplayInterface" method="update_points"]
-[connection signal="wave_count_changed" from="GameStateManager" to="Interface/GameplayInterface" method="update_wave_count"]
+[connection signal="points_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_points"]
+[connection signal="wave_count_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_wave_count"]
 [connection signal="pressed" from="Interface/Button" to="SpawnerController" method="_on_button_pressed"]

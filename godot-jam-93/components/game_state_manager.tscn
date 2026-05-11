@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqvxin4hxu3yw"]
 
-[ext_resource type="Script" uid="uid://k1wi2uq10as4" path="res://game_state_manager.gd" id="1_idbdu"]
+[ext_resource type="Script" uid="uid://xj4m631q6keo" path="res://godot-jam-93/script/game_state_manager.gd" id="1_idbdu"]
 
-[node name="GameStateManager" type="Node" unique_id=1943298023 groups=["GameStateManager"]]
+[node name="EndlessGameManager" type="Node" unique_id=1943298023 groups=["EndlessGameManager"]]
 script = ExtResource("1_idbdu")

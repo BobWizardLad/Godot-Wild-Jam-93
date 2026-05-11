@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://byq5u2aic3fq7"]
+
+[ext_resource type="Script" uid="uid://bbo5qh8st3ij5" path="res://godot-jam-93/script/sound_sequencer_2d.gd" id="1_blue7"]
+
+[node name="SoundSequencer2D" type="Node2D" unique_id=615471713]
+script = ExtResource("1_blue7")
+max_players_per_sound = 1

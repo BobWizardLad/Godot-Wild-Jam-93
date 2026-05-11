@@ -33,7 +33,7 @@ func _ready() -> void:
 	assert(spawn_odds_sum == 1.0, "Spawner Controller Error: Spawn chance pool does not add up to 1.0")
 	
 	# Connections
-	wave_begin.connect(get_tree().get_first_node_in_group("GameStateManager").update_wave_count.bind(1))
+	call_deferred("link_wave_count")
 	
 	# Get all spawners in global group and add them to my references at the end of the first frame
 	call_deferred("register_spawners_in_tree")
@@ -75,4 +75,7 @@ func get_spawn_from_pool() -> PackedScene:
 	return spawn_pool[0] # Return the first option if we do not reach a conclusion
 
 func _on_button_pressed() -> void:
-	start_wave(8)
+	start_wave(15)
+
+func link_wave_count() -> void:
+	wave_begin.connect(get_tree().get_first_node_in_group("EndlessGameManager").update_wave_count.bind(1))

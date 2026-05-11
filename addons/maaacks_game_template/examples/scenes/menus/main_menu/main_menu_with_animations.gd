@@ -60,8 +60,12 @@ func _show_continue_if_set() -> void:
 	if GameStateExample.get_current_level_path().is_empty(): return
 	continue_game_button.show()
 
+func _set_mouse_visible() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 func _ready() -> void:
 	super._ready()
+	_set_mouse_visible()
 	_show_level_select_if_set()
 	_show_continue_if_set()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")

@@ -18,13 +18,12 @@ func _ready() -> void:
 		nav_target = self
 		nav_agent.target_position = nav_target.global_position
 
-func _physics_process(_delta: float) -> void:
-	velocity = derive_unit_velocity()
-	move_and_slide()
-
 func _process(_delta: float) -> void:
 	if current_health <= 0:
 		die()
+
+func _physics_process(_delta: float) -> void:
+	super(_delta)
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:

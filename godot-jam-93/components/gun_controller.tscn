@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://hk01m0jo1lwv"]
 
 [ext_resource type="Script" uid="uid://b6w7e3ha0r1xn" path="res://godot-jam-93/script/gun_controller.gd" id="1_kd1wn"]
+[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/sound_sequencer_2d.tscn" id="2_as0de"]
 
 [node name="GunController" type="Node2D" unique_id=2088718377]
 script = ExtResource("1_kd1wn")
+
+[node name="SoundSequencer2D" parent="." unique_id=615471713 instance=ExtResource("2_as0de")]
+max_players_per_sound = 5
 
 [node name="Cooldown" type="Timer" parent="." unique_id=1812763559]
 one_shot = true
