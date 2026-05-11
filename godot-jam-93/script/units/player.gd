@@ -15,13 +15,9 @@ var dash_direction: Vector2
 func _ready() -> void:
 	super()
 
-func _physics_process(delta: float) -> void:
-	velocity = derive_unit_velocity()
+func _physics_process(_delta: float) -> void:
+	super(_delta)
 	animation_blender.update_animation_parameters(self)
-	if is_forced_moving:
-		pass
-	else:
-		move_and_slide()
 
 func _process(delta: float) -> void:
 	health_display.update_health_bar(current_health)

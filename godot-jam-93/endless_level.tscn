@@ -147,6 +147,10 @@ zoom = Vector2(2, 2)
 position = Vector2(266, 199)
 script = null
 
+[node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("4_tuos5")]
+position = Vector2(201, 112)
+nav_target = NodePath("../Player")
+
 [connection signal="points_changed" from="GameStateManager" to="Interface/GameplayInterface" method="update_points"]
 [connection signal="wave_count_changed" from="GameStateManager" to="Interface/GameplayInterface" method="update_wave_count"]
 [connection signal="pressed" from="Interface/Button" to="SpawnerController" method="_on_button_pressed"]
