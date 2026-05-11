@@ -26,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
 	health_display.update_health_bar(current_health)
 	if current_health == 0:
-		pass # Do player death stuff
+		player_death_sequence()
 	if Input.is_action_pressed("shoot"):
 		shoot_attack(cursor.get_target())
 
@@ -45,7 +45,6 @@ func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
 			current_health = max_health
 		if current_health <= 0:
 			current_health = 0
-			died.emit()
 		if heavy_strike:
 			forced_move(-1 * global_position.direction_to(source.global_position), 115.0, 0.3)
 		health_recalculated.emit(current_health)
@@ -76,6 +75,9 @@ func dash_movement():
 
 func shoot_attack(target: Vector2) -> void:
 	gun_controller.shoot(target)
+
+func player_death_sequence() -> void:
+	died.emit()
 
 func _on_dash_cooldown_timeout() -> void:
 	is_dashing = false

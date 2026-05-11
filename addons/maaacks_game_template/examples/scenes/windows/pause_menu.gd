@@ -88,8 +88,8 @@ func _refresh_main_menu_button() -> void:
 
 func _ready() -> void:
 	_refresh_exit_button()
-	_refresh_options_button()
-	_refresh_main_menu_button()
+	#_refresh_options_button()
+	#_refresh_main_menu_button()
 	restart_confirmation.confirmed.connect(_on_restart_confirmation_confirmed)
 	main_menu_confirmation.confirmed.connect(_on_main_menu_confirmation_confirmed)
 	exit_confirmation.confirmed.connect(_on_exit_confirmation_confirmed)

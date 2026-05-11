@@ -22,6 +22,7 @@ sample_partition_type = 1
 agent_radius = 5.0
 
 [node name="EndlessLevel" type="Node2D" unique_id=368954809]
+process_mode = 1
 
 [node name="EndlessGameManager" parent="." unique_id=1943298023 instance=ExtResource("1_06gfm")]
 
@@ -31,6 +32,7 @@ spawn_chance = Array[float]([0.6, 0.2, 0.1, 0.1])
 spawn_interval = 0.3
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=379411093]
+process_mode = 3
 layer = 10
 
 [node name="PauseMenuController" type="Node" parent="Interface" unique_id=1533617071]
@@ -39,6 +41,7 @@ pause_menu_packed = ExtResource("2_7sqls")
 
 [node name="GameplayInterface" parent="Interface" unique_id=1266861447 instance=ExtResource("6_tuos5")]
 mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Interface" unique_id=214660920]
 offset_left = 17.0
@@ -46,6 +49,7 @@ offset_top = 85.0
 offset_right = 109.0
 offset_bottom = 116.0
 text = "Start Wave"
+metadata/_edit_use_anchors_ = true
 
 [node name="Spawners" type="Node2D" parent="." unique_id=486939272]
 
@@ -151,3 +155,5 @@ zoom = Vector2(2, 2)
 [connection signal="points_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_points"]
 [connection signal="wave_count_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_wave_count"]
 [connection signal="pressed" from="Interface/Button" to="SpawnerController" method="_on_button_pressed"]
+[connection signal="died" from="Player" to="EndlessGameManager" method="process_game_over"]
+[connection signal="died" from="Player" to="Interface/GameplayInterface" method="trigger_game_over"]
