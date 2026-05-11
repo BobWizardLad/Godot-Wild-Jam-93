@@ -4,6 +4,7 @@ extends Enemy
 @onready var gun_cast: ShapeCast2D = $GunCast
 @onready var gun_controller: GunController = $GunController
 @onready var sprite_animator: AnimationPlayer = $SpriteAnimator
+@onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 @export var follow_distance: float
 
@@ -21,7 +22,6 @@ func derive_unit_velocity() -> Vector2:
 	else:
 		sprite_animator.play("walk")
 		return super()
-	
 
 func shoot_attack(target: Vector2) -> void:
 	gun_controller.shoot(target)

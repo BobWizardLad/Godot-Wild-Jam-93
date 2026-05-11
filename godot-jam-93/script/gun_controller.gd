@@ -12,11 +12,16 @@ extends Node2D
 @export var fire_cooldown: float
 @export var bullet_lifetime: float
 
+@export_group("Sound FX")
+@export var sfx_shoot: AudioStream
+
 @onready var cooldown: Timer = $Cooldown
+@onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 ## Takes a vector and fires a bullet in the vector's NORMALIZED DIRECTION
 func shoot(velocity_vector: Vector2) -> void:
 	if cooldown.is_stopped():
+		sound_sequencer._queue_audio_track(sfx_shoot)
 		get_parent().get_parent().add_child(spawn_moving_bullet(velocity_vector))
 		cooldown.start(fire_cooldown)
 	
