@@ -23,12 +23,12 @@ func _process(delta: float) -> void:
 	health_display.update_health_bar(current_health)
 	if current_health == 0:
 		pass # Do player death stuff
+	if Input.is_action_pressed("shoot"):
+		shoot_attack(cursor.get_target())
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") && !is_dashing && direction != Vector2.ZERO:
 		dash_movement()
-	if event.is_action_pressed("shoot"):
-		shoot_attack(cursor.get_target())
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:

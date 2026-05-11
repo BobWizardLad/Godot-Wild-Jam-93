@@ -1826,7 +1826,7 @@ z_index = 10
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("8_4a1ga")]
 bullet_resource = ExtResource("8_ljwhr")
 bullet_speed = 400.0
-fire_cooldown = 0.7
+fire_cooldown = 0.6
 bullet_lifetime = 1.2
 
 [node name="HealthDisplay" parent="." unique_id=382223720 instance=ExtResource("9_4hbu0")]
