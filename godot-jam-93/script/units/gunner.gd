@@ -4,8 +4,13 @@ extends Enemy
 @onready var gun_cast: ShapeCast2D = $GunCast
 @onready var gun_controller: GunController = $GunController
 @onready var sprite_animator: AnimationPlayer = $SpriteAnimator
+@onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 @export var follow_distance: float
+
+@export_group("Sound FX")
+@export var sfx_shoot: AudioStream
+@export var sfx_death: AudioStream
 
 func _physics_process(_delta: float) -> void:
 	gun_cast.target_position = to_local(nav_agent.target_position)
@@ -24,4 +29,10 @@ func derive_unit_velocity() -> Vector2:
 	
 
 func shoot_attack(target: Vector2) -> void:
+	sound_sequencer._queue_audio_track(sfx_shoot)
 	gun_controller.shoot(target)
+
+## By default (and usually at least) a unit is freed qhen they die
+func die() -> void:
+	sound_sequencer._queue_audio_track(sfx_death)
+	super()
