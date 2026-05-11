@@ -1786,9 +1786,6 @@ SPEED = 100.0
 max_health = 100
 current_health = 100
 
-[node name="DashCooldown" type="Timer" parent="." unique_id=1403083639]
-one_shot = true
-
 [node name="MovementBlender" parent="." unique_id=770144188 node_paths=PackedStringArray("soft_animation_player", "animation_tree") instance=ExtResource("3_uapwn")]
 script = ExtResource("3_5odhx")
 soft_animation_player = NodePath("../SoftAnimationPlayer")
@@ -1810,6 +1807,9 @@ parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=463791001]
 libraries/ = SubResource("AnimationLibrary_jhk7o")
+
+[node name="DashCooldown" type="Timer" parent="." unique_id=1403083639]
+one_shot = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1816484827]
 texture = SubResource("AtlasTexture_gl7no")

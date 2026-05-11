@@ -133,13 +133,6 @@ _data = {
 &"dodge": SubResource("Animation_jhk7o")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
-radius = 3.0
-height = 13.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
-radius = 13.038404
-
 [sub_resource type="Animation" id="Animation_f4rmt"]
 length = 0.001
 tracks/0/type = "value"
@@ -196,6 +189,13 @@ _data = {
 &"walk": SubResource("Animation_rl4ja")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
+radius = 3.0
+height = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
+radius = 13.038404
+
 [node name="Enemy" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
@@ -207,6 +207,15 @@ metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")
+
+[node name="SpriteAnimator" type="AnimationPlayer" parent="." unique_id=2120292566]
+libraries/ = SubResource("AnimationLibrary_fe2q1")
+autoplay = &"walk"
+
+[node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
+wait_time = 0.2
+one_shot = true
+autostart = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
 texture = ExtResource("2_3rqhp")
@@ -232,13 +241,5 @@ one_shot = true
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
-
-[node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2120292566]
-libraries/ = SubResource("AnimationLibrary_fe2q1")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

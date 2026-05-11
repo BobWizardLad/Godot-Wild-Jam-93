@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c33maklt8rrc6"]
 
-[ext_resource type="Script" path="res://godot-jam-93/script/units/gunner.gd" id="1_s21kk"]
+[ext_resource type="Script" uid="uid://dltyno6xrpy8d" path="res://godot-jam-93/script/units/gunner.gd" id="1_s21kk"]
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="2_3fmpq"]
 [ext_resource type="PackedScene" uid="uid://bi4moickma36" path="res://godot-jam-93/components/enemy_bullet.tscn" id="3_s21kk"]
 [ext_resource type="Texture2D" uid="uid://cmsl0b36ir75u" path="res://godot-jam-93/assets/sprites/NMEshooter.png" id="4_s21kk"]
@@ -133,12 +133,6 @@ _data = {
 &"dodge": SubResource("Animation_jhk7o")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s21kk"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s21kk"]
-radius = 7.0
-height = 18.0
-
 [sub_resource type="Animation" id="Animation_f4rmt"]
 length = 0.001
 tracks/0/type = "value"
@@ -195,6 +189,12 @@ _data = {
 &"walk": SubResource("Animation_rl4ja")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s21kk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s21kk"]
+radius = 7.0
+height = 18.0
+
 [node name="Gunner" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
@@ -205,13 +205,16 @@ max_health = 20
 current_health = 20
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
+[node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
+libraries/ = SubResource("AnimationLibrary_y0v0w")
+
+[node name="SpriteAnimator" type="AnimationPlayer" parent="." unique_id=161789002]
+libraries/ = SubResource("AnimationLibrary_5jtp7")
+
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2
 one_shot = true
 autostart = true
-
-[node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
-libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
@@ -224,7 +227,7 @@ shape = SubResource("CircleShape2D_s21kk")
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("2_3fmpq")]
 visible = false
 bullet_resource = ExtResource("3_s21kk")
-bullet_speed = 250.0
+bullet_speed = 150.0
 fire_cooldown = 0.6
 bullet_lifetime = 2.0
 
@@ -236,8 +239,5 @@ hframes = 4
 visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_s21kk")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=161789002]
-libraries/ = SubResource("AnimationLibrary_5jtp7")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

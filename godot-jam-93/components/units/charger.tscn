@@ -133,13 +133,6 @@ _data = {
 &"dodge": SubResource("Animation_jhk7o")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yspa"]
-radius = 3.0
-height = 14.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
-radius = 13.038404
-
 [sub_resource type="Animation" id="Animation_f4rmt"]
 length = 0.001
 tracks/0/type = "value"
@@ -196,6 +189,13 @@ _data = {
 &"walk": SubResource("Animation_rl4ja")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yspa"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
+radius = 13.038404
+
 [node name="Charger" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
 collision_mask = 4
@@ -209,6 +209,19 @@ metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")
+
+[node name="SpriteAnimator" type="AnimationPlayer" parent="." unique_id=890460197]
+libraries/ = SubResource("AnimationLibrary_iwlck")
+autoplay = &"walk"
+
+[node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="ChargingTimer" type="Timer" parent="." unique_id=747525829]
+wait_time = 0.9
+one_shot = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
 texture = ExtResource("2_5yspa")
@@ -235,18 +248,6 @@ one_shot = true
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 25.0
-
-[node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
-[node name="ChargingTimer" type="Timer" parent="." unique_id=747525829]
-wait_time = 0.9
-one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=890460197]
-libraries/ = SubResource("AnimationLibrary_iwlck")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
 [connection signal="timeout" from="ChargingTimer" to="." method="_on_charging_timer_timeout"]
