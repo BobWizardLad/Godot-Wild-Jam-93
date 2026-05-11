@@ -14,6 +14,7 @@ var dash_direction: Vector2
 @onready var cursor: Cursor = $Cursor
 @onready var gun_controller: GunController = $GunController
 @onready var health_display: HealthDisplay = $HealthDisplay
+@onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 func _ready() -> void:
 	super()
@@ -32,6 +33,22 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") && !is_dashing && direction != Vector2.ZERO:
 		dash_movement()
+
+func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
+	if is_invincible:
+		damage_stopped.emit()
+	else:
+		current_health -= value
+		sound_sequencer._queue_audio_track(sfx_damage)
+		damage_taken.emit(value)
+		if current_health > max_health:
+			current_health = max_health
+		if current_health <= 0:
+			current_health = 0
+			died.emit()
+		if heavy_strike:
+			forced_move(-1 * global_position.direction_to(source.global_position), 115.0, 0.3)
+		health_recalculated.emit(current_health)
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://egqj6oldhyh" path="res://godot-jam-93/assets/sprites/idle full sprite sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://godot-jam-93/script/units/player.gd" id="1_onrkg"]
+[ext_resource type="AudioStream" uid="uid://e5pgnpvsphu0" path="res://godot-jam-93/assets/sfx/hurt-freesound-clean.wav" id="2_mblpy"]
 [ext_resource type="Script" uid="uid://ya52125s75l1" path="res://godot-jam-93/script/animation/movement_blender.gd" id="3_5odhx"]
 [ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://godot-jam-93/components/animation_blender.tscn" id="3_uapwn"]
 [ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
@@ -1784,6 +1785,7 @@ collision_layer = 17
 script = ExtResource("1_onrkg")
 dash_speed = 175.0
 dash_cooldown_time = 0.2
+sfx_damage = ExtResource("2_mblpy")
 SPEED = 100.0
 max_health = 100
 current_health = 100
