@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://egqj6oldhyh" path="res://godot-jam-93/assets/sprites/idle full sprite sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://6qaru6w8u8js" path="res://godot-jam-93/script/units/player.gd" id="1_onrkg"]
-[ext_resource type="AudioStream" uid="uid://ddeh3bd7cod64" path="res://godot-jam-93/assets/sfx/retro-gun-shot-freesound-clean.wav" id="2_17egq"]
 [ext_resource type="Script" uid="uid://ya52125s75l1" path="res://godot-jam-93/script/animation/movement_blender.gd" id="3_5odhx"]
 [ext_resource type="PackedScene" uid="uid://8jqffi4gjn7t" path="res://godot-jam-93/components/animation_blender.tscn" id="3_uapwn"]
 [ext_resource type="Texture2D" uid="uid://cu24lhoefxbg5" path="res://godot-jam-93/assets/sprites/run complete sprite sheet.png" id="5_1kub6"]
@@ -11,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="8_4a1ga"]
 [ext_resource type="PackedScene" uid="uid://i3rqegx1ntai" path="res://godot-jam-93/components/bullet.tscn" id="8_ljwhr"]
 [ext_resource type="PackedScene" uid="uid://cbx2p766c676s" path="res://godot-jam-93/components/health_display.tscn" id="9_4hbu0"]
+[ext_resource type="AudioStream" uid="uid://dtojotnq1i4qo" path="res://godot-jam-93/assets/sfx/player-zap-freesound-edit.wav" id="10_17egq"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
@@ -1832,7 +1832,7 @@ bullet_resource = ExtResource("8_ljwhr")
 bullet_speed = 400.0
 fire_cooldown = 0.6
 bullet_lifetime = 1.2
-sfx_shoot = ExtResource("2_17egq")
+sfx_shoot = ExtResource("10_17egq")
 
 [node name="HealthDisplay" parent="." unique_id=382223720 instance=ExtResource("9_4hbu0")]
 offset_top = 20.0
