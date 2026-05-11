@@ -7,6 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="7_im16j"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="7_j7612"]
 
+[sub_resource type="GDScript" id="GDScript_im16j"]
+resource_name = "MOTD"
+script/source = "extends Label
+
+var messages: Array[String] = [
+	\"𓆣 Now with more yummy bugs 𓆣\",
+	\"A story of bullets, more bullets, and bugs\",
+	\"Made with love and very little time!\",
+	\"Hi Mom!\",
+	\"I'm trapped in a 3 day old game project HELP ME!\",
+	\"Did you know this message is equally as likely to appear as every other message?!?!\"
+]
+
+func _ready() -> void:
+	text = messages[randi_range(0, messages.size()-1)]
+"
+
 [sub_resource type="GDScript" id="GDScript_svmpe"]
 script/source = "extends Control
 ## Node that captures UI focus when switching menus.
@@ -150,6 +167,7 @@ theme_override_font_sizes/font_size = 24
 text = "𓆣 Now with more yummy bugs 𓆣"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_im16j")
 
 [node name="MenuButtonsMargin" type="MarginContainer" parent="MenuContainer" unique_id=210553886]
 layout_mode = 2
