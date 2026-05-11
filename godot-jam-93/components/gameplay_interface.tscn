@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bshfqnr4d8e5a"]
 
-[ext_resource type="Script" uid="uid://b30ussox4lota" path="res://gameplay_interface.gd" id="1_8s8gw"]
+[ext_resource type="Script" uid="uid://b8rqxqrxiv3hc" path="res://godot-jam-93/script/gameplay_interface.gd" id="1_8s8gw"]
 
 [node name="GameplayInterface" type="Control" unique_id=1266861447]
 layout_mode = 3

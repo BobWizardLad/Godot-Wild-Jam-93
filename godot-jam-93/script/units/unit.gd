@@ -2,7 +2,7 @@ class_name Unit
 extends CharacterBody2D
 
 signal damage_taken(value: int)
-signal damage_stopped(value: int)
+signal damage_stopped()
 signal health_recalculated(new_value: float)
 signal died
 
@@ -12,7 +12,7 @@ var direction: Vector2
 
 var is_forced_moving: bool = false
 
-@export var is_invincible: bool = false
+@export var is_invincible: bool
 ## Flag for if the player is currently attacking.
 @export var max_health: int
 @export var current_health: int
@@ -26,7 +26,9 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
-	if not is_invincible:
+	if is_invincible:
+		damage_stopped.emit()
+	else:
 		current_health -= value
 		damage_taken.emit(value)
 		if current_health > max_health:
@@ -37,8 +39,6 @@ func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
 		if heavy_strike:
 			forced_move(-1 * global_position.direction_to(source.global_position), 115.0, 0.3)
 		health_recalculated.emit(current_health)
-	else:
-		damage_stopped.emit(value)
 
 func derive_unit_velocity() -> Vector2:
 	return Vector2.ZERO
