@@ -11,10 +11,12 @@ config_version=5
 [application]
 
 config/name="Twin Junker Shooter"
-config/description="Godot Wild Jam 93 Entry"
+config/description="Godot Wild Jam 93 Entry!"
 run/main_scene="res://example_project/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6")
-config/icon="uid://ctfl5lq83mmic"
+boot_splash/use_filter=false
+boot_splash/image="uid://dhcjhx3hcmcfq"
+config/icon="uid://dhcjhx3hcmcfq"
 
 [autoload]
 
