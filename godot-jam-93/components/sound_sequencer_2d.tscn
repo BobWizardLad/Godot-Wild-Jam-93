@@ -4,3 +4,4 @@
 
 [node name="SoundSequencer2D" type="Node2D" unique_id=615471713]
 script = ExtResource("1_blue7")
+max_players_per_sound = 1

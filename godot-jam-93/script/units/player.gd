@@ -7,6 +7,9 @@ extends Unit
 var is_dashing: bool = false
 var dash_direction: Vector2
 
+@export_group("Sound FX")
+@export var sfx_damage: AudioStream
+
 @onready var animation_blender: AnimationBlender = $MovementBlender
 @onready var cursor: Cursor = $Cursor
 @onready var gun_controller: GunController = $GunController

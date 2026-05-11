@@ -6,6 +6,8 @@ extends Node2D
 
 @export var max_players_per_sound: int
 
+signal all_players_finished
+
 var active_players: Array[AudioStreamPlayer2D]
 
 func _ready() -> void:
@@ -35,3 +37,5 @@ func cleanup_idle_players() -> void:
 		if each.playing == false:
 			active_players.erase(each)
 			each.queue_free()
+	if active_players.size() == 0:
+		all_players_finished.emit()

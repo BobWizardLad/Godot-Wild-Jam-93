@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="2_3fmpq"]
 [ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/sound_sequencer_2d.tscn" id="2_f4rmt"]
 [ext_resource type="AudioStream" uid="uid://tyl2fv1ue14r" path="res://godot-jam-93/assets/sfx/zap-freesound-clean.wav" id="2_rl4ja"]
-[ext_resource type="AudioStream" uid="uid://1dv4iyuu5n8e" path="res://godot-jam-93/assets/sfx/8-bit-explosion-freesound-clean.wav" id="3_5jtp7"]
 [ext_resource type="PackedScene" uid="uid://bi4moickma36" path="res://godot-jam-93/components/enemy_bullet.tscn" id="3_s21kk"]
 [ext_resource type="Texture2D" uid="uid://cmsl0b36ir75u" path="res://godot-jam-93/assets/sprites/NMEshooter.png" id="4_s21kk"]
 
@@ -203,8 +202,6 @@ collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_s21kk")
 follow_distance = 125.0
-sfx_shoot = ExtResource("2_rl4ja")
-sfx_death = ExtResource("3_5jtp7")
 SPEED = 55.0
 max_health = 20
 current_health = 20
@@ -222,7 +219,6 @@ one_shot = true
 autostart = true
 
 [node name="SoundSequencer2D" parent="." unique_id=615471713 instance=ExtResource("2_f4rmt")]
-max_players_per_sound = 1
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
@@ -238,6 +234,7 @@ bullet_resource = ExtResource("3_s21kk")
 bullet_speed = 150.0
 fire_cooldown = 0.6
 bullet_lifetime = 2.0
+sfx_shoot = ExtResource("2_rl4ja")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
 texture = ExtResource("4_s21kk")
