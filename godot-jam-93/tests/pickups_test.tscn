@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://j53wn3mg7d7w"]
+
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="2_igjhv"]
+[ext_resource type="PackedScene" uid="uid://dfvv0yqn26pqe" path="res://godot-jam-93/components/pickups/health_pickup.tscn" id="3_3doan"]
+
+[sub_resource type="GDScript" id="GDScript_qsked"]
+resource_name = "Test"
+script/source = "extends Node2D
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_accept\"):
+		$Player.take_damage(35, $Player, false)
+"
+
+[node name="PickupsTest" type="Node2D" unique_id=344446061]
+editor_description = "Test scene to work on pickupables in the game such as health and upgrade pieces"
+script = SubResource("GDScript_qsked")
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("2_igjhv")]
+current_health = 1
+
+[node name="HealthPickup" parent="." unique_id=1288070350 instance=ExtResource("3_3doan")]
+position = Vector2(200, 89)
+
+[node name="HealthPickup2" parent="." unique_id=757014465 instance=ExtResource("3_3doan")]
+position = Vector2(302, 260)
+
+[node name="HealthPickup3" parent="." unique_id=1977044668 instance=ExtResource("3_3doan")]
+position = Vector2(467, 176)

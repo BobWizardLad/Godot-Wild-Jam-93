@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b4mxi58kxr4de"]
+
+[node name="PlayerUpgradeFactoryTest" type="Node2D" unique_id=1900248387]
+editor_description = "Test to build a system that can manufacture upgrade nodes and share them in a scene."
