@@ -8,3 +8,16 @@ extends UpgradeTreeNode
 @export var connections_out: Array[UpgradeTreeConnection]
 @export var max_connections: int
  
+## Initialize a node from script
+func _init(
+	this_connections_out: Array[UpgradeTreeConnection] = [],
+	this_root_node: UpgradeTreeConnection = null,
+	this_synergy: UpgradeRes.UpgradeSynergy = UpgradeRes.UpgradeSynergy.COLORLESS,
+	this_upgrades: Array[UpgradeRes] = [],
+	this_sprite: Texture2D = null,
+	this_max_connections: int = 3
+	) -> void:
+	super(this_upgrades, this_sprite, this_root_node)
+	synergy = this_synergy
+	connections_out = this_connections_out
+	max_connections = this_max_connections

@@ -3,8 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_1js1s"]
 [ext_resource type="Script" uid="uid://bsuf0sevf4ut1" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_controller.gd" id="2_hel3l"]
 
+[sub_resource type="GDScript" id="GDScript_hel3l"]
+resource_name = "Test"
+script/source = "extends Node2D
+
+func _ready() -> void:
+	var new_neighbor: UpgradeTreeRare = UpgradeTreeRare.new(
+		[],
+		UpgradeTreeConnection.new(UpgradeTreeConnection.UpgradeNodeJoint.A))
+	print($Player/UpgradeTreeController.add_neighbor(new_neighbor, 0))
+	
+	print($Player/UpgradeTreeController.connections_out[0].neighbor.synergy)
+"
+
 [node name="UpgradeTreeTest" type="Node2D" unique_id=1294301553]
 editor_description = "Test the build of an abstract upgrade tree and push tests into the console"
+script = SubResource("GDScript_hel3l")
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_1js1s")]
 

@@ -11,8 +11,6 @@ func _ready() -> void:
 	connections_out.append(UpgradeTreeConnection.new(UpgradeTreeConnection.UpgradeNodeJoint.B))
 	connections_out.append(UpgradeTreeConnection.new(UpgradeTreeConnection.UpgradeNodeJoint.C))
 	connections_out.append(UpgradeTreeConnection.new(UpgradeTreeConnection.UpgradeNodeJoint.D))
-	
-	print_debug(connections_out)
 
 ## Given a player as a paremeter, go sequentially through the upgrade tree and 
 ## apply all upgrades in this tree.
@@ -22,3 +20,13 @@ func apply_upgrades_in_tree(player: Player) -> void:
 ## Return the root of a series of UpgradeTreeNodes that compose this controller's current build
 func get_visual_upgrade_tree() -> Node2D:
 	return Node2D.new()
+
+func is_neighbor_valid(this_neighbor: UpgradeTreeNode, connection_idx: int) -> bool:
+	return this_neighbor.root_node.joint == connections_out[connection_idx].joint
+
+func add_neighbor(this_neighbor: UpgradeTreeNode, connection_idx: int) -> bool:
+	if is_neighbor_valid(this_neighbor, connection_idx):
+		connections_out[connection_idx].neighbor = this_neighbor
+		return true
+	else:
+		return false
