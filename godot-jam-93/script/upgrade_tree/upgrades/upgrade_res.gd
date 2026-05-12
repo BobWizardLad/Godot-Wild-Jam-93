@@ -10,8 +10,9 @@ enum UpgradeSynergy {
 	COLORLESS
 }
 
-@export var name : StringName
-@export var description: String
-@export var synergy : UpgradeSynergy
+var name: StringName
+var description: String
+var synergy: UpgradeSynergy
+var icon: Texture2D
 
 @abstract func get_effect(player: Player)

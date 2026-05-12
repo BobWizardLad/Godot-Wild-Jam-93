@@ -68,6 +68,7 @@ func reset_player_stats() -> void:
 	dash_cooldown_time = dash_cooldown_time_base
 	SPEED = speed_base
 	max_health = max_health_base
+	current_health = max_health
 	
 
 func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
