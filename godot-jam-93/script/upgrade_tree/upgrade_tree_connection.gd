@@ -12,3 +12,8 @@ enum UpgradeNodeJoint {
 
 @export var joint: UpgradeNodeJoint
 @export var neighbor: UpgradeTreeNode
+
+## Initialize the connection from script
+func _init(this_joint: UpgradeNodeJoint, this_neighbor: UpgradeTreeNode = null) -> void:
+	joint = this_joint
+	neighbor = this_neighbor

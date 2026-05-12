@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://cqlsc4e7j4qnb"]
 
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_1js1s"]
+[ext_resource type="Script" uid="uid://bsuf0sevf4ut1" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_controller.gd" id="2_hel3l"]
+
 [node name="UpgradeTreeTest" type="Node2D" unique_id=1294301553]
+editor_description = "Test the build of an abstract upgrade tree and push tests into the console"
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_1js1s")]
+
+[node name="UpgradeTreeController" type="Node" parent="Player" unique_id=879489053]
+script = ExtResource("2_hel3l")
+metadata/_custom_type_script = "uid://bsuf0sevf4ut1"
+
+[editable path="Player"]
