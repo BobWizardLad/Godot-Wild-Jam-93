@@ -5,6 +5,6 @@ extends UpgradeTreeNode
 ## that enhences upgrades associated with it (in it or adjacent to it)
 
 @export var synergy : UpgradeRes.UpgradeSynergy
-@export var connections_out: Array[UpgradeTreeNode]
+@export var connections_out: Array[UpgradeTreeConnection]
 @export var max_connections: int
  

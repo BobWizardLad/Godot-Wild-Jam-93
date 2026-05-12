@@ -5,4 +5,4 @@ extends Resource
 
 @export var upgrades: Array[UpgradeRes]
 @export var sprite: Texture2D
-@export var root_node: UpgradeTreeNode
+@export var root_node: UpgradeTreeConnection
