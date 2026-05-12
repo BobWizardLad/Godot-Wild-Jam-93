@@ -1,6 +1,7 @@
+class_name AttackUpgrade
 extends UpgradeRes
 
-var damage_increase: int
+@export var damage_increase: int
 
 func _init() -> void:
 	name = "Bullet Damage"

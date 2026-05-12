@@ -1,6 +1,7 @@
+class_name HealthUpgrade
 extends UpgradeRes
 
-var health_mod: int
+@export var health_mod: int
 
 func _init() -> void:
 	name = "Max Health Up"

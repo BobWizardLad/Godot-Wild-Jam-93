@@ -1,6 +1,7 @@
+class_name BulletVelocityUpgrade
 extends UpgradeRes
 
-var bullet_speed_mod: float
+@export var bullet_speed_mod: float
 
 func _init() -> void:
 	name = "Bullet Velocity"
