@@ -21,3 +21,9 @@ func _init(
 	synergy = this_synergy
 	connections_out = this_connections_out
 	max_connections = this_max_connections
+
+func _to_string() -> String:
+	var connections_out_string: String = ""
+	for each in connections_out:
+		connections_out_string = connections_out_string + " " + str(each.neighbor)
+	return String(super() + " | Synergy: " + str(synergy) + " | Connections out: " + str(connections_out_string))

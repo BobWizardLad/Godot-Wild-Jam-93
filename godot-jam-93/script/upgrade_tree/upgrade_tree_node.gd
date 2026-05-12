@@ -12,3 +12,6 @@ func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null,
 	upgrades = this_upgrades
 	sprite = this_sprite
 	root_node = this_root_node
+
+func _to_string() -> String:
+	return String("UpgradeTreeNode" + " | with upgrades " + str(upgrades) + " | root_node neighbor " + str(root_node.neighbor))

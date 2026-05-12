@@ -8,12 +8,7 @@ resource_name = "Test"
 script/source = "extends Node2D
 
 func _ready() -> void:
-	var new_neighbor: UpgradeTreeRare = UpgradeTreeRare.new(
-		[],
-		UpgradeTreeConnection.new(UpgradeTreeConnection.UpgradeNodeJoint.A))
-	print($Player/UpgradeTreeController.add_neighbor(new_neighbor, 0))
-	
-	print($Player/UpgradeTreeController.connections_out[0].neighbor.synergy)
+	pass
 "
 
 [node name="UpgradeTreeTest" type="Node2D" unique_id=1294301553]
