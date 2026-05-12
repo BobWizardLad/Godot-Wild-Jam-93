@@ -7,3 +7,4 @@ extends UpgradeTreeNode
 @export var synergy : UpgradeRes.UpgradeSynergy
 @export var connections_out: Array[UpgradeTreeNode]
 @export var max_connections: int
+ 
