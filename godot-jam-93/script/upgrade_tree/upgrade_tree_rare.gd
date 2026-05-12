@@ -20,11 +20,15 @@ func _init(
 	
 	max_connections = 3
 
+func _ready() -> void:
+	neighbor_children_if_connection()
+
 func neighbor_children_if_connection() -> bool:
 	for child in get_children():
 		if child is UpgradeTreeNode:
 			for connection in connections_out:
 				if child.root_connection.joint == connection.joint:
 					connection.neighbor = child
+					child.root_connection.neighbor = self
 		assert(child.root_connection.neighbor != null, "UpgradeTreeRare " + name + " has an incompatible child " + child.name)
 	return true

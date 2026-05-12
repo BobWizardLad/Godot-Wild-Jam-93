@@ -20,5 +20,12 @@ func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null,
 ## Given a player as a paremeter, go sequentially through the upgrade tree and 
 ## apply all upgrades in this tree.
 func apply_upgrades_in_tree(player: Player) -> void:
+	# apply my upgrades first
+	for each in upgrades:
+		print("Applying " + str(each.name))
+		each.get_effect(player)
+	# ... then seek all children
 	for each in connections_out:
-		pass
+		if each.neighbor != null:
+			each.neighbor.apply_upgrades_in_tree(player)
+	

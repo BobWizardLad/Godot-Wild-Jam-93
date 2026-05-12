@@ -8,6 +8,9 @@ func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null,
 	
 	max_connections = 4
 
+func _ready() -> void:
+	neighbor_children_if_connection()
+
 ## Return the root of a series of UpgradeTreeNodes that compose this controller's current build
 func get_visual_upgrade_tree() -> Node2D:
 	return Node2D.new()

@@ -36,10 +36,13 @@ var dash_direction: Vector2
 @onready var gun_controller: GunController = $GunController
 @onready var health_display: HealthDisplay = $HealthDisplay
 @onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
+@onready var upgrade_tree: UpgradeTreeController = $PlayerUpgradeTreeController
 
 func _ready() -> void:
 	super()
 	reset_player_stats()
+	
+	upgrade_tree.apply_upgrades_in_tree(self)
 
 func _physics_process(_delta: float) -> void:
 	super(_delta)
