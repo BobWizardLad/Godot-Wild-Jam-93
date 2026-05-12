@@ -202,6 +202,9 @@ collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_s21kk")
 follow_distance = 125.0
+bullet_speed_base = 135.0
+fire_cooldown_base = 1.0
+bullet_damage_base = 10
 SPEED = 55.0
 max_health = 20
 current_health = 20
@@ -231,8 +234,6 @@ shape = SubResource("CircleShape2D_s21kk")
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("2_3fmpq")]
 visible = false
 bullet_resource = ExtResource("3_s21kk")
-bullet_speed = 150.0
-fire_cooldown = 0.6
 bullet_lifetime = 2.0
 sfx_shoot = ExtResource("2_rl4ja")
 

@@ -4,9 +4,12 @@ extends CharacterBody2D
 ## Otherwise bullet has no lifetime (won't fire)
 var lifetime: float = 0.0
 var muzzle_velocity: Vector2
+var damage: int
+var is_heavy_strike: bool
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var lifetimer: Timer = $LifetimeTimer
+@onready var bullet_area: BulletArea = $BulletArea
 
 func _ready():
 	assert(muzzle_velocity != Vector2.ZERO, "Bullet muzzle velocity is zero!")
