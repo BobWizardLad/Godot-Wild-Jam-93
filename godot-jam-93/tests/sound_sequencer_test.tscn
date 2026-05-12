@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8fdpq2wj087p"]
 
-[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/sound_sequencer_2d.tscn" id="1_6kmga"]
+[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/audiovisual_handlers/sound_sequencer_2d.tscn" id="1_6kmga"]
 
 [sub_resource type="GDScript" id="GDScript_6kmga"]
 script/source = "extends Node2D

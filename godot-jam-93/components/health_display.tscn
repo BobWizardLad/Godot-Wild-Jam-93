@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbx2p766c676s"]
 
-[ext_resource type="Script" uid="uid://cgv57xhdophgb" path="res://godot-jam-93/script/health_display.gd" id="1_1wn21"]
+[ext_resource type="Script" uid="uid://cgv57xhdophgb" path="res://godot-jam-93/script/components/health_display.gd" id="1_1wn21"]
 [ext_resource type="Texture2D" uid="uid://cvg7so3etna8w" path="res://godot-jam-93/assets/sprites/ui_pack.png" id="2_8kom2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klvj8"]

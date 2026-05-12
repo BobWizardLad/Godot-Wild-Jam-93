@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/units/charger.gd" id="1_l4p5j"]
 [ext_resource type="Texture2D" uid="uid://bgrm5d6f4g61s" path="res://godot-jam-93/assets/sprites/NMEcharger.png" id="2_5yspa"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_dnfwk"]
-[ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/melee_area.gd" id="4_5yspa"]
+[ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/damageareas/melee_area.gd" id="4_5yspa"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
 length = 0.001

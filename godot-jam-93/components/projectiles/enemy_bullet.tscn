@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://i3rqegx1ntai"]
+[gd_scene format=3 uid="uid://bi4moickma36"]
 
-[ext_resource type="Texture2D" uid="uid://cdekh7tr0ctnb" path="res://godot-jam-93/assets/sprites/bullet.png" id="1_jdofu"]
-[ext_resource type="Script" uid="uid://xgxgimlglsrk" path="res://godot-jam-93/script/bullet.gd" id="1_omyih"]
-[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_lsas8"]
-[ext_resource type="Script" uid="uid://b4ts0htf6rmyk" path="res://godot-jam-93/script/bullet_area.gd" id="4_7xgn3"]
+[ext_resource type="Script" uid="uid://xgxgimlglsrk" path="res://godot-jam-93/script/projectiles/bullet.gd" id="1_d3dpb"]
+[ext_resource type="Texture2D" uid="uid://cdekh7tr0ctnb" path="res://godot-jam-93/assets/sprites/bullet.png" id="2_fmvqa"]
+[ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_whydp"]
+[ext_resource type="Script" uid="uid://b4ts0htf6rmyk" path="res://godot-jam-93/script/damageareas/bullet_area.gd" id="4_orhbr"]
 
 [sub_resource type="Animation" id="Animation_omyih"]
 length = 0.001
@@ -83,9 +83,7 @@ radius = 4.1231055
 radius = 6.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1707370551]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("1_omyih")
+script = ExtResource("1_d3dpb")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1689556670]
 
@@ -97,13 +95,13 @@ autoplay = &"default"
 shape = SubResource("CircleShape2D_134np")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1479889049]
-texture = ExtResource("1_jdofu")
+texture = ExtResource("2_fmvqa")
 hframes = 22
 
-[node name="BulletArea" parent="." unique_id=1685658706 instance=ExtResource("3_lsas8")]
+[node name="BulletArea" parent="." unique_id=1685658706 instance=ExtResource("3_whydp")]
 collision_layer = 0
-collision_mask = 32
-script = ExtResource("4_7xgn3")
+collision_mask = 16
+script = ExtResource("4_orhbr")
 damage = 15
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BulletArea" unique_id=457462107]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/units/enemy.gd" id="1_f6xrv"]
 [ext_resource type="Texture2D" uid="uid://b0ntlqt5anlng" path="res://godot-jam-93/assets/sprites/NMEcommon.png" id="2_3rqhp"]
-[ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/melee_area.gd" id="4_3rqhp"]
+[ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/damageareas/melee_area.gd" id="4_3rqhp"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="4_y0v0w"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]

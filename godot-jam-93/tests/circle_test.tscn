@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tyinm4ogi1f0"]
 
-[ext_resource type="Script" uid="uid://bjv8vjosl3xbh" path="res://godot-jam-93/tests/circle_test.gd" id="1_8f0i6"]
+[ext_resource type="Script" uid="uid://bjv8vjosl3xbh" path="res://godot-jam-93/script/circle_test.gd" id="1_8f0i6"]
 [ext_resource type="Texture2D" uid="uid://cxmlbbf86i4y0" path="res://godot-jam-93/assets/sprites/cursor.png" id="2_d0627"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0627"]

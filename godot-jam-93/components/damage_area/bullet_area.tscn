@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lo322d6ptq16"]
 
-[ext_resource type="Script" uid="uid://b4ts0htf6rmyk" path="res://godot-jam-93/script/bullet_area.gd" id="1_os718"]
+[ext_resource type="Script" uid="uid://b4ts0htf6rmyk" path="res://godot-jam-93/script/damageareas/bullet_area.gd" id="1_os718"]
 
 [node name="BulletArea" type="Area2D" unique_id=1685658706]
 script = ExtResource("1_os718")

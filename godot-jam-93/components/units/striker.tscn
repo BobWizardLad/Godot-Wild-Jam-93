@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://godot-jam-93/script/units/striker.gd" id="1_vccp7"]
 [ext_resource type="Texture2D" uid="uid://c38yssrrlkir7" path="res://godot-jam-93/assets/sprites/NMEstriker.png" id="2_vccp7"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_svww0"]
-[ext_resource type="Script" uid="uid://bidg1k1ll68et" path="res://godot-jam-93/script/strike_area.gd" id="4_vccp7"]
+[ext_resource type="Script" uid="uid://bidg1k1ll68et" path="res://godot-jam-93/script/damageareas/strike_area.gd" id="4_vccp7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vccp7"]
 radius = 65.0

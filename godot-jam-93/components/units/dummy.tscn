@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://g1co2ervkb0x"]
 
-[ext_resource type="Script" uid="uid://bip7fe71g6pvv" path="res://godot-jam-93/script/dummy.gd" id="1_pbcg5"]
+[ext_resource type="Script" uid="uid://bip7fe71g6pvv" path="res://godot-jam-93/script/units/dummy.gd" id="1_pbcg5"]
 [ext_resource type="Texture2D" uid="uid://hbjrh3gs2rkt" path="res://godot-jam-93/assets/sprites/dummy.png" id="2_wjn05"]
 
 [sub_resource type="Animation" id="Animation_u36jo"]

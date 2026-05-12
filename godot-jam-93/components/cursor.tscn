@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbp248f5gthgw"]
 
-[ext_resource type="Script" uid="uid://bbwm2xdpfyi5b" path="res://godot-jam-93/script/cursor.gd" id="1_kpsn0"]
+[ext_resource type="Script" uid="uid://bbwm2xdpfyi5b" path="res://godot-jam-93/script/components/cursor.gd" id="1_kpsn0"]
 [ext_resource type="Texture2D" uid="uid://cxmlbbf86i4y0" path="res://godot-jam-93/assets/sprites/cursor.png" id="2_kpsn0"]
 [ext_resource type="Shader" uid="uid://cwq6ip0xm0r62" path="res://godot-jam-93/assets/resources/cursor_color_invert.gdshader" id="2_xmvau"]
 

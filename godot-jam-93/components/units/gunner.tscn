@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dltyno6xrpy8d" path="res://godot-jam-93/script/units/gunner.gd" id="1_s21kk"]
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="2_3fmpq"]
-[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/sound_sequencer_2d.tscn" id="2_f4rmt"]
+[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/audiovisual_handlers/sound_sequencer_2d.tscn" id="2_f4rmt"]
 [ext_resource type="AudioStream" uid="uid://tyl2fv1ue14r" path="res://godot-jam-93/assets/sfx/zap-freesound-clean.wav" id="2_rl4ja"]
-[ext_resource type="PackedScene" uid="uid://bi4moickma36" path="res://godot-jam-93/components/enemy_bullet.tscn" id="3_s21kk"]
+[ext_resource type="PackedScene" uid="uid://bi4moickma36" path="res://godot-jam-93/components/projectiles/enemy_bullet.tscn" id="3_s21kk"]
 [ext_resource type="Texture2D" uid="uid://cmsl0b36ir75u" path="res://godot-jam-93/assets/sprites/NMEshooter.png" id="4_s21kk"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]

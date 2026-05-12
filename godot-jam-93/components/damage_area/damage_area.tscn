@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e1tasvsvxsru"]
 
-[ext_resource type="Script" uid="uid://d35g5lukoxbea" path="res://godot-jam-93/script/damage_area.gd" id="1_5cxae"]
+[ext_resource type="Script" uid="uid://d35g5lukoxbea" path="res://godot-jam-93/script/damageareas/damage_area.gd" id="1_5cxae"]
 
 [node name="DamageArea" type="Area2D" unique_id=1685658706]
 script = ExtResource("1_5cxae")
