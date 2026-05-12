@@ -1,13 +1,11 @@
 class_name BulletVelocityUpgrade
 extends UpgradeRes
 
-@export var bullet_speed_mod: float
+var bullet_speed_mod: float
+@export var bullet_speed_range: Vector2
 
 func _init() -> void:
-	name = "Bullet Velocity"
-	description = "Increases the speed your bullets fly! Faster shooting means deader enemies quicker!"
-	synergy = UpgradeSynergy.RED
-	icon = null
+	bullet_speed_mod = randf_range(bullet_speed_range.x, bullet_speed_range.y)
 
 func get_effect(player: Player):
 	player.bullet_speed += bullet_speed_mod

@@ -1,13 +1,11 @@
 class_name AttackUpgrade
 extends UpgradeRes
 
-@export var damage_increase: int
+var damage_increase: int
+@export var damage_increase_range: Vector2i
 
 func _init() -> void:
-	name = "Bullet Damage"
-	description = "Increases the damage your gun will do!"
-	synergy = UpgradeSynergy.RED
-	icon = null
+	damage_increase = randi_range(damage_increase_range.x, damage_increase_range.y)
 
 func get_effect(player: Player):
 	player.bullet_damage += damage_increase

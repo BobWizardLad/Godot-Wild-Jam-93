@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FirerateUpgrade" format=3 uid="uid://ce6ji6paapui2"]
+
+[ext_resource type="Script" uid="uid://dtqmfak0s78u7" path="res://godot-jam-93/script/upgrade_tree/upgrades/fire_rate_upgrade.gd" id="1_gn5wb"]
+
+[resource]
+script = ExtResource("1_gn5wb")
+cooldown_mod_range = Vector2(-0.3, -0.1)
+name = &"Fire Rate"
+synergy_amplification = 1.25
+metadata/_custom_type_script = "uid://dtqmfak0s78u7"

@@ -1,13 +1,11 @@
 class_name HealthUpgrade
 extends UpgradeRes
 
-@export var health_mod: int
+var health_mod: int
+@export var health_mod_range: Vector2i
 
 func _init() -> void:
-	name = "Max Health Up"
-	description = "Increases how much damage you can take before going down!"
-	synergy = UpgradeSynergy.BLUE
-	icon = null
+	health_mod = randi_range(health_mod_range.x, health_mod_range.y)
 
 func get_effect(player: Player):
 	player.max_health += health_mod
