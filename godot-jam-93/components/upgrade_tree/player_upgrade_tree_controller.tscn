@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d24d6xajankfp"]
+
+[ext_resource type="Script" uid="uid://bsuf0sevf4ut1" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_controller.gd" id="1_1u7k3"]
+[ext_resource type="Script" uid="uid://ck8ujvh6nd5mk" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_rare.gd" id="2_bm157"]
+[ext_resource type="Script" uid="uid://bd5r1tk4cfks2" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_connection.gd" id="2_lf6pv"]
+
+[sub_resource type="Resource" id="Resource_fw7vr"]
+script = ExtResource("2_lf6pv")
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[sub_resource type="Resource" id="Resource_6i0j1"]
+script = ExtResource("2_lf6pv")
+joint = 1
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[sub_resource type="Resource" id="Resource_dj5gb"]
+script = ExtResource("2_lf6pv")
+joint = 2
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[sub_resource type="Resource" id="Resource_bofic"]
+script = ExtResource("2_lf6pv")
+joint = 3
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[sub_resource type="Resource" id="Resource_rajhp"]
+script = ExtResource("2_lf6pv")
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[sub_resource type="Resource" id="Resource_lf6pv"]
+script = ExtResource("2_lf6pv")
+joint = 1
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[node name="PlayerUpgradeTreeController" type="Node" unique_id=327945761]
+script = ExtResource("1_1u7k3")
+connections_out = Array[ExtResource("2_lf6pv")]([SubResource("Resource_fw7vr"), SubResource("Resource_6i0j1"), SubResource("Resource_dj5gb"), SubResource("Resource_bofic")])
+metadata/_custom_type_script = "uid://bsuf0sevf4ut1"
+
+[node name="UpgradeTreeRare" type="Node" parent="." unique_id=7176264]
+script = ExtResource("2_bm157")
+root_connection = SubResource("Resource_rajhp")
+metadata/_custom_type_script = "uid://ck8ujvh6nd5mk"
+
+[node name="UpgradeTreeRare2" type="Node" parent="." unique_id=895289497]
+script = ExtResource("2_bm157")
+synergy = 2
+root_connection = SubResource("Resource_lf6pv")
+metadata/_custom_type_script = "uid://ck8ujvh6nd5mk"

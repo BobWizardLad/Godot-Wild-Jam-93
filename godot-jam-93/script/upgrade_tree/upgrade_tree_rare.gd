@@ -5,8 +5,8 @@ extends UpgradeTreeNode
 ## that enhences upgrades associated with it (in it or adjacent to it)
 
 @export var synergy : UpgradeRes.UpgradeSynergy
-@export var connections_out: Array[UpgradeTreeConnection]
-@export var max_connections: int
+var connections_out: Array[UpgradeTreeConnection]
+const MAX_CONNECTIONS = 3
  
 ## Initialize a node from script
 func _init(
@@ -15,15 +15,16 @@ func _init(
 	this_synergy: UpgradeRes.UpgradeSynergy = UpgradeRes.UpgradeSynergy.COLORLESS,
 	this_upgrades: Array[UpgradeRes] = [],
 	this_sprite: Texture2D = null,
-	this_max_connections: int = 3
 	) -> void:
 	super(this_upgrades, this_sprite, this_root_node)
 	synergy = this_synergy
 	connections_out = this_connections_out
-	max_connections = this_max_connections
 
-func _to_string() -> String:
-	var connections_out_string: String = ""
-	for each in connections_out:
-		connections_out_string = connections_out_string + " " + str(each.neighbor)
-	return String(super() + " | Synergy: " + str(synergy) + " | Connections out: " + str(connections_out_string))
+func neighbor_children_if_connection() -> bool:
+	for child in get_children():
+		if child is UpgradeTreeNode:
+			for connection in connections_out:
+				if child.root_connection.joint == connection.joint:
+					connection.neighbor = child
+		assert(child.root_connection.neighbor != null, "UpgradeTreeRare " + name + " has an incompatible child " + child.name)
+	return true
