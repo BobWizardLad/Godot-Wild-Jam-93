@@ -5,8 +5,6 @@ extends UpgradeTreeNode
 ## that enhences upgrades associated with it (in it or adjacent to it)
 
 @export var synergy : UpgradeRes.UpgradeSynergy
-var connections_out: Array[UpgradeTreeConnection]
-const MAX_CONNECTIONS = 3
  
 ## Initialize a node from script
 func _init(
@@ -19,6 +17,8 @@ func _init(
 	super(this_upgrades, this_sprite, this_root_node)
 	synergy = this_synergy
 	connections_out = this_connections_out
+	
+	max_connections = 3
 
 func neighbor_children_if_connection() -> bool:
 	for child in get_children():
