@@ -7,12 +7,14 @@
 [ext_resource type="Resource" uid="uid://bbarwoo0d1glt" path="res://godot-jam-93/assets/resources/upgrades/common/bullet_velocity_upgrade.tres" id="4_3kt5c"]
 [ext_resource type="Resource" uid="uid://bgijvbiw6lu86" path="res://godot-jam-93/assets/resources/upgrades/common/health_upgrade.tres" id="5_nwtbq"]
 [ext_resource type="Resource" uid="uid://ce6ji6paapui2" path="res://godot-jam-93/assets/resources/upgrades/common/fire_rate_upgrade.tres" id="6_3kt5c"]
+[ext_resource type="Resource" uid="uid://1atrlisqaynv" path="res://godot-jam-93/assets/resources/upgrades/common/dash_speed_upgrade.tres" id="6_4i77v"]
+[ext_resource type="Resource" uid="uid://c1sqk14urmlc1" path="res://godot-jam-93/assets/resources/upgrades/common/move_speed_upgrade.tres" id="9_berxc"]
 
 [node name="UpgradeFactory" type="Node" unique_id=1908081772]
 editor_description = "Object that generates an upgrade piece upon request."
 script = ExtResource("1_qwg1m")
 common_upgrade_archetypes = Array[PackedScene]([ExtResource("2_043ts")])
-common_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq")])
+common_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc")])
 common_max_upgrades = 3
 rare_max_upgrades = 3
 very_rare_max_upgrades = 1
