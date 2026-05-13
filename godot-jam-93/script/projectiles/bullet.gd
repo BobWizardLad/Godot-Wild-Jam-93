@@ -22,11 +22,11 @@ func _physics_process(delta: float):
 		collide_and_expire(self)
 
 func expire_timer_start(time: float):
-	lifetimer.timeout.connect(expire)
+	lifetimer.timeout.connect(collide_and_expire)
 	lifetimer.start(lifetime)
 
 ## (.(
-func collide_and_expire(_body: Node2D):
+func collide_and_expire(_body: Node2D = null):
 	velocity = velocity * Vector2(0.25, 0.25)
 	lifetimer.stop()
 	animation_player.play("expire")
