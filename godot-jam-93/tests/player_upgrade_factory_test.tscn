@@ -9,7 +9,8 @@ script/source = "extends Node2D
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"ui_accept\"):
-		add_child($UpgradeFactory.get_common())
+		$Player/PlayerUpgradeTreeController.add_child($UpgradeFactory.get_common())
+		$Player/PlayerUpgradeTreeController.neighbor_children_if_connection()
 "
 
 [node name="PlayerUpgradeFactoryTest" type="Node2D" unique_id=1900248387]
@@ -19,3 +20,5 @@ script = SubResource("GDScript_c13de")
 [node name="UpgradeFactory" parent="." unique_id=1908081772 instance=ExtResource("1_c13de")]
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("2_mtdu2")]
+
+[editable path="Player"]

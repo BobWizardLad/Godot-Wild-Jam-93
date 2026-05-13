@@ -16,4 +16,5 @@ enum UpgradeSynergy {
 @export var icon: Texture2D
 @export var synergy_amplification: float
 
-@abstract func get_effect(player: Player)
+@abstract func get_effect(player: Player) -> void
+@abstract func init_effect_value() -> void

@@ -17,8 +17,9 @@ extends Node
 
 func get_common() -> UpgradeTreeCommon:
 	var upgrade_node: UpgradeTreeCommon = common_upgrade_archetypes[randi_range(0, common_upgrade_archetypes.size()-1)].instantiate()
-	for each in range(0, randi_range(1, common_max_upgrades-1)): # randomly 1-MAX upgrades in node
-		var new_upgrade: UpgradeRes = common_upgrade_pool[randi_range(0, common_upgrade_pool.size()-1)] # draw an upgrade from pool
+	for each in range(0, randi_range(1, common_max_upgrades)): # randomly 1-MAX upgrades in node
+		var new_upgrade: UpgradeRes = common_upgrade_pool[randi_range(0, common_upgrade_pool.size()-1)].duplicate(true) # draw an upgrade from pool
+		new_upgrade.init_effect_value()
 		upgrade_node.upgrades.append(new_upgrade)
 	return upgrade_node
 

@@ -13,6 +13,6 @@ editor_description = "Object that generates an upgrade piece upon request."
 script = ExtResource("1_qwg1m")
 common_upgrade_archetypes = Array[PackedScene]([ExtResource("2_043ts")])
 common_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq")])
-common_max_upgrades = 2
+common_max_upgrades = 3
 rare_max_upgrades = 3
 very_rare_max_upgrades = 1
