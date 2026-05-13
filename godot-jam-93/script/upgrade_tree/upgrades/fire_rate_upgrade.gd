@@ -8,4 +8,4 @@ func init_effect_value() -> void:
 	cooldown_mod = randf_range(cooldown_mod_range.x, cooldown_mod_range.y)
 
 func get_effect(player: Player):
-	player.fire_cooldown += cooldown_mod
+	player.fire_cooldown *= cooldown_mod

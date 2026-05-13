@@ -62,6 +62,8 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Resets all stats of the player to their defined base stats
 ## Resets their values to what they were at scene instantiation before upgrades
 func reset_player_stats() -> void:
+	var percent_health = float(current_health) / max_health
+	
 	bullet_speed = bullet_speed_base
 	fire_cooldown = fire_cooldown_base
 	bullet_damage = bullet_damage_base
@@ -71,7 +73,7 @@ func reset_player_stats() -> void:
 	dash_cooldown_time = dash_cooldown_time_base
 	SPEED = speed_base
 	max_health = max_health_base
-	current_health = max_health
+	current_health = max_health * percent_health
 	
 
 func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
