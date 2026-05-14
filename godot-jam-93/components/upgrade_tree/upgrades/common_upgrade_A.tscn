@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bqkb36ryybjm3"]
+
+[ext_resource type="Script" uid="uid://72h3xuj3b804" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_common.gd" id="1_jbqly"]
+[ext_resource type="Script" uid="uid://bd5r1tk4cfks2" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_connection.gd" id="2_5ok0c"]
+
+[sub_resource type="Resource" id="Resource_5ok0c"]
+script = ExtResource("2_5ok0c")
+metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+
+[node name="CommonUpgradeA" type="Node" unique_id=1387658625]
+script = ExtResource("1_jbqly")
+root_connection = SubResource("Resource_5ok0c")

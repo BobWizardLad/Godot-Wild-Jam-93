@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b4mxi58kxr4de"]
+
+[ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="1_c13de"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="2_mtdu2"]
+
+[sub_resource type="GDScript" id="GDScript_c13de"]
+resource_name = "Test"
+script/source = "extends Node2D
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_accept\"):
+		$Player/PlayerUpgradeTreeController.add_new_neighbor($UpgradeFactory.get_common())
+"
+
+[node name="PlayerUpgradeFactoryTest" type="Node2D" unique_id=1900248387]
+editor_description = "Test to build a system that can manufacture upgrade nodes and share them in a scene."
+script = SubResource("GDScript_c13de")
+
+[node name="UpgradeFactory" parent="." unique_id=1908081772 instance=ExtResource("1_c13de")]
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("2_mtdu2")]
+bullet_speed_base = 200.0
+fire_cooldown_base = 0.9
+bullet_damage_base = 10
+
+[editable path="Player"]

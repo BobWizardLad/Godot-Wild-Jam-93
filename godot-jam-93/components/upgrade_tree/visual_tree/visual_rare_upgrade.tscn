@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://mli51p7huds4"]
+
+[ext_resource type="Texture2D" uid="uid://b2vdydmviq6pm" path="res://godot-jam-93/assets/sprites/skillPuzzle.png" id="1_hwhu1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjxj1"]
+atlas = ExtResource("1_hwhu1")
+region = Rect2(8, 56, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47dvq"]
+radius = 9.0
+
+[node name="VisualRareUpgrade" type="Node2D" unique_id=151815237]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=995045099]
+texture = SubResource("AtlasTexture_qjxj1")
+
+[node name="Root" type="Marker2D" parent="." unique_id=1727785192]
+position = Vector2(-12, 0)
+
+[node name="Joint1" type="Marker2D" parent="." unique_id=17201579]
+position = Vector2(0, -16)
+
+[node name="Area1" type="Area2D" parent="." unique_id=729900656]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1" unique_id=998053259]
+shape = SubResource("CircleShape2D_47dvq")
+
+[node name="Joint2" type="Marker2D" parent="." unique_id=643863677]
+position = Vector2(16, 0)
+
+[node name="Area2" type="Area2D" parent="." unique_id=379051139]
+position = Vector2(16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2" unique_id=336276595]
+shape = SubResource("CircleShape2D_47dvq")
+
+[node name="Joint3" type="Marker2D" parent="." unique_id=511306329]
+position = Vector2(0, 16)
+
+[node name="Area3" type="Area2D" parent="." unique_id=2027096756]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area3" unique_id=456612039]
+shape = SubResource("CircleShape2D_47dvq")

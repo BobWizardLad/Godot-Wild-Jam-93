@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletVelocityUpgrade" format=3 uid="uid://bbarwoo0d1glt"]
+
+[ext_resource type="Script" uid="uid://urj8s3u4js8l" path="res://godot-jam-93/script/upgrade_tree/upgrades/bullet_velocity_upgrade.gd" id="1_xpg47"]
+
+[resource]
+script = ExtResource("1_xpg47")
+bullet_speed_range = Vector2(15, 65)
+name = &"Bullet Velocity"
+synergy_amplification = 1.25
+metadata/_custom_type_script = "uid://urj8s3u4js8l"

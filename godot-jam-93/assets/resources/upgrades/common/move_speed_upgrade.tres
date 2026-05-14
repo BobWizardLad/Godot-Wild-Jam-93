@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MoveSpeedUpgrade" format=3 uid="uid://c1sqk14urmlc1"]
+
+[ext_resource type="Script" uid="uid://ct60ytmm7ig5a" path="res://godot-jam-93/script/upgrade_tree/upgrades/move_speed_upgrade.gd" id="1_b5n3s"]
+
+[resource]
+script = ExtResource("1_b5n3s")
+speed_mod_range = Vector2(1.1, 1.3)
+name = &"Move Speed"
+synergy = 2
+synergy_amplification = 1.25
+metadata/_custom_type_script = "uid://ct60ytmm7ig5a"

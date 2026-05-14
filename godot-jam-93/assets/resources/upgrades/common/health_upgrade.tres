@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealthUpgrade" format=3 uid="uid://bgijvbiw6lu86"]
+
+[ext_resource type="Script" uid="uid://bvyjv2ah4pjet" path="res://godot-jam-93/script/upgrade_tree/upgrades/health_upgrade.gd" id="1_8eewa"]
+
+[resource]
+script = ExtResource("1_8eewa")
+health_mod_range = Vector2i(15, 45)
+name = &"Health Upgrade"
+synergy = 1
+synergy_amplification = 1.25
+metadata/_custom_type_script = "uid://bvyjv2ah4pjet"

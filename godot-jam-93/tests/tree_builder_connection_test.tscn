@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bttsn586rixa8"]
+
+[ext_resource type="PackedScene" uid="uid://pm6w6b1erios" path="res://godot-jam-93/components/upgrade_tree/visual_tree/tree_builder_root.tscn" id="1_dfm52"]
+[ext_resource type="PackedScene" uid="uid://bwo7kcb4mb81l" path="res://inventory.tscn" id="2_40fah"]
+[ext_resource type="PackedScene" uid="uid://kxo5y3najn63" path="res://godot-jam-93/components/upgrade_tree/visual_tree/visual_common_upgrade.tscn" id="2_jexsw"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_jexsw"]
+[ext_resource type="PackedScene" uid="uid://mli51p7huds4" path="res://godot-jam-93/components/upgrade_tree/visual_tree/visual_rare_upgrade.tscn" id="5_285t7"]
+
+[node name="TreeBuilderConnectionTest" type="Node2D" unique_id=540240377]
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("3_jexsw")]
+position = Vector2(97, 129)
+
+[node name="Inventory" parent="." unique_id=270789528 instance=ExtResource("2_40fah")]
+
+[node name="TreeBuilderRoot" parent="Inventory" unique_id=827550299 instance=ExtResource("1_dfm52")]
+position = Vector2(265, 244)
+
+[node name="VisualRareUpgrade" parent="Inventory/TreeBuilderRoot" unique_id=1102214650 instance=ExtResource("5_285t7")]
+position = Vector2(36, 0)
+
+[node name="VisualCommonUpgrade" parent="Inventory/TreeBuilderRoot/VisualRareUpgrade" unique_id=151815237 instance=ExtResource("2_jexsw")]
+position = Vector2(16, 0)
+rotation = 1.5707964
+
+[node name="VisualRareUpgrade" parent="Inventory/TreeBuilderRoot/VisualRareUpgrade" unique_id=930340953 instance=ExtResource("5_285t7")]
+position = Vector2(0, -28)
+rotation = -1.5707964

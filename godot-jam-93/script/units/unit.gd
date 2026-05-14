@@ -12,7 +12,7 @@ var direction: Vector2
 
 var is_forced_moving: bool = false
 
-@export var is_invincible: bool
+var is_invincible: bool
 ## Flag for if the player is currently attacking.
 @export var max_health: int
 @export var current_health: int
