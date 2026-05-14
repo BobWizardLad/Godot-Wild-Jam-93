@@ -18,6 +18,10 @@ func _init(
 	is_grabbed = false
 	mouse_is_hover = false
 
+func _ready():
+	$DragArea.mouse_entered.connect(_on_drag_area_mouse_entered)
+	$DragArea.mouse_exited.connect(_on_drag_area_mouse_exited)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if CursorState.current_draggable_node == null and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mouse_is_hover:
 		CursorState.set_current_draggable_node(self)

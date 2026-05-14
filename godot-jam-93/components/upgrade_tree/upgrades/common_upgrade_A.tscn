@@ -24,6 +24,3 @@ texture = SubResource("AtlasTexture_5ok0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=695410796]
 shape = SubResource("RectangleShape2D_nvyo6")
-
-[connection signal="mouse_entered" from="DragArea" to="." method="_on_drag_area_mouse_entered"]
-[connection signal="mouse_exited" from="DragArea" to="." method="_on_drag_area_mouse_exited"]
