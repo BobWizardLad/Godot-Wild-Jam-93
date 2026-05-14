@@ -2,6 +2,7 @@ extends Node
 
 var current_draggable_node : DraggableUpgradeTreeNode
 var current_hovered_connection : UpgradeTreeConnection
+
 signal draggable_node_picked(node: DraggableUpgradeTreeNode)
 signal draggable_node_dropped(node: DraggableUpgradeTreeNode)
 
@@ -24,8 +25,9 @@ func set_as_hovered(connection: UpgradeTreeConnection) -> void:
 		print(connection)
 		current_hovered_connection = connection
 
-func remove_as_hovered(_connection: UpgradeTreeConnection) -> void:
-	current_hovered_connection = null
+func remove_as_hovered(connection: UpgradeTreeConnection) -> void:
+	if current_draggable_node != null and !(connection.is_root) and !(connection in current_draggable_node.connections_out):
+		current_hovered_connection = null
 
 func connect_draggable_node_to_hovered_connection() -> bool:
 	if current_hovered_connection != null && current_draggable_node != null:

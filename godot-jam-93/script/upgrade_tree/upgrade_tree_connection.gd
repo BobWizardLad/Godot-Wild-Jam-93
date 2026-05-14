@@ -19,6 +19,7 @@ var neighbor: UpgradeTreeNode
 func _ready() -> void:
 	mouse_entered.connect(CursorState.set_as_hovered.bind(self))
 	mouse_exited.connect(CursorState.remove_as_hovered.bind(self))
+	CursorState.draggable_node_picked.connect(remove_picked_node)
 
 ## Return if an incoming connection is valid against this connection
 func is_neighbor_valid(incoming_connection: UpgradeTreeConnection) -> bool:
@@ -30,6 +31,10 @@ func display_indicator(is_displaying: bool) -> void:
 
 func remove_connected_node() -> void:
 	neighbor = null
+
+func remove_picked_node(picked_node: DraggableUpgradeTreeNode) -> void:
+	if neighbor == picked_node:
+		remove_connected_node()
 
 func add_connected_node(new_node: UpgradeTreeNode) -> void:
 	if is_neighbor_valid(new_node.root_connection):

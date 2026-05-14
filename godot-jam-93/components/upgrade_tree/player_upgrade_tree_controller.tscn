@@ -16,15 +16,15 @@ connections_out = [NodePath("JointNorth"), NodePath("JointEast"), NodePath("Join
 texture = SubResource("AtlasTexture_ywpcy")
 
 [node name="JointNorth" parent="." unique_id=1547983137 instance=ExtResource("3_6i0j1")]
-position = Vector2(0, -16)
+position = Vector2(0, -26)
 
 [node name="JointEast" parent="." unique_id=1445459894 instance=ExtResource("3_6i0j1")]
-position = Vector2(16, 0)
+position = Vector2(26, 0)
 joint = 1
 
 [node name="JointSouth" parent="." unique_id=1271823985 instance=ExtResource("3_6i0j1")]
-position = Vector2(0, 16)
+position = Vector2(0, 26)
 
 [node name="JointWest" parent="." unique_id=2097431221 instance=ExtResource("3_6i0j1")]
-position = Vector2(-16, 0)
+position = Vector2(-26, 0)
 joint = 3
