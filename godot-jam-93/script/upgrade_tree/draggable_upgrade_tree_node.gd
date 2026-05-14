@@ -29,12 +29,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and !event.pressed and CursorState.current_draggable_node == self:
 		CursorState.set_current_draggable_node(null)
 		is_grabbed = false
+		
+		# if the cursor is over a placeable joint, attach me to that joint
 
 func _process(delta: float) -> void:
 	if is_grabbed:
 		dragging(delta)
 
-func dragging(delta: float):
+func dragging(_delta: float):
 	var mouse_target = get_global_mouse_position()
 	global_position = lerp(global_position, mouse_target, 0.33)
 

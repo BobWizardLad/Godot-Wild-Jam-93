@@ -19,6 +19,7 @@ position = Vector2(0, -8)
 texture = SubResource("AtlasTexture_5ok0c")
 
 [node name="RootJoint" parent="." unique_id=1547983137 instance=ExtResource("3_nvyo6")]
+is_root = true
 
 [node name="DragArea" type="Area2D" parent="." unique_id=248890237]
 

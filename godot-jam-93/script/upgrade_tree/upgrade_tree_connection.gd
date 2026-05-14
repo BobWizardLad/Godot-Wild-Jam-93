@@ -13,7 +13,12 @@ enum UpgradeNodeJoint {
 @onready var polygon_indicator : Polygon2D = $Indicator
 
 @export var joint: UpgradeNodeJoint
+@export var is_root: bool = false
 var neighbor: UpgradeTreeNode
+
+func _ready() -> void:
+	mouse_entered.connect(CursorState.set_as_hovered.bind(self))
+	mouse_exited.connect(CursorState.remove_as_hovered.bind(self))
 
 ## Return if an incoming connection is valid against this connection
 func is_neighbor_valid(incoming_connection: UpgradeTreeConnection) -> bool:
@@ -22,6 +27,9 @@ func is_neighbor_valid(incoming_connection: UpgradeTreeConnection) -> bool:
 ## Shows or hides the indicator for this joint based on is_displaying
 func display_indicator(is_displaying: bool) -> void:
 	polygon_indicator.visible = is_displaying
+
+func remove_connected_node() -> void:
+	neighbor = null
 
 func add_connected_node(new_node: UpgradeTreeNode) -> void:
 	if is_neighbor_valid(new_node.root_connection):
