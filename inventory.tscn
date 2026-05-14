@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bwo7kcb4mb81l"]
+
+[ext_resource type="Texture2D" uid="uid://dqr1w5t0wtbc0" path="res://godot-jam-93/assets/sprites/builder_panel.png" id="1_psafj"]
+[ext_resource type="Texture2D" uid="uid://vcpdjffkdop4" path="res://godot-jam-93/assets/sprites/inventory_panel.png" id="2_5tt2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tt2m"]
+size = Vector2(544, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psafj"]
+size = Vector2(400, 530)
+
+[node name="Inventory" type="CanvasLayer" unique_id=270789528]
+
+[node name="TreeBuilder" type="Node2D" parent="." unique_id=201324811]
+
+[node name="Panel" type="Node2D" parent="TreeBuilder" unique_id=48963792]
+
+[node name="Sprite" type="Sprite2D" parent="TreeBuilder/Panel" unique_id=581276538]
+position = Vector2(275, 270)
+texture = ExtResource("1_psafj")
+
+[node name="Area2D2" type="Area2D" parent="TreeBuilder/Panel" unique_id=1971264978]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBuilder/Panel/Area2D2" unique_id=859506415]
+position = Vector2(278, 270)
+shape = SubResource("RectangleShape2D_5tt2m")
+
+[node name="Inventory" type="Node2D" parent="." unique_id=591605681]
+position = Vector2(550, 0)
+
+[node name="Panel" type="Node2D" parent="Inventory" unique_id=1210335917]
+
+[node name="Sprite" type="Sprite2D" parent="Inventory/Panel" unique_id=931680790]
+position = Vector2(206, 270)
+texture = ExtResource("2_5tt2m")
+
+[node name="Area2D" type="Area2D" parent="Inventory/Panel" unique_id=884367434]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/Panel/Area2D" unique_id=1173130886]
+position = Vector2(206, 270)
+shape = SubResource("RectangleShape2D_psafj")
