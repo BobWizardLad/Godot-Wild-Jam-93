@@ -17,4 +17,7 @@ script = SubResource("GDScript_hel3l")
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_1js1s")]
 
+[node name="PlayerUpgradeTreeController" parent="Player" index="12" unique_id=327945761]
+visible = false
+
 [editable path="Player"]

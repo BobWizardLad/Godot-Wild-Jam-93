@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://bqkb36ryybjm3"]
 
 [ext_resource type="Script" uid="uid://72h3xuj3b804" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_common.gd" id="1_jbqly"]
-[ext_resource type="Script" uid="uid://bd5r1tk4cfks2" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_connection.gd" id="2_5ok0c"]
+[ext_resource type="Texture2D" uid="uid://b2vdydmviq6pm" path="res://godot-jam-93/assets/sprites/skillPuzzle.png" id="2_nvyo6"]
+[ext_resource type="PackedScene" uid="uid://bok7ad3wuiv6i" path="res://godot-jam-93/components/joint.tscn" id="3_nvyo6"]
 
-[sub_resource type="Resource" id="Resource_5ok0c"]
-script = ExtResource("2_5ok0c")
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ok0c"]
+atlas = ExtResource("2_nvyo6")
+region = Rect2(32, 0, 16, 16)
 
-[node name="CommonUpgradeA" type="Node" unique_id=1387658625]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvyo6"]
+
+[node name="CommonUpgradeA" type="Node2D" unique_id=448960259 node_paths=PackedStringArray("root_connection")]
 script = ExtResource("1_jbqly")
-root_connection = SubResource("Resource_5ok0c")
+root_connection = NodePath("RootJoint")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449702681]
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_5ok0c")
+
+[node name="RootJoint" parent="." unique_id=1547983137 instance=ExtResource("3_nvyo6")]
+
+[node name="DragArea" type="Area2D" parent="." unique_id=248890237]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=695410796]
+shape = SubResource("RectangleShape2D_nvyo6")
+
+[connection signal="mouse_entered" from="DragArea" to="." method="_on_drag_area_mouse_entered"]
+[connection signal="mouse_exited" from="DragArea" to="." method="_on_drag_area_mouse_exited"]
