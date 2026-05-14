@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pm6w6b1erios"]
 
 [ext_resource type="Texture2D" uid="uid://bk5fk046uj8ro" path="res://godot-jam-93/assets/sprites/UIjunk.png" id="1_6kcqn"]
+[ext_resource type="Script" uid="uid://bxjbqrlvr55pp" path="res://godot-jam-93/script/tree_builder_root.gd" id="1_pf8jt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oufs5"]
 atlas = ExtResource("1_6kcqn")
@@ -10,6 +11,7 @@ region = Rect2(16, 0, 48, 48)
 radius = 14.0
 
 [node name="TreeBuilderRoot" type="Node2D" unique_id=827550299]
+script = ExtResource("1_pf8jt")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=774100071]
 texture = SubResource("AtlasTexture_oufs5")
