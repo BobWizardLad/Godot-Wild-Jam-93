@@ -7,14 +7,28 @@ func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null,
 	super(this_upgrades, this_sprite, this_root_connection)
 
 func _ready() -> void:
+	pass
 	## Connect cursor state to the controller
-	CursorState.draggable_node_changed.connect(_on_cursor_state_changed)
+	CursorState.draggable_node_picked.connect(_on_draggable_picked)
+	CursorState.draggable_node_dropped.connect(_on_draggable_dropped)
 
-func _on_cursor_state_changed() -> void:
-	if CursorState.current_draggable_node != null:
-		display_valid_connections(CursorState.current_draggable_node.root_connection)
-	else:
-		display_valid_connections(null)
+func _on_draggable_picked(draggable_node: DraggableUpgradeTreeNode) -> void:
+	display_valid_connections(CursorState.current_draggable_node.root_connection)
+
+func _on_draggable_dropped(draggable_node: DraggableUpgradeTreeNode) -> void:
+	print_debug("Connection attempt from dragged node to hovered joint: " + str(CursorState.connect_draggable_node_to_hovered_connection()))
+	display_valid_connections(null)
+
+# WARNING This is just an iffy piece of state stuff if anything connecting nodes goes wrong
+# TODO move most of this logic to the cursor singleton probs
+#func _on_cursor_state_changed() -> void:
+	#if current_draggable_node != null:
+		#display_valid_connections(current_draggable_node.root_connection)
+	#else:
+		#if current_hovered_connection.is_neighbor_valid(current_draggable_node.root_connection):
+			#current_hovered_connection.add_connected_node(current_draggable_node)
+			#current_draggable_node.root_connection.add_connected_node(current_hovered_connection.get_parent())
+		#display_valid_connections(null)
 
 #func add_neighbor_at(this_neighbor: UpgradeTreeNode, connection_idx: int) -> bool:
 	#if is_neighbor_valid(this_neighbor.root_connection, connections_out[connection_idx]):
