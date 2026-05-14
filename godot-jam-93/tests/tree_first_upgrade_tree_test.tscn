@@ -3,11 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="1_yo0fl"]
 [ext_resource type="PackedScene" uid="uid://bqkb36ryybjm3" path="res://godot-jam-93/components/upgrade_tree/upgrades/common_upgrade_A.tscn" id="2_ayua1"]
 
-[node name="TreeFirstUpgradeTreeTest" type="Node2D" unique_id=1304989941]
+[sub_resource type="GDScript" id="GDScript_ayua1"]
+resource_name = "teest"
+script/source = "extends Node2D
 
-[node name="PlayerUpgradeTreeController" parent="." unique_id=1398468966 node_paths=PackedStringArray("connections_out") instance=ExtResource("1_yo0fl")]
-position = Vector2(55, 47)
-connections_out = []
+func _ready() -> void:
+		$PlayerUpgradeTreeController.connections_out[0].neighbor = $PlayerUpgradeTreeController2
+"
+
+[node name="TreeFirstUpgradeTreeTest" type="Node2D" unique_id=1304989941]
+script = SubResource("GDScript_ayua1")
 
 [node name="CommonUpgradeA" parent="." unique_id=448960259 instance=ExtResource("2_ayua1")]
 position = Vector2(122, 76)
+
+[node name="CommonUpgradeA2" parent="." unique_id=302679317 instance=ExtResource("2_ayua1")]
+position = Vector2(137, 29)
+
+[node name="CommonUpgradeA3" parent="." unique_id=1343805848 instance=ExtResource("2_ayua1")]
+position = Vector2(184, 72)
+
+[node name="PlayerUpgradeTreeController" parent="." unique_id=1398468966 instance=ExtResource("1_yo0fl")]
+position = Vector2(216, 143)
+
+[node name="PlayerUpgradeTreeController2" parent="." unique_id=1375700927 instance=ExtResource("1_yo0fl")]
+position = Vector2(295, 110)

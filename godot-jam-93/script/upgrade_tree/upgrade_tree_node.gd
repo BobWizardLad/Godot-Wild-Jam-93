@@ -25,3 +25,16 @@ func apply_upgrades_in_tree(player: Player) -> void:
 	for each in connections_out:
 		if each.neighbor != null:
 			each.neighbor.apply_upgrades_in_tree(player)
+
+## Propagate a check on the currently held node to see which nodes it can plug into
+## Toggle on the connection's visual inidcator when compatible
+## Toggle off anything not compatible, or all if the new connectino is null
+## (dropped a node or not holding one)
+func display_valid_connections(new_connection: UpgradeTreeConnection):
+	for each in connections_out:
+		if new_connection == null || !each.is_neighbor_valid(new_connection):
+			each.display_indicator(false)
+		elif each.is_neighbor_valid(new_connection):
+			each.display_indicator(true)
+		if each.neighbor != null:
+			each.neighbor.display_valid_connections(new_connection)

@@ -17,7 +17,7 @@ var neighbor: UpgradeTreeNode
 
 ## Return if an incoming connection is valid against this connection
 func is_neighbor_valid(incoming_connection: UpgradeTreeConnection) -> bool:
-	return incoming_connection.joint == joint
+	return incoming_connection.joint == joint && neighbor == null
 
 ## Shows or hides the indicator for this joint based on is_displaying
 func display_indicator(is_displaying: bool) -> void:

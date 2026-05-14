@@ -19,9 +19,11 @@ func _init(
 	mouse_is_hover = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mouse_is_hover:
+	if CursorState.current_draggable_node == null and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mouse_is_hover:
+		CursorState.set_current_draggable_node(self)
 		is_grabbed = true
-	if event is InputEventMouseButton and !event.pressed:
+	if event is InputEventMouseButton and !event.pressed and CursorState.current_draggable_node == self:
+		CursorState.set_current_draggable_node(null)
 		is_grabbed = false
 
 func _process(delta: float) -> void:

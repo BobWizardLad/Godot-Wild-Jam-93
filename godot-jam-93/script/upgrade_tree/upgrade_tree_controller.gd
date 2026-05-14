@@ -6,10 +6,15 @@ extends UpgradeTreeNode
 func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null, this_root_connection: UpgradeTreeConnection = null) -> void:
 	super(this_upgrades, this_sprite, this_root_connection)
 
+func _ready() -> void:
+	## Connect cursor state to the controller
+	CursorState.draggable_node_changed.connect(_on_cursor_state_changed)
 
-
-#func _ready() -> void:
-	#neighbor_children_if_connection()
+func _on_cursor_state_changed() -> void:
+	if CursorState.current_draggable_node != null:
+		display_valid_connections(CursorState.current_draggable_node.root_connection)
+	else:
+		display_valid_connections(null)
 
 #func add_neighbor_at(this_neighbor: UpgradeTreeNode, connection_idx: int) -> bool:
 	#if is_neighbor_valid(this_neighbor.root_connection, connections_out[connection_idx]):

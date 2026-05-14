@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b2vdydmviq6pm" path="res://godot-jam-93/assets/sprites/skillPuzzle.png" id="1_f1xch"]
 [ext_resource type="PackedScene" uid="uid://bok7ad3wuiv6i" path="res://godot-jam-93/components/joint.tscn" id="3_6i0j1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw7vr"]
-size = Vector2(38, 38)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywpcy"]
 atlas = ExtResource("1_f1xch")
 region = Rect2(64, 0, 48, 48)
@@ -14,11 +11,6 @@ region = Rect2(64, 0, 48, 48)
 [node name="PlayerUpgradeTreeController" type="Node2D" unique_id=1398468966 node_paths=PackedStringArray("connections_out")]
 script = ExtResource("1_1u7k3")
 connections_out = [NodePath("JointNorth"), NodePath("JointEast"), NodePath("JointSouth"), NodePath("JointWest")]
-
-[node name="DragArea" type="Area2D" parent="." unique_id=913822365]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=486831443]
-shape = SubResource("RectangleShape2D_fw7vr")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1684120553]
 texture = SubResource("AtlasTexture_ywpcy")
@@ -28,9 +20,11 @@ position = Vector2(0, -16)
 
 [node name="JointEast" parent="." unique_id=1445459894 instance=ExtResource("3_6i0j1")]
 position = Vector2(16, 0)
+joint = 1
 
 [node name="JointSouth" parent="." unique_id=1271823985 instance=ExtResource("3_6i0j1")]
 position = Vector2(0, 16)
 
 [node name="JointWest" parent="." unique_id=2097431221 instance=ExtResource("3_6i0j1")]
 position = Vector2(-16, 0)
+joint = 3
