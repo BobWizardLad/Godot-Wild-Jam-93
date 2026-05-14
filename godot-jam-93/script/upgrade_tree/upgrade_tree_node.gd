@@ -1,5 +1,5 @@
 @abstract class_name UpgradeTreeNode
-extends Node
+extends Node2D
 
 ## Holds all data for any base upgrade tree node, such as upgrades and root connection
 
