@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://pm6w6b1erios"]
+
+[ext_resource type="Texture2D" uid="uid://bk5fk046uj8ro" path="res://godot-jam-93/assets/sprites/UIjunk.png" id="1_6kcqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oufs5"]
+atlas = ExtResource("1_6kcqn")
+region = Rect2(16, 0, 48, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkjku"]
+radius = 14.0
+
+[node name="TreeBuilderRoot" type="Node2D" unique_id=827550299]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=774100071]
+texture = SubResource("AtlasTexture_oufs5")
+
+[node name="West" type="Marker2D" parent="." unique_id=1792756445]
+position = Vector2(-24, 0)
+
+[node name="WestArea" type="Area2D" parent="." unique_id=740000932]
+position = Vector2(-24, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WestArea" unique_id=786879137]
+shape = SubResource("CircleShape2D_wkjku")
+
+[node name="North" type="Marker2D" parent="." unique_id=1863051550]
+position = Vector2(0, -24)
+
+[node name="NorthArea" type="Area2D" parent="." unique_id=241523287]
+position = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthArea" unique_id=933031920]
+shape = SubResource("CircleShape2D_wkjku")
+
+[node name="East" type="Marker2D" parent="." unique_id=945119197]
+position = Vector2(24, 0)
+
+[node name="EastArea" type="Area2D" parent="." unique_id=1376551181]
+position = Vector2(24, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EastArea" unique_id=1870291019]
+shape = SubResource("CircleShape2D_wkjku")
+
+[node name="South" type="Marker2D" parent="." unique_id=974929302]
+position = Vector2(0, 24)
+
+[node name="SouthArea" type="Area2D" parent="." unique_id=190920141]
+position = Vector2(0, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthArea" unique_id=557636772]
+shape = SubResource("CircleShape2D_wkjku")
