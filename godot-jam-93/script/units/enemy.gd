@@ -6,11 +6,14 @@ extends Unit
 
 @export var nav_target: Node2D
 
+signal pickup_holder_died(position: Vector2)
+
 # Move towards the player
 # attack the player (move into them, then stop for a short time)
 
 func _ready() -> void:
 	super()
+	
 	add_to_group("Enemy", true)
 	if nav_target:
 		nav_agent.target_position = nav_target.global_position
@@ -20,7 +23,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if current_health <= 0:
-		PickupSpawner.spawn_pickup(global_position)
+		pickup_holder_died.emit(global_position)
 		die()
 
 func _physics_process(_delta: float) -> void:

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfvv0yqn26pqe"]
 
-[ext_resource type="Script" uid="uid://bghu3fdfm8v5d" path="res://godot-jam-93/script/components/health_pickup.gd" id="1_c76be"]
+[ext_resource type="Script" path="res://godot-jam-93/script/components/health_pickup.gd" id="1_c76be"]
 [ext_resource type="Texture2D" uid="uid://dgxsd3naaeqdq" path="res://godot-jam-93/assets/sprites/Icons_Alchemy.png" id="2_jd4qq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c76be"]
