@@ -15,4 +15,5 @@ func spawn_unit(unit: PackedScene):
 	inst_unit.global_position = global_position
 	inst_unit.nav_target = get_tree().get_first_node_in_group("Player")
 	inst_unit.died.connect(get_tree().get_first_node_in_group("EndlessGameManager").update_points.bind(1)) # TODO Point per kill
+	inst_unit.pickup_holder_died.connect(get_tree().get_first_node_in_group("PickupSpawner").spawn_pickup)
 	get_parent().add_child(inst_unit)

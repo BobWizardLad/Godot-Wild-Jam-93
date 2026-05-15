@@ -3,6 +3,7 @@ extends Unit
 
 @export var upgrade_tree_controller: UpgradeTreeController
 @export var inventory: Inventory
+@export var upgrade_factory: UpgradeFactory
 @export var player_debug: bool
 
 @export_group("Gun Stats")
@@ -45,6 +46,7 @@ func _ready() -> void:
 	if !player_debug:
 		assert(upgrade_tree_controller != null, "No Upgrade Tree Controller pointed to in Player!")
 		assert(inventory != null, "No Inventory Node pointed to in Player!")
+		assert(upgrade_factory != null, "No Upgrade Factory pointed to in Player!")
 		upgrade_tree_controller.apply_upgrades_in_tree(self)
 		upgrade_tree_controller.upgrade_tree_modified.connect(_on_upgrade_tree_modified)
 	
@@ -126,6 +128,18 @@ func dash_movement():
 
 func shoot_attack(target: Vector2) -> void:
 	gun_controller.shoot(target)
+
+## Roll an upgrade based on type.
+## 0: common. 1: rare. 2: very rare.
+# TODO Man this one is really just slammed down huh? need to slow down...
+func roll_upgrade(type: int) -> void:
+	match type:
+		0:
+			inventory.add_child(upgrade_factory.get_common())
+		1:
+			inventory.add_child(upgrade_factory.get_rare())
+		2:
+			inventory.add_child(upgrade_factory.get_very_rare())
 
 func player_death_sequence() -> void:
 	died.emit()

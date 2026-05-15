@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://q8wa6djegpey"]
 
+[ext_resource type="PackedScene" uid="uid://bo4rp2ibw5jls" path="res://godot-jam-93/components/pickups/pickup_spawner.tscn" id="1_2asc2"]
 [ext_resource type="PackedScene" uid="uid://bqvxin4hxu3yw" path="res://godot-jam-93/components/game_state_manager.tscn" id="1_06gfm"]
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_aph6e"]
 [ext_resource type="PackedScene" uid="uid://q8kr5ops2rob" path="res://godot-jam-93/components/spawner_controller.tscn" id="1_u5g52"]
@@ -7,14 +8,18 @@
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_4wduo"]
 [ext_resource type="PackedScene" uid="uid://bycujkkfhamed" path="res://godot-jam-93/pause_menu.tscn" id="2_7sqls"]
 [ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/units/enemy.tscn" id="2_saos5"]
+[ext_resource type="PackedScene" uid="uid://bhlu1y2e6q7r" path="res://godot-jam-93/components/pickups/common_pickup.tscn" id="2_umo6c"]
 [ext_resource type="PackedScene" uid="uid://c33maklt8rrc6" path="res://godot-jam-93/components/units/gunner.tscn" id="3_8tt0i"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="3_e5m24"]
+[ext_resource type="PackedScene" uid="uid://dfvv0yqn26pqe" path="res://godot-jam-93/components/pickups/health_pickup.tscn" id="3_pnaco"]
+[ext_resource type="PackedScene" uid="uid://b3y8pqbk2v8ea" path="res://godot-jam-93/components/pickups/rare_pickup.tscn" id="4_l2nfg"]
 [ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="4_tuos5"]
 [ext_resource type="PackedScene" uid="uid://b8df8bbivw34b" path="res://godot-jam-93/components/units/striker.tscn" id="5_06gfm"]
+[ext_resource type="PackedScene" uid="uid://8jxnthdulhfh" path="res://godot-jam-93/components/pickups/ultra_rare_pickup.tscn" id="5_edg85"]
 [ext_resource type="Script" uid="uid://bdmh716eo0kgj" path="res://godot-jam-93/script/spawner_node.gd" id="6_8tt0i"]
 [ext_resource type="PackedScene" uid="uid://bshfqnr4d8e5a" path="res://godot-jam-93/components/gameplay_interface.tscn" id="6_tuos5"]
 [ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="7_5vh6q"]
-[ext_resource type="PackedScene" uid="uid://dji0gqx1cto4t" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="7_7sqls"]
+[ext_resource type="PackedScene" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="7_7sqls"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8tt0i"]
 vertices = PackedVector2Array(778.28125, 583, 999.4531, 583, 245, 616.10156, 392, 456.10156, 1192, 522, 231, 486.10156, 7.9921875, 40, 1322, 40, 344.02344, 90, 296.02344, 90, 744, 392, 617, 392, 330, 454.89844, 1289, 522, 231, 440, 1192, 218, 744, 250, 392, 410, 995.59375, 538, 775.71094, 538, 1289, 664, 1163, 664, 7.0078125, 378, 294.97656, 329, 40.023438, 378, 330, 410, 245, 570, 345.14063, 551.8672, 297.14063, 553.1328, 151, 551, 183, 570, 1322, 218, 617, 250, 342.97656, 329, 169, 440, 295.85938, 507, 151, 511, 343.85938, 507, 169, 484.89844, 1163, 697, 39.023438, 697, 183, 614.89844, 122.15625, 511, 120.828125, 551)
@@ -25,6 +30,10 @@ agent_radius = 5.0
 
 [node name="EndlessLevel" type="Node2D" unique_id=368954809]
 process_mode = 1
+
+[node name="PickupSpawner" parent="." unique_id=296766545 instance=ExtResource("1_2asc2")]
+pickups_pool = Array[PackedScene]([ExtResource("2_umo6c"), ExtResource("3_pnaco"), ExtResource("4_l2nfg"), ExtResource("5_edg85")])
+pickup_chance = 0.1
 
 [node name="EndlessGameManager" parent="." unique_id=1943298023 instance=ExtResource("1_06gfm")]
 
@@ -156,10 +165,11 @@ polygon = PackedVector2Array(339, 512, 301, 512, 302, 548, 340, 547)
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(781, 543, 991, 543, 994, 578, 783, 578)
 
-[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory") instance=ExtResource("3_e5m24")]
+[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory", "upgrade_factory") instance=ExtResource("3_e5m24")]
 position = Vector2(111, 120)
 upgrade_tree_controller = NodePath("../PlayerInventoryTree/Inventory/PlayerUpgradeTreeController")
 inventory = NodePath("../PlayerInventoryTree/Inventory")
+upgrade_factory = NodePath("../UpgradeFactory")
 
 [node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=509651857]
 zoom = Vector2(2, 2)

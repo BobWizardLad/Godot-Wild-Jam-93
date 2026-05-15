@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhlu1y2e6q7r"]
 
-[ext_resource type="Script" uid="uid://bra3pxxw4r6lw" path="res://godot-jam-93/script/common_pickup.gd" id="1_48vuc"]
+[ext_resource type="Script" uid="uid://bra3pxxw4r6lw" path="res://godot-jam-93/script/upgrade_pickup.gd" id="1_48vuc"]
 [ext_resource type="Texture2D" uid="uid://by5spdssvdato" path="res://godot-jam-93/assets/sprites/Icons_Boardgames.png" id="2_48vuc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c76be"]

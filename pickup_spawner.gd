@@ -4,6 +4,9 @@ extends Node
 ## Percentage chance a pickup will be spawned
 @export_range(0.0, 1.0) var pickup_chance: float
 
+func _ready() -> void:
+	add_to_group("PickupSpawner", true)
+
 func spawn_pickup(pickup_position: Vector2) -> void:
 	var roll = randf()
 	if roll <= pickup_chance:
