@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b8df8bbivw34b" path="res://godot-jam-93/components/units/striker.tscn" id="5_06gfm"]
 [ext_resource type="Script" uid="uid://bdmh716eo0kgj" path="res://godot-jam-93/script/spawner_node.gd" id="6_8tt0i"]
 [ext_resource type="PackedScene" uid="uid://bshfqnr4d8e5a" path="res://godot-jam-93/components/gameplay_interface.tscn" id="6_tuos5"]
+[ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="7_5vh6q"]
+[ext_resource type="PackedScene" uid="uid://dji0gqx1cto4t" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="7_7sqls"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8tt0i"]
 vertices = PackedVector2Array(778.28125, 583, 999.4531, 583, 245, 616.10156, 392, 456.10156, 1192, 522, 231, 486.10156, 7.9921875, 40, 1322, 40, 344.02344, 90, 296.02344, 90, 744, 392, 617, 392, 330, 454.89844, 1289, 522, 231, 440, 1192, 218, 744, 250, 392, 410, 995.59375, 538, 775.71094, 538, 1289, 664, 1163, 664, 7.0078125, 378, 294.97656, 329, 40.023438, 378, 330, 410, 245, 570, 345.14063, 551.8672, 297.14063, 553.1328, 151, 551, 183, 570, 1322, 218, 617, 250, 342.97656, 329, 169, 440, 295.85938, 507, 151, 511, 343.85938, 507, 169, 484.89844, 1163, 697, 39.023438, 697, 183, 614.89844, 122.15625, 511, 120.828125, 551)
@@ -31,9 +33,11 @@ spawn_pool = Array[PackedScene]([ExtResource("2_saos5"), ExtResource("3_8tt0i"),
 spawn_chance = Array[float]([0.6, 0.2, 0.1, 0.1])
 spawn_interval = 0.3
 
+[node name="UpgradeFactory" parent="." unique_id=1908081772 instance=ExtResource("7_5vh6q")]
+
 [node name="Interface" type="CanvasLayer" parent="." unique_id=379411093]
 process_mode = 3
-layer = 10
+layer = 99
 
 [node name="PauseMenuController" type="Node" parent="Interface" unique_id=1533617071]
 script = ExtResource("1_wstwg")
@@ -48,8 +52,14 @@ offset_left = 17.0
 offset_top = 85.0
 offset_right = 109.0
 offset_bottom = 116.0
+mouse_filter = 1
 text = "Start Wave"
 metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventoryTree" parent="." unique_id=300612940 instance=ExtResource("7_7sqls")]
+
+[node name="Inventory" parent="PlayerInventoryTree" index="1" unique_id=15317171 node_paths=PackedStringArray("upgrade_factory")]
+upgrade_factory = NodePath("../../UpgradeFactory")
 
 [node name="Spawners" type="Node2D" parent="." unique_id=486939272]
 
@@ -146,8 +156,10 @@ polygon = PackedVector2Array(339, 512, 301, 512, 302, 548, 340, 547)
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(781, 543, 991, 543, 994, 578, 783, 578)
 
-[node name="Player" parent="." unique_id=580681997 instance=ExtResource("3_e5m24")]
+[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory") instance=ExtResource("3_e5m24")]
 position = Vector2(111, 120)
+upgrade_tree_controller = NodePath("../PlayerInventoryTree/Inventory/PlayerUpgradeTreeController")
+inventory = NodePath("../PlayerInventoryTree/Inventory")
 
 [node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=509651857]
 zoom = Vector2(2, 2)
@@ -157,3 +169,5 @@ zoom = Vector2(2, 2)
 [connection signal="pressed" from="Interface/Button" to="SpawnerController" method="_on_button_pressed"]
 [connection signal="died" from="Player" to="EndlessGameManager" method="process_game_over"]
 [connection signal="died" from="Player" to="Interface/GameplayInterface" method="trigger_game_over"]
+
+[editable path="PlayerInventoryTree"]

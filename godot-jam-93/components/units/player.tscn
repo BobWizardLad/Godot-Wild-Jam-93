@@ -1847,6 +1847,7 @@ sfx_shoot = ExtResource("10_17egq")
 [node name="HealthDisplay" parent="." unique_id=382223720 instance=ExtResource("9_4hbu0")]
 offset_top = 20.0
 offset_bottom = 20.0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [connection signal="damage_taken" from="." to="MovementBlender" method="animate_damage"]

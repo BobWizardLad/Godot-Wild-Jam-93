@@ -41,6 +41,9 @@ var dash_direction: Vector2
 @onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 func _ready() -> void:
+	assert(upgrade_tree_controller != null, "No Upgrade Tree Controller pointed to in Player!")
+	assert(inventory != null, "No Inventory Node pointed to in Player!")
+	
 	super()
 	reset_player_stats()
 	upgrade_tree_controller.apply_upgrades_in_tree(self)

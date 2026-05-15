@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dji0gqx1cto4t"]
 
+[ext_resource type="Script" uid="uid://cbc7c45d083bl" path="res://godot-jam-93/script/player_inventory_tree.gd" id="1_55y5i"]
 [ext_resource type="PackedScene" uid="uid://cfm66gfhevfoi" path="res://godot-jam-93/components/inventory.tscn" id="1_c1cje"]
 [ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="2_55y5i"]
 
@@ -7,6 +8,7 @@
 process_mode = 3
 layer = 15
 visible = false
+script = ExtResource("1_55y5i")
 
 [node name="Panel" type="Panel" parent="." unique_id=115893013]
 anchors_preset = 15
