@@ -2,6 +2,7 @@ class_name Player
 extends Unit
 
 @export var upgrade_tree_controller: UpgradeTreeController
+@export var inventory: Inventory
 
 @export_group("Gun Stats")
 var bullet_speed: float

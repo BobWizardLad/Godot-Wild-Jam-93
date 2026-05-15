@@ -9,7 +9,8 @@ func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null,
 	super(this_upgrades, this_sprite, this_root_connection)
 
 func _ready() -> void:
-	pass
+	global_position = get_viewport_rect().get_center()
+	
 	## Connect cursor state to the controller
 	CursorState.draggable_node_picked.connect(_on_draggable_picked)
 	CursorState.draggable_node_dropped.connect(_on_draggable_dropped)

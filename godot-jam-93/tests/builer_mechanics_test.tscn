@@ -2,17 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="1_2eb2a"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_srku4"]
-[ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="2_wgjgb"]
-[ext_resource type="PackedScene" uid="uid://cfm66gfhevfoi" path="res://godot-jam-93/components/inventory.tscn" id="11_vs5he"]
+[ext_resource type="PackedScene" uid="uid://dji0gqx1cto4t" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="3_vtfw0"]
 
 [sub_resource type="GDScript" id="GDScript_2eb2a"]
 resource_name = "test"
 script/source = "extends Node2D
 
 func _ready() -> void:
-	$Inventory.add_child($UpgradeFactory.get_common())
-	$Inventory.add_child($UpgradeFactory.get_common())
-	$Inventory.add_child($UpgradeFactory.get_common())
+	pass
 "
 
 [node name="BuilerMechanicsTest" type="Node2D" unique_id=697134632]
@@ -21,11 +18,31 @@ script = SubResource("GDScript_2eb2a")
 
 [node name="UpgradeFactory" parent="." unique_id=1908081772 instance=ExtResource("1_2eb2a")]
 
-[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller") instance=ExtResource("1_srku4")]
-upgrade_tree_controller = NodePath("../Inventory/PlayerUpgradeTreeController")
+[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory") instance=ExtResource("1_srku4")]
+upgrade_tree_controller = NodePath("../PlayerInventoryTree/Inventory/PlayerUpgradeTreeController")
+inventory = NodePath("../PlayerInventoryTree/Inventory")
 
-[node name="Inventory" parent="." unique_id=15317171 node_paths=PackedStringArray("upgrade_factory") instance=ExtResource("11_vs5he")]
-upgrade_factory = NodePath("../UpgradeFactory")
+[node name="PlayerInventoryTree" parent="." unique_id=300612940 instance=ExtResource("3_vtfw0")]
 
-[node name="PlayerUpgradeTreeController" parent="Inventory" unique_id=1398468966 instance=ExtResource("2_wgjgb")]
-position = Vector2(284, 253)
+[node name="Button" type="Button" parent="PlayerInventoryTree" unique_id=737878018]
+offset_left = 11.0
+offset_top = 498.0
+offset_right = 163.0
+offset_bottom = 529.0
+text = "Add New Common"
+
+[node name="Button2" type="Button" parent="PlayerInventoryTree" unique_id=1206488142]
+offset_left = 172.0
+offset_top = 498.0
+offset_right = 324.0
+offset_bottom = 529.0
+text = "Add New Rare"
+
+[node name="Button3" type="Button" parent="PlayerInventoryTree" unique_id=930989079]
+offset_left = 334.0
+offset_top = 498.0
+offset_right = 491.0
+offset_bottom = 529.0
+text = "Add New Very Rare"
+
+[editable path="PlayerInventoryTree"]
