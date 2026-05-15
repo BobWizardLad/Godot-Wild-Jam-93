@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://j53wn3mg7d7w"]
+[gd_scene format=3 uid="uid://cpcuc2t30oy70"]
 
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="2_igjhv"]
 [ext_resource type="PackedScene" uid="uid://dfvv0yqn26pqe" path="res://godot-jam-93/components/pickups/health_pickup.tscn" id="3_3doan"]
@@ -17,6 +17,7 @@ editor_description = "Test scene to work on pickupables in the game such as heal
 script = SubResource("GDScript_qsked")
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("2_igjhv")]
+player_debug = true
 current_health = 1
 
 [node name="HealthPickup" parent="." unique_id=1288070350 instance=ExtResource("3_3doan")]

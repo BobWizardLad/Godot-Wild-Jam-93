@@ -3,6 +3,7 @@ extends Unit
 
 @export var upgrade_tree_controller: UpgradeTreeController
 @export var inventory: Inventory
+@export var player_debug: bool
 
 @export_group("Gun Stats")
 var bullet_speed: float
@@ -41,14 +42,15 @@ var dash_direction: Vector2
 @onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
 
 func _ready() -> void:
-	assert(upgrade_tree_controller != null, "No Upgrade Tree Controller pointed to in Player!")
-	assert(inventory != null, "No Inventory Node pointed to in Player!")
+	if !player_debug:
+		assert(upgrade_tree_controller != null, "No Upgrade Tree Controller pointed to in Player!")
+		assert(inventory != null, "No Inventory Node pointed to in Player!")
+		upgrade_tree_controller.apply_upgrades_in_tree(self)
+		upgrade_tree_controller.upgrade_tree_modified.connect(_on_upgrade_tree_modified)
 	
 	super()
 	reset_player_stats()
-	upgrade_tree_controller.apply_upgrades_in_tree(self)
 	
-	upgrade_tree_controller.upgrade_tree_modified.connect(_on_upgrade_tree_modified)
 
 func _physics_process(_delta: float) -> void:
 	super(_delta)
