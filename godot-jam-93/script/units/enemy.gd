@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if current_health <= 0:
+		PickupSpawner.spawn_pickup(global_position)
 		die()
 
 func _physics_process(_delta: float) -> void:

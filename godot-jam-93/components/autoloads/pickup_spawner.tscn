@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bo4rp2ibw5jls"]
+
+[ext_resource type="Script" uid="uid://b8rwrrdrip0et" path="res://pickup_spawner.gd" id="1_2be5i"]
+[ext_resource type="PackedScene" uid="uid://dfvv0yqn26pqe" path="res://godot-jam-93/components/pickups/health_pickup.tscn" id="2_08f74"]
+
+[node name="PickupSpawner" type="Node" unique_id=296766545]
+editor_description = "Component that will spawn a pickup when it exits the tree."
+script = ExtResource("1_2be5i")
+pickups_pool = Array[PackedScene]([ExtResource("2_08f74")])
+pickup_chance = 0.15
