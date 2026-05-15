@@ -3,18 +3,44 @@
 [ext_resource type="Script" uid="uid://civvnh5iuwrhk" path="res://godot-jam-93/script/components/upgrade_factory.gd" id="1_qwg1m"]
 [ext_resource type="PackedScene" uid="uid://bqkb36ryybjm3" path="res://godot-jam-93/components/upgrade_tree/upgrades/common_upgrade_A.tscn" id="2_043ts"]
 [ext_resource type="Script" uid="uid://cxqmocp25mrsb" path="res://godot-jam-93/script/upgrade_tree/upgrades/upgrade_res.gd" id="2_bqmbf"]
+[ext_resource type="PackedScene" uid="uid://b17nfpy1bafp6" path="res://godot-jam-93/components/upgrade_tree/upgrades/common_upgrade_B.tscn" id="3_c3iiw"]
 [ext_resource type="Resource" uid="uid://uvbsrs3wxhd4" path="res://godot-jam-93/assets/resources/upgrades/common/attack_upgrade.tres" id="3_ru7vh"]
 [ext_resource type="Resource" uid="uid://bbarwoo0d1glt" path="res://godot-jam-93/assets/resources/upgrades/common/bullet_velocity_upgrade.tres" id="4_3kt5c"]
+[ext_resource type="PackedScene" uid="uid://cr3p5w4ar0qm0" path="res://godot-jam-93/components/upgrade_tree/upgrades/common_upgrade_C.tscn" id="4_o7rfa"]
+[ext_resource type="PackedScene" uid="uid://cgkv8nxfhr6b4" path="res://godot-jam-93/components/upgrade_tree/upgrades/green_rare_upgrade_A.tscn" id="5_6p7pd"]
 [ext_resource type="Resource" uid="uid://bgijvbiw6lu86" path="res://godot-jam-93/assets/resources/upgrades/common/health_upgrade.tres" id="5_nwtbq"]
+[ext_resource type="PackedScene" uid="uid://b1dh1ieitpyeo" path="res://godot-jam-93/components/upgrade_tree/upgrades/green_rare_upgrade_B.tscn" id="6_0car0"]
 [ext_resource type="Resource" uid="uid://ce6ji6paapui2" path="res://godot-jam-93/assets/resources/upgrades/common/fire_rate_upgrade.tres" id="6_3kt5c"]
 [ext_resource type="Resource" uid="uid://1atrlisqaynv" path="res://godot-jam-93/assets/resources/upgrades/common/dash_speed_upgrade.tres" id="6_4i77v"]
+[ext_resource type="PackedScene" uid="uid://dkf127s8p62at" path="res://godot-jam-93/components/upgrade_tree/upgrades/green_rare_upgrade_C.tscn" id="7_6vqpi"]
+[ext_resource type="PackedScene" uid="uid://bdflgnhgdi4po" path="res://godot-jam-93/components/upgrade_tree/upgrades/green_rare_upgrade_D.tscn" id="8_ybhfn"]
 [ext_resource type="Resource" uid="uid://c1sqk14urmlc1" path="res://godot-jam-93/assets/resources/upgrades/common/move_speed_upgrade.tres" id="9_berxc"]
+[ext_resource type="PackedScene" uid="uid://cn4bhurx0mtjc" path="res://godot-jam-93/components/upgrade_tree/upgrades/red_rare_upgrade_A.tscn" id="9_nw0at"]
+[ext_resource type="PackedScene" uid="uid://cedasps03tl62" path="res://godot-jam-93/components/upgrade_tree/upgrades/red_rare_upgrade_B.tscn" id="10_5fotf"]
+[ext_resource type="PackedScene" uid="uid://bvu7juy0mje1s" path="res://godot-jam-93/components/upgrade_tree/upgrades/red_rare_upgrade_C.tscn" id="11_q72w1"]
+[ext_resource type="PackedScene" uid="uid://dlnajwu50ykv" path="res://godot-jam-93/components/upgrade_tree/upgrades/red_rare_upgrade_D.tscn" id="12_fghhc"]
+[ext_resource type="PackedScene" uid="uid://dbnuvvwdsfwys" path="res://godot-jam-93/components/upgrade_tree/upgrades/blue_rare_upgrade_A.tscn" id="13_pgxtt"]
+[ext_resource type="PackedScene" uid="uid://cy2qm13lb0glb" path="res://godot-jam-93/components/upgrade_tree/upgrades/blue_rare_upgrade_B.tscn" id="14_bwaoj"]
+[ext_resource type="PackedScene" uid="uid://cfvb4vran1a0b" path="res://godot-jam-93/components/upgrade_tree/upgrades/blue_rare_upgrade_C.tscn" id="15_xdxnl"]
+[ext_resource type="PackedScene" uid="uid://dcxitb1w4ajx1" path="res://godot-jam-93/components/upgrade_tree/upgrades/blue_rare_upgrade_D.tscn" id="16_iksk3"]
+[ext_resource type="PackedScene" uid="uid://ilfcwji3ii00" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_A.tscn" id="17_nw0at"]
+[ext_resource type="PackedScene" uid="uid://bbndo504estgw" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_B.tscn" id="18_5fotf"]
+[ext_resource type="PackedScene" uid="uid://b3xm7tb12sqox" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_C.tscn" id="19_q72w1"]
+[ext_resource type="PackedScene" uid="uid://dtr0seeicwnfr" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_D.tscn" id="20_fghhc"]
 
 [node name="UpgradeFactory" type="Node" unique_id=1908081772]
 editor_description = "Object that generates an upgrade piece upon request."
 script = ExtResource("1_qwg1m")
-common_upgrade_archetypes = Array[PackedScene]([ExtResource("2_043ts")])
+common_upgrade_archetypes = Array[PackedScene]([ExtResource("2_043ts"), ExtResource("3_c3iiw"), ExtResource("4_o7rfa")])
+rare_upgrade_archetypes = Array[PackedScene]([ExtResource("5_6p7pd"), ExtResource("6_0car0"), ExtResource("7_6vqpi"), ExtResource("8_ybhfn"), ExtResource("9_nw0at"), ExtResource("10_5fotf"), ExtResource("11_q72w1"), ExtResource("12_fghhc"), ExtResource("13_pgxtt"), ExtResource("14_bwaoj"), ExtResource("15_xdxnl"), ExtResource("16_iksk3")])
+very_rare_upgrade_archetypes = Array[PackedScene]([ExtResource("17_nw0at"), ExtResource("18_5fotf"), ExtResource("19_q72w1"), ExtResource("20_fghhc")])
 common_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc")])
-common_max_upgrades = 3
+common_max_upgrades = 2
+rare_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc")])
 rare_max_upgrades = 3
+very_rare_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc")])
 very_rare_max_upgrades = 1
+spawn_min_Y = 100.0
+spawn_max_Y = 440.0
+spawn_min_X = 100.0
+spawn_max_X = 860.0

@@ -1,28 +1,63 @@
 [gd_scene format=3 uid="uid://d24d6xajankfp"]
 
 [ext_resource type="Script" uid="uid://bsuf0sevf4ut1" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_controller.gd" id="1_1u7k3"]
-[ext_resource type="Script" uid="uid://bd5r1tk4cfks2" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_connection.gd" id="2_lf6pv"]
+[ext_resource type="Texture2D" uid="uid://b2vdydmviq6pm" path="res://godot-jam-93/assets/sprites/skillPuzzle.png" id="1_f1xch"]
+[ext_resource type="PackedScene" uid="uid://bok7ad3wuiv6i" path="res://godot-jam-93/components/joint.tscn" id="3_6i0j1"]
 
-[sub_resource type="Resource" id="Resource_fw7vr"]
-script = ExtResource("2_lf6pv")
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywpcy"]
+atlas = ExtResource("1_f1xch")
+region = Rect2(64, 0, 48, 48)
 
-[sub_resource type="Resource" id="Resource_6i0j1"]
-script = ExtResource("2_lf6pv")
-joint = 1
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
-[sub_resource type="Resource" id="Resource_dj5gb"]
-script = ExtResource("2_lf6pv")
-joint = 2
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
-[sub_resource type="Resource" id="Resource_bofic"]
-script = ExtResource("2_lf6pv")
-joint = 3
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
-[node name="PlayerUpgradeTreeController" type="Node" unique_id=327945761]
+[node name="PlayerUpgradeTreeController" type="Node2D" unique_id=1398468966 node_paths=PackedStringArray("connections_out")]
 script = ExtResource("1_1u7k3")
-connections_out = Array[ExtResource("2_lf6pv")]([SubResource("Resource_fw7vr"), SubResource("Resource_6i0j1"), SubResource("Resource_dj5gb"), SubResource("Resource_bofic")])
-metadata/_custom_type_script = "uid://bsuf0sevf4ut1"
+connections_out = [NodePath("JointNorth"), NodePath("JointEast"), NodePath("JointSouth"), NodePath("JointWest")]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1684120553]
+texture = SubResource("AtlasTexture_ywpcy")
+
+[node name="JointNorth" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(0, -21)
+node_parent = NodePath("..")
+
+[node name="ShapeCast2D" parent="JointNorth" index="1" unique_id=2080798212]
+position = Vector2(0, -3)
+
+[node name="Indicator" parent="JointNorth" index="2" unique_id=60109765]
+position = Vector2(0, -3)
+
+[node name="JointEast" parent="." unique_id=1445459894 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(21, 0)
+joint = 1
+node_parent = NodePath("..")
+
+[node name="ShapeCast2D" parent="JointEast" index="1" unique_id=2080798212]
+position = Vector2(4, 0)
+
+[node name="Indicator" parent="JointEast" index="2" unique_id=60109765]
+position = Vector2(4, 0)
+
+[node name="JointSouth" parent="." unique_id=1271823985 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(0, 21)
+node_parent = NodePath("..")
+
+[node name="ShapeCast2D" parent="JointSouth" index="1" unique_id=2080798212]
+position = Vector2(0, 3)
+
+[node name="Indicator" parent="JointSouth" index="2" unique_id=60109765]
+position = Vector2(0, 3)
+
+[node name="JointWest" parent="." unique_id=2097431221 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(-21, 0)
+joint = 3
+node_parent = NodePath("..")
+
+[node name="ShapeCast2D" parent="JointWest" index="1" unique_id=2080798212]
+position = Vector2(-4, 0)
+
+[node name="Indicator" parent="JointWest" index="2" unique_id=60109765]
+position = Vector2(-4, 0)
+
+[editable path="JointNorth"]
+[editable path="JointEast"]
+[editable path="JointSouth"]
+[editable path="JointWest"]

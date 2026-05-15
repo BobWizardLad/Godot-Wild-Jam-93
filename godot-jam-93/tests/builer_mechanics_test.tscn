@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bose3o6wk7k70"]
+
+[ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="1_2eb2a"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_srku4"]
+[ext_resource type="PackedScene" uid="uid://dji0gqx1cto4t" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="3_vtfw0"]
+[ext_resource type="Script" uid="uid://cbc7c45d083bl" path="res://godot-jam-93/script/player_inventory_tree.gd" id="4_kwysj"]
+
+[sub_resource type="GDScript" id="GDScript_2eb2a"]
+resource_name = "test"
+script/source = "extends Node2D
+
+func _ready() -> void:
+	pass
+
+
+func _on_common_button_pressed() -> void:
+	$PlayerInventoryTree/Inventory.add_child($UpgradeFactory.get_common())
+
+
+func _on_button_rare_pressed() -> void:
+	$PlayerInventoryTree/Inventory.add_child($UpgradeFactory.get_rare())
+
+
+func _on_button_3_pressed() -> void:
+	$PlayerInventoryTree/Inventory.add_child($UpgradeFactory.get_very_rare())
+"
+
+[node name="BuilerMechanicsTest" type="Node2D" unique_id=697134632]
+editor_description = "Make the actual builder interface and connect it to the player, pass upgrades on, show/hide the builder, etc."
+script = SubResource("GDScript_2eb2a")
+
+[node name="UpgradeFactory" parent="." unique_id=1908081772 instance=ExtResource("1_2eb2a")]
+
+[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory") instance=ExtResource("1_srku4")]
+upgrade_tree_controller = NodePath("../PlayerInventoryTree/Inventory/PlayerUpgradeTreeController")
+inventory = NodePath("../PlayerInventoryTree/Inventory")
+
+[node name="PlayerInventoryTree" parent="." unique_id=300612940 instance=ExtResource("3_vtfw0")]
+script = ExtResource("4_kwysj")
+
+[node name="Panel" parent="PlayerInventoryTree" index="0" unique_id=115893013]
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="PlayerInventoryTree" unique_id=737878018]
+offset_left = 11.0
+offset_top = 498.0
+offset_right = 163.0
+offset_bottom = 529.0
+mouse_filter = 1
+text = "Add New Common"
+
+[node name="Button2" type="Button" parent="PlayerInventoryTree" unique_id=1206488142]
+offset_left = 172.0
+offset_top = 498.0
+offset_right = 324.0
+offset_bottom = 529.0
+mouse_filter = 1
+text = "Add New Rare"
+
+[node name="Button3" type="Button" parent="PlayerInventoryTree" unique_id=930989079]
+offset_left = 334.0
+offset_top = 498.0
+offset_right = 491.0
+offset_bottom = 529.0
+mouse_filter = 1
+text = "Add New Very Rare"
+
+[connection signal="pressed" from="PlayerInventoryTree/Button" to="." method="_on_common_button_pressed"]
+[connection signal="pressed" from="PlayerInventoryTree/Button2" to="." method="_on_button_rare_pressed"]
+[connection signal="pressed" from="PlayerInventoryTree/Button3" to="." method="_on_button_3_pressed"]
+
+[editable path="PlayerInventoryTree"]

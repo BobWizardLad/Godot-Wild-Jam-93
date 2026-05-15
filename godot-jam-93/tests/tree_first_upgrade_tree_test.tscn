@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://uyj3yld0f0xh"]
+
+[ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="1_yo0fl"]
+[ext_resource type="PackedScene" uid="uid://bqkb36ryybjm3" path="res://godot-jam-93/components/upgrade_tree/upgrades/common_upgrade_A.tscn" id="2_ayua1"]
+[ext_resource type="PackedScene" uid="uid://cn4bhurx0mtjc" path="res://godot-jam-93/components/upgrade_tree/upgrades/red_rare_upgrade_A.tscn" id="3_bent6"]
+[ext_resource type="PackedScene" uid="uid://ilfcwji3ii00" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_A.tscn" id="4_sfe1n"]
+
+[sub_resource type="GDScript" id="GDScript_ayua1"]
+resource_name = "teest"
+script/source = "extends Node2D
+
+func _ready() -> void:
+		pass
+"
+
+[node name="TreeFirstUpgradeTreeTest" type="Node2D" unique_id=1304989941]
+script = SubResource("GDScript_ayua1")
+
+[node name="PlayerUpgradeTreeController" parent="." unique_id=1398468966 instance=ExtResource("1_yo0fl")]
+position = Vector2(235, 153)
+
+[node name="CommonUpgradeA" parent="." unique_id=448960259 instance=ExtResource("2_ayua1")]
+position = Vector2(100, 144)
+
+[node name="RedRareUpgradeA" parent="." unique_id=671990377 instance=ExtResource("3_bent6")]
+position = Vector2(137, 196)
+
+[node name="RedRareUpgradeA2" parent="." unique_id=570250230 instance=ExtResource("3_bent6")]
+position = Vector2(47, 205)
+
+[node name="VeryRareUpgradeA" parent="." unique_id=102570731 instance=ExtResource("4_sfe1n")]
+position = Vector2(112, 305)
+
+[node name="VeryRareUpgradeA2" parent="." unique_id=1426780065 instance=ExtResource("4_sfe1n")]
+position = Vector2(269, 276)
+
+[node name="CommonUpgradeA2" parent="." unique_id=532278662 instance=ExtResource("2_ayua1")]
+position = Vector2(176, 242)
+
+[node name="RedRareUpgradeA3" parent="." unique_id=1393830624 instance=ExtResource("3_bent6")]
+position = Vector2(316, 233)
+
+[node name="VeryRareUpgradeA3" parent="." unique_id=1119495824 instance=ExtResource("4_sfe1n")]
+position = Vector2(192, 297)

@@ -1,6 +1,9 @@
 class_name Player
 extends Unit
 
+@export var upgrade_tree_controller: UpgradeTreeController
+@export var inventory: Inventory
+
 @export_group("Gun Stats")
 var bullet_speed: float
 @export var bullet_speed_base: float
@@ -36,13 +39,16 @@ var dash_direction: Vector2
 @onready var gun_controller: GunController = $GunController
 @onready var health_display: HealthDisplay = $HealthDisplay
 @onready var sound_sequencer: SoundSequencer2D = $SoundSequencer2D
-@onready var upgrade_tree: UpgradeTreeController = $PlayerUpgradeTreeController
 
 func _ready() -> void:
+	assert(upgrade_tree_controller != null, "No Upgrade Tree Controller pointed to in Player!")
+	assert(inventory != null, "No Inventory Node pointed to in Player!")
+	
 	super()
 	reset_player_stats()
+	upgrade_tree_controller.apply_upgrades_in_tree(self)
 	
-	upgrade_tree.apply_upgrades_in_tree(self)
+	upgrade_tree_controller.upgrade_tree_modified.connect(_on_upgrade_tree_modified)
 
 func _physics_process(_delta: float) -> void:
 	super(_delta)
@@ -121,6 +127,10 @@ func shoot_attack(target: Vector2) -> void:
 
 func player_death_sequence() -> void:
 	died.emit()
+
+func _on_upgrade_tree_modified() -> void:
+	reset_player_stats()
+	upgrade_tree_controller.apply_upgrades_in_tree(self)
 
 func _on_dash_duration_timeout() -> void:
 	is_dashing = false

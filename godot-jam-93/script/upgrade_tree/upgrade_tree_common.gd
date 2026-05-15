@@ -1,5 +1,5 @@
 class_name UpgradeTreeCommon
-extends UpgradeTreeNode
+extends DraggableUpgradeTreeNode
 
 ## Upgrade Node with only one root node that accesses specific upgrades
 

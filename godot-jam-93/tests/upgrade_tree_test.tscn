@@ -1,8 +1,6 @@
-[gd_scene format=3 uid="uid://cqlsc4e7j4qnb"]
+[gd_scene format=3 uid="uid://o48wreevu8yr"]
 
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_1js1s"]
-[ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="2_hel3l"]
-[ext_resource type="Script" uid="uid://bd5r1tk4cfks2" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_connection.gd" id="3_aigty"]
 
 [sub_resource type="GDScript" id="GDScript_hel3l"]
 resource_name = "Test"
@@ -13,32 +11,13 @@ func _ready() -> void:
 	print($Player/PlayerUpgradeTreeController)
 "
 
-[sub_resource type="Resource" id="Resource_5hnnx"]
-script = ExtResource("3_aigty")
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
-[sub_resource type="Resource" id="Resource_5v8me"]
-script = ExtResource("3_aigty")
-joint = 1
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
-[sub_resource type="Resource" id="Resource_uhrfj"]
-script = ExtResource("3_aigty")
-joint = 2
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
-[sub_resource type="Resource" id="Resource_bofic"]
-script = ExtResource("3_aigty")
-joint = 3
-metadata/_custom_type_script = "uid://bd5r1tk4cfks2"
-
 [node name="UpgradeTreeTest" type="Node2D" unique_id=1294301553]
 editor_description = "Test the build of an abstract upgrade tree and push tests into the console"
 script = SubResource("GDScript_hel3l")
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_1js1s")]
 
-[node name="PlayerUpgradeTreeController" parent="Player" unique_id=327945761 instance=ExtResource("2_hel3l")]
-connections_out = Array[ExtResource("3_aigty")]([SubResource("Resource_5hnnx"), SubResource("Resource_5v8me"), SubResource("Resource_uhrfj"), SubResource("Resource_bofic")])
+[node name="PlayerUpgradeTreeController" parent="Player" index="12" unique_id=327945761]
+visible = false
 
 [editable path="Player"]

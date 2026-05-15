@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bok7ad3wuiv6i"]
+
+[ext_resource type="Script" uid="uid://bd5r1tk4cfks2" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_connection.gd" id="1_wim2b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1xch"]
+radius = 11.0
+
+[node name="UpgradeTreeConnection" type="Area2D" unique_id=1547983137 node_paths=PackedStringArray("snap_marker")]
+script = ExtResource("1_wim2b")
+snap_marker = NodePath("Marker")
+
+[node name="Marker" type="Marker2D" parent="." unique_id=929139069]
+
+[node name="ShapeCast2D" type="CollisionShape2D" parent="." unique_id=2080798212]
+shape = SubResource("CircleShape2D_f1xch")
+
+[node name="Indicator" type="Polygon2D" parent="." unique_id=60109765]
+visible = false
+color = Color(1, 1, 0.27450982, 0.38039216)
+polygon = PackedVector2Array(-8, -7, 8, -7, 8, 7, -8, 7)
