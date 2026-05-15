@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b1dh1ieitpyeo"]
+
+[ext_resource type="Script" uid="uid://ck8ujvh6nd5mk" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_rare.gd" id="1_h3c60"]
+[ext_resource type="Texture2D" uid="uid://b2vdydmviq6pm" path="res://godot-jam-93/assets/sprites/skillPuzzle.png" id="2_i73g5"]
+[ext_resource type="PackedScene" uid="uid://bok7ad3wuiv6i" path="res://godot-jam-93/components/joint.tscn" id="3_tadef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7cbr"]
+atlas = ExtResource("2_i73g5")
+region = Rect2(248, 104, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qai4b"]
+size = Vector2(26, 26)
+
+[node name="GreenRareUpgradeB" type="Node2D" unique_id=671990377 node_paths=PackedStringArray("root_connection", "connections_out")]
+script = ExtResource("1_h3c60")
+synergy = 2
+root_connection = NodePath("RootJoint")
+connections_out = [NodePath("Joint1"), NodePath("Joint2"), NodePath("Joint3")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817062948]
+texture = SubResource("AtlasTexture_l7cbr")
+
+[node name="RootJoint" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_tadef")]
+position = Vector2(-12, 0)
+joint = 1
+node_parent = NodePath("..")
+is_root = true
+
+[node name="DragArea" type="Area2D" parent="." unique_id=760999911]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=626314989]
+shape = SubResource("RectangleShape2D_qai4b")
+
+[node name="Joint1" parent="." unique_id=912110716 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_tadef")]
+position = Vector2(0, -16)
+joint = 1
+node_parent = NodePath("..")
+
+[node name="Joint2" parent="." unique_id=1005251389 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_tadef")]
+position = Vector2(16, 0)
+joint = 2
+node_parent = NodePath("..")
+
+[node name="Joint3" parent="." unique_id=1822809991 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_tadef")]
+position = Vector2(0, 16)
+joint = 3
+node_parent = NodePath("..")

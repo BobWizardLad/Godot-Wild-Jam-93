@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="1_yo0fl"]
 [ext_resource type="PackedScene" uid="uid://bqkb36ryybjm3" path="res://godot-jam-93/components/upgrade_tree/upgrades/common_upgrade_A.tscn" id="2_ayua1"]
 [ext_resource type="PackedScene" uid="uid://cn4bhurx0mtjc" path="res://godot-jam-93/components/upgrade_tree/upgrades/red_rare_upgrade_A.tscn" id="3_bent6"]
-[ext_resource type="PackedScene" uid="uid://ilfcwji3ii00" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade.tscn" id="4_sfe1n"]
+[ext_resource type="PackedScene" uid="uid://ilfcwji3ii00" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_A.tscn" id="4_sfe1n"]
 
 [sub_resource type="GDScript" id="GDScript_ayua1"]
 resource_name = "teest"

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b17nfpy1bafp6"]
+
+[ext_resource type="Script" uid="uid://72h3xuj3b804" path="res://godot-jam-93/script/upgrade_tree/upgrade_tree_common.gd" id="1_alfhp"]
+[ext_resource type="Texture2D" uid="uid://b2vdydmviq6pm" path="res://godot-jam-93/assets/sprites/skillPuzzle.png" id="2_2boa0"]
+[ext_resource type="PackedScene" uid="uid://bok7ad3wuiv6i" path="res://godot-jam-93/components/joint.tscn" id="3_pspqa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ok0c"]
+atlas = ExtResource("2_2boa0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvyo6"]
+
+[node name="CommonUpgradeA" type="Node2D" unique_id=448960259 node_paths=PackedStringArray("root_connection")]
+script = ExtResource("1_alfhp")
+root_connection = NodePath("RootJoint")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449702681]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_5ok0c")
+
+[node name="RootJoint" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_pspqa")]
+position = Vector2(-4, 0)
+joint = 4
+node_parent = NodePath("..")
+is_root = true
+
+[node name="DragArea" type="Area2D" parent="." unique_id=248890237]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=695410796]
+shape = SubResource("RectangleShape2D_nvyo6")
