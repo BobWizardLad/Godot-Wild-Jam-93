@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://8jxnthdulhfh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c76be"]
+radius = 11.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k1nmk"]
+load_path = "res://.godot/imported/Icons_Boardgames.png-c6da45f17ef962ec3d4523151dcf1323.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_insft"]
+atlas = SubResource("CompressedTexture2D_k1nmk")
+region = Rect2(160, 0, 16, 16)
+
+[node name="RarePickup" type="Area2D" unique_id=1288070350]
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=126460468]
+shape = SubResource("CircleShape2D_c76be")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=915090700]
+modulate = Color(0.8509804, 0.73333335, 0.23921569, 1)
+texture = SubResource("AtlasTexture_insft")
