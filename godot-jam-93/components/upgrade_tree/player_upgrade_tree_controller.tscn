@@ -16,15 +16,32 @@ connections_out = [NodePath("JointNorth"), NodePath("JointEast"), NodePath("Join
 texture = SubResource("AtlasTexture_ywpcy")
 
 [node name="JointNorth" parent="." unique_id=1547983137 instance=ExtResource("3_6i0j1")]
-position = Vector2(0, -26)
+position = Vector2(0, -16)
+
+[node name="ShapeCast2D" parent="JointNorth" index="1" unique_id=2080798212]
+position = Vector2(0, -11)
 
 [node name="JointEast" parent="." unique_id=1445459894 instance=ExtResource("3_6i0j1")]
-position = Vector2(26, 0)
+position = Vector2(16, 0)
 joint = 1
 
+[node name="ShapeCast2D" parent="JointEast" index="1" unique_id=2080798212]
+position = Vector2(11, 0)
+
 [node name="JointSouth" parent="." unique_id=1271823985 instance=ExtResource("3_6i0j1")]
-position = Vector2(0, 26)
+position = Vector2(0, 16)
+
+[node name="ShapeCast2D" parent="JointSouth" index="1" unique_id=2080798212]
+position = Vector2(0, 11)
 
 [node name="JointWest" parent="." unique_id=2097431221 instance=ExtResource("3_6i0j1")]
-position = Vector2(-26, 0)
+position = Vector2(-16, 0)
 joint = 3
+
+[node name="ShapeCast2D" parent="JointWest" index="1" unique_id=2080798212]
+position = Vector2(-11, 0)
+
+[editable path="JointNorth"]
+[editable path="JointEast"]
+[editable path="JointSouth"]
+[editable path="JointWest"]

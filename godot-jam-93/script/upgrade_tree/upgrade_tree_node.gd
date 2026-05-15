@@ -39,6 +39,8 @@ func display_valid_connections(new_connection: UpgradeTreeConnection):
 		if each.neighbor != null:
 			each.neighbor.display_valid_connections(new_connection)
 
+## Returns the number of connections outgoing in this node that have a neighbor (used connections out)
+## 0 means this node is childless.
 func sizeof_connections_out() -> int:
 	var connections: int = 0
 	for each in connections_out:
