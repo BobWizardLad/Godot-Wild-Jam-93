@@ -33,5 +33,6 @@ func connect_draggable_node_to_hovered_connection() -> bool:
 	if current_hovered_connection != null && current_draggable_node != null:
 		if current_hovered_connection.is_neighbor_valid(current_draggable_node.root_connection):
 			current_hovered_connection.add_connected_node(current_draggable_node)
+			current_draggable_node.snap_to_connection(current_hovered_connection)
 			return true
 	return false

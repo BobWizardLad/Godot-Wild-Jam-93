@@ -30,16 +30,49 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and !event.pressed and CursorState.current_draggable_node == self:
 		CursorState.set_current_draggable_node(null)
 		is_grabbed = false
-		
-		# if the cursor is over a placeable joint, attach me to that joint
 
 func _process(delta: float) -> void:
 	if is_grabbed:
+		display_valid_connections(null)
 		dragging(delta)
+
+func snap_to_connection(snap_connection: UpgradeTreeConnection) -> void:
+	global_position = snap_connection.node_parent.global_position + get_snap_offset(get_connection_orientation(snap_connection), snap_connection.position.length() + root_connection.position.length())
+	print(snap_connection.position.normalized())
+	global_rotation = align_root_to_joint(snap_connection.position.normalized()) + snap_connection.node_parent.global_rotation
+	print(global_rotation_degrees)
 
 func dragging(_delta: float):
 	var mouse_target = get_global_mouse_position()
 	global_position = lerp(global_position, mouse_target, 0.33)
+
+func get_snap_offset(orientation: Vector2, distance: float) -> Vector2:
+	return orientation * distance
+
+func get_connection_orientation(connection: UpgradeTreeConnection) -> Vector2:
+	if connection.global_position.x < connection.node_parent.global_position.x:
+		return Vector2.LEFT
+	elif connection.global_position.x > connection.node_parent.global_position.x:
+		return Vector2.RIGHT
+	elif connection.global_position.y > connection.node_parent.global_position.y:
+		return Vector2.DOWN
+	elif connection.global_position.y < connection.node_parent.global_position.y:
+		return Vector2.UP
+	else:
+		return Vector2.ZERO
+
+func align_root_to_joint(vector: Vector2) -> float:
+	match vector:
+		Vector2.DOWN:
+			return PI/2
+		Vector2.LEFT:
+			return PI
+		Vector2.UP:
+			return (3*PI)/2
+		Vector2.RIGHT:
+			return 0
+	push_warning("DraggableUpgradeTreeNode: Invalid normal vector given. Beware uncommon rotation!")
+	return -1
 
 func _on_drag_area_mouse_entered() -> void:
 	mouse_is_hover = true

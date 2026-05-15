@@ -19,8 +19,9 @@ connections_out = [NodePath("Joint1"), NodePath("Joint2"), NodePath("Joint3")]
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817062948]
 texture = SubResource("AtlasTexture_l7cbr")
 
-[node name="RootJoint" parent="." unique_id=1547983137 instance=ExtResource("3_yi6r5")]
+[node name="RootJoint" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_yi6r5")]
 position = Vector2(-12, 0)
+node_parent = NodePath("..")
 is_root = true
 
 [node name="DragArea" type="Area2D" parent="." unique_id=760999911]
@@ -28,13 +29,16 @@ is_root = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea" unique_id=626314989]
 shape = SubResource("RectangleShape2D_qai4b")
 
-[node name="Joint1" parent="." unique_id=912110716 instance=ExtResource("3_yi6r5")]
+[node name="Joint1" parent="." unique_id=912110716 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_yi6r5")]
 position = Vector2(0, -16)
+node_parent = NodePath("..")
 
-[node name="Joint2" parent="." unique_id=1005251389 instance=ExtResource("3_yi6r5")]
+[node name="Joint2" parent="." unique_id=1005251389 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_yi6r5")]
 position = Vector2(16, 0)
 joint = 1
+node_parent = NodePath("..")
 
-[node name="Joint3" parent="." unique_id=1822809991 instance=ExtResource("3_yi6r5")]
+[node name="Joint3" parent="." unique_id=1822809991 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_yi6r5")]
 position = Vector2(0, 16)
 joint = 2
+node_parent = NodePath("..")

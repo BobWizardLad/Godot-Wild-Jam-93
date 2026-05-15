@@ -15,31 +15,47 @@ connections_out = [NodePath("JointNorth"), NodePath("JointEast"), NodePath("Join
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1684120553]
 texture = SubResource("AtlasTexture_ywpcy")
 
-[node name="JointNorth" parent="." unique_id=1547983137 instance=ExtResource("3_6i0j1")]
-position = Vector2(0, -16)
+[node name="JointNorth" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(0, -21)
+node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointNorth" index="1" unique_id=2080798212]
-position = Vector2(0, -11)
+position = Vector2(0, -3)
 
-[node name="JointEast" parent="." unique_id=1445459894 instance=ExtResource("3_6i0j1")]
-position = Vector2(16, 0)
+[node name="Indicator" parent="JointNorth" index="2" unique_id=60109765]
+position = Vector2(0, -3)
+
+[node name="JointEast" parent="." unique_id=1445459894 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(21, 0)
 joint = 1
+node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointEast" index="1" unique_id=2080798212]
-position = Vector2(11, 0)
+position = Vector2(4, 0)
 
-[node name="JointSouth" parent="." unique_id=1271823985 instance=ExtResource("3_6i0j1")]
-position = Vector2(0, 16)
+[node name="Indicator" parent="JointEast" index="2" unique_id=60109765]
+position = Vector2(4, 0)
+
+[node name="JointSouth" parent="." unique_id=1271823985 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(0, 21)
+node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointSouth" index="1" unique_id=2080798212]
-position = Vector2(0, 11)
+position = Vector2(0, 3)
 
-[node name="JointWest" parent="." unique_id=2097431221 instance=ExtResource("3_6i0j1")]
-position = Vector2(-16, 0)
+[node name="Indicator" parent="JointSouth" index="2" unique_id=60109765]
+position = Vector2(0, 3)
+
+[node name="JointWest" parent="." unique_id=2097431221 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
+position = Vector2(-21, 0)
 joint = 3
+node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointWest" index="1" unique_id=2080798212]
-position = Vector2(-11, 0)
+position = Vector2(-4, 0)
+
+[node name="Indicator" parent="JointWest" index="2" unique_id=60109765]
+position = Vector2(-4, 0)
 
 [editable path="JointNorth"]
 [editable path="JointEast"]

@@ -14,6 +14,8 @@ enum UpgradeNodeJoint {
 @onready var polygon_indicator : Polygon2D = $Indicator
 
 @export var joint: UpgradeNodeJoint
+@export var snap_marker: Marker2D
+@export var node_parent: UpgradeTreeNode
 @export var is_root: bool = false
 var neighbor: UpgradeTreeNode
 

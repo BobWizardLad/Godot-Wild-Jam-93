@@ -15,11 +15,13 @@ script = ExtResource("1_jbqly")
 root_connection = NodePath("RootJoint")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=449702681]
-position = Vector2(0, -4)
+rotation = 1.5707964
 texture = SubResource("AtlasTexture_5ok0c")
 
-[node name="RootJoint" parent="." unique_id=1547983137 instance=ExtResource("3_nvyo6")]
+[node name="RootJoint" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_nvyo6")]
+position = Vector2(-4, 0)
 joint = 4
+node_parent = NodePath("..")
 is_root = true
 
 [node name="DragArea" type="Area2D" parent="." unique_id=248890237]

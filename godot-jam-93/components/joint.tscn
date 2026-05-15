@@ -5,8 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1xch"]
 radius = 11.0
 
-[node name="UpgradeTreeConnection" type="Area2D" unique_id=1547983137]
+[node name="UpgradeTreeConnection" type="Area2D" unique_id=1547983137 node_paths=PackedStringArray("snap_marker")]
 script = ExtResource("1_wim2b")
+snap_marker = NodePath("Marker")
 
 [node name="Marker" type="Marker2D" parent="." unique_id=929139069]
 
