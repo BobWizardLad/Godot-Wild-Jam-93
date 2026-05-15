@@ -13,10 +13,12 @@ extends Node2D
 func _process(delta: float) -> void:
 	global_position = lerp(global_position, get_global_mouse_position(), lerp_strength)
 	
-	if is_processing():
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	else:
+	if get_tree().paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		visible = false
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		visible = true
 
 ## Returns the global_position of this cursor
 func get_target() -> Vector2:

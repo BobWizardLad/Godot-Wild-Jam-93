@@ -1836,6 +1836,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4flbx")
 
 [node name="Cursor" parent="." unique_id=129168728 instance=ExtResource("7_f6ew4")]
+process_mode = 3
 z_index = 10
 
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("8_4a1ga")]

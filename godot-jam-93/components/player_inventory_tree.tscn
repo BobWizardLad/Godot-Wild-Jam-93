@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="2_55y5i"]
 
 [node name="PlayerInventoryTree" type="CanvasLayer" unique_id=300612940]
+process_mode = 3
 layer = 15
+visible = false
 
 [node name="Panel" type="Panel" parent="." unique_id=115893013]
 anchors_preset = 15
@@ -14,8 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Inventory" parent="." unique_id=15317171 node_paths=PackedStringArray("upgrade_factory") instance=ExtResource("1_c1cje")]
-upgrade_factory = NodePath("")
+[node name="Inventory" parent="." unique_id=15317171 instance=ExtResource("1_c1cje")]
 
 [node name="PlayerUpgradeTreeController" parent="Inventory" unique_id=1398468966 instance=ExtResource("2_55y5i")]
 position = Vector2(453, 241)
