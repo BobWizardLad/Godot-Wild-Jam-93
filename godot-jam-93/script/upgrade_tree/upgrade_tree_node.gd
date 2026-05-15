@@ -38,3 +38,10 @@ func display_valid_connections(new_connection: UpgradeTreeConnection):
 			each.display_indicator(true)
 		if each.neighbor != null:
 			each.neighbor.display_valid_connections(new_connection)
+
+func sizeof_connections_out() -> int:
+	var connections: int = 0
+	for each in connections_out:
+		if each.neighbor != null:
+			connections += 1
+	return connections

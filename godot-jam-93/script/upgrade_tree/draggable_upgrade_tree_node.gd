@@ -24,8 +24,9 @@ func _ready():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if CursorState.current_draggable_node == null and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and mouse_is_hover:
-		CursorState.set_current_draggable_node(self)
-		is_grabbed = true
+		if sizeof_connections_out() == 0:
+			CursorState.set_current_draggable_node(self)
+			is_grabbed = true
 	if event is InputEventMouseButton and !event.pressed and CursorState.current_draggable_node == self:
 		CursorState.set_current_draggable_node(null)
 		is_grabbed = false
