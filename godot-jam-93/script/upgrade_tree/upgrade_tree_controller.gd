@@ -3,6 +3,8 @@ extends UpgradeTreeNode
 ## Controller for all upgrade tree nodes: handles accessing the tree's buffs as well
 ## as converting the tree into a visual, editable resource
 
+signal upgrade_tree_modified
+
 func _init(this_upgrades: Array[UpgradeRes] = [], this_sprite: Texture2D = null, this_root_connection: UpgradeTreeConnection = null) -> void:
 	super(this_upgrades, this_sprite, this_root_connection)
 
@@ -12,11 +14,12 @@ func _ready() -> void:
 	CursorState.draggable_node_picked.connect(_on_draggable_picked)
 	CursorState.draggable_node_dropped.connect(_on_draggable_dropped)
 
-func _on_draggable_picked(draggable_node: DraggableUpgradeTreeNode) -> void:
+func _on_draggable_picked(_draggable_node: DraggableUpgradeTreeNode) -> void:
 	display_valid_connections(CursorState.current_draggable_node.root_connection)
 
-func _on_draggable_dropped(draggable_node: DraggableUpgradeTreeNode) -> void:
-	print_debug("Connection attempt from dragged node to hovered joint: " + str(CursorState.connect_draggable_node_to_hovered_connection()))
+func _on_draggable_dropped(_draggable_node: DraggableUpgradeTreeNode) -> void:
+	if str(CursorState.connect_draggable_node_to_hovered_connection()):
+		upgrade_tree_modified.emit()
 	display_valid_connections(null)
 
 # WARNING This is just an iffy piece of state stuff if anything connecting nodes goes wrong

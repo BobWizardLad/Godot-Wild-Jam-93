@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cfm66gfhevfoi"]
+
+[ext_resource type="Script" uid="uid://bxhvqsg3satho" path="res://godot-jam-93/script/inventory.gd" id="1_2n12k"]
+
+[node name="Inventory" type="Node2D" unique_id=15317171]
+script = ExtResource("1_2n12k")

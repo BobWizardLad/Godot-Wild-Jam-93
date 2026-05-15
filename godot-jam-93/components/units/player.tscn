@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://i3rqegx1ntai" path="res://godot-jam-93/components/projectiles/bullet.tscn" id="8_ljwhr"]
 [ext_resource type="PackedScene" uid="uid://cbx2p766c676s" path="res://godot-jam-93/components/health_display.tscn" id="9_4hbu0"]
 [ext_resource type="AudioStream" uid="uid://dtojotnq1i4qo" path="res://godot-jam-93/assets/sfx/player-zap-freesound-edit.wav" id="10_17egq"]
-[ext_resource type="PackedScene" uid="uid://d24d6xajankfp" path="res://godot-jam-93/components/upgrade_tree/player_upgrade_tree_controller.tscn" id="13_2d6ko"]
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
@@ -1848,8 +1847,6 @@ sfx_shoot = ExtResource("10_17egq")
 offset_top = 20.0
 offset_bottom = 20.0
 metadata/_edit_use_anchors_ = true
-
-[node name="PlayerUpgradeTreeController" parent="." unique_id=327945761 instance=ExtResource("13_2d6ko")]
 
 [connection signal="damage_taken" from="." to="MovementBlender" method="animate_damage"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
