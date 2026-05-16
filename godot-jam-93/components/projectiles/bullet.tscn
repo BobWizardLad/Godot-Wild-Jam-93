@@ -19,6 +19,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_lsas8"]
 resource_name = "default"
@@ -68,6 +80,18 @@ tracks/1/keys = {
 "method": &"expire"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xqp4s"]
 _data = {
@@ -104,7 +128,6 @@ hframes = 22
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("4_7xgn3")
-damage = 15
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BulletArea" unique_id=457462107]
 shape = SubResource("CircleShape2D_jdofu")
