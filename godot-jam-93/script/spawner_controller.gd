@@ -40,20 +40,21 @@ func _ready() -> void:
 		spawn_odds_sum += each
 	assert(spawn_odds_sum == 1.0, "Spawner Controller Error: Spawn chance pool does not add up to 1.0")
 	
+	## Start the wave timer
+	$WaveCooldownTimer.start(wave_cooldown_interval)
+	
 	# Connections
 	call_deferred("link_wave_count")
 	
 	# Get all spawners in global group and add them to my references at the end of the first frame
 	call_deferred("register_spawners_in_tree")
-	
-	
 
 func _process(_delta: float) -> void:
-	if get_tree().get_node_count_in_group("Enemy") == 0 and $WaveCooldownTimer.is_stopped():
+	if get_tree().get_node_count_in_group("Enemy") == 0 and $WaveCooldownTimer.is_stopped() and not wave_spawning:
 		wave_ended.emit()
 		$WaveCooldownTimer.start(wave_cooldown_interval)
 	if wave_spawning and spawns_left > 0 and spawn_interval_timer.is_stopped():
-		spawners[randi_range(0, spawners.size()-1)].spawn_unit(
+		spawners[get_valid_spawner_index()].spawn_unit(
 			get_spawn_from_pool(),
 			pow(speed_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count),
 			pow(damage_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count),
@@ -67,7 +68,13 @@ func _process(_delta: float) -> void:
 
 ## Returns an index for a valid spawner that the player cannot see
 func get_valid_spawner_index() -> int:
-	return -1
+	var valid_spawners: Array[SpawnerNode]
+	for each in spawners:
+		if not each.is_onscreen():
+			valid_spawners.append(each)
+	if valid_spawners.size() == 0:
+		push_error("Why is every spawner onscreen at once?? @ Spawner Controller nerd")
+	return randi_range(0, valid_spawners.size()-1)
 
 func register_spawners_in_tree():
 	for each in get_tree().get_nodes_in_group("Spawner"):

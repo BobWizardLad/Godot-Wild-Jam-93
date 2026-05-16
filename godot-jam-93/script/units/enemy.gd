@@ -3,6 +3,7 @@ extends Unit
 
 @onready var soft_animation_player: AnimationPlayer = $SoftAnimationPlayer
 @onready var nav_agent: NavigationAgent2D = $NavAgent
+@onready var animation_blender: AnimationBlender = $EnemyAnimationBlender
 
 @export var nav_target: Node2D
 
@@ -32,15 +33,24 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	super(_delta)
+	if not (self is Gunner):
+		animation_blender.update_animation_parameters(self)
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:
 	#nav_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
+	var new_velocity: Vector2
+	
 	if !nav_agent.is_target_reached():
 		var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
-		return nav_point_direction * SPEED
+		new_velocity = nav_point_direction * SPEED
 	else:
-		return Vector2.ZERO
+		new_velocity = Vector2.ZERO
+	
+	if velocity != Vector2.ZERO:
+		direction = capture_direction(velocity.x, velocity.y)
+	
+	return new_velocity
 
 func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
 	super(value, source, heavy_strike)

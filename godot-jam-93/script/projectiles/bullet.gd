@@ -13,17 +13,17 @@ var is_heavy_strike: bool
 
 func _ready():
 	assert(muzzle_velocity != Vector2.ZERO, "Bullet muzzle velocity is zero!")
-	velocity = muzzle_velocity
 	expire_timer_start(lifetime)
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
+	velocity = muzzle_velocity
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		collide_and_expire(self)
 
 func expire_timer_start(time: float):
 	lifetimer.timeout.connect(collide_and_expire)
-	lifetimer.start(lifetime)
+	lifetimer.start(time)
 
 ## (.(
 func collide_and_expire(_body: Node2D = null):

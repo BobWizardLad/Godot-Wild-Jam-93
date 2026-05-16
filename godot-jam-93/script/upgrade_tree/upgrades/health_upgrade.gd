@@ -9,4 +9,3 @@ func init_effect_value() -> void:
 
 func get_effect(player: Player):
 	player.max_health += health_mod
-	player.current_health += health_mod
