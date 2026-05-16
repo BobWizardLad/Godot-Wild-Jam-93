@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Twin Junker Shooter"
+config/name="Heaps"
 config/description="Godot Wild Jam 93 Entry!"
 run/main_scene="res://example_project/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6")
