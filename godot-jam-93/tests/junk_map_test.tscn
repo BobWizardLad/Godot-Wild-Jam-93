@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="2_7okor"]
 [ext_resource type="TileSet" uid="uid://n14crny130aq" path="res://godot-jam-93/assets/resources/junkstuff.tres" id="3_iyi5l"]
 [ext_resource type="TileSet" uid="uid://21mgiiue6w3y" path="res://godot-jam-93/assets/resources/junkpit.tres" id="4_rvvs5"]
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="5_usq6i"]
 
 [node name="JunkMapTest" type="TileMapLayer" unique_id=1728227462]
 z_index = -5
@@ -27,3 +28,6 @@ z_index = -10
 z_as_relative = false
 tile_map_data = PackedByteArray("AAAPABMAAAAJAAIAAAAQABMAAAALAAIAAAAQABIAAAAJAAEAAAAPABIAAAAKAAAAAAAOABIAAAAJAAAAAAANABIAAAAKAAAAAAAMABIAAAAKAAAAAAAOABMAAAAJAAIAAAANABMAAAAJAAIAAAAMABMAAAAJAAIAAAALABMAAAAJAAIAAAALABQAAAAJAAMAAAAMABQAAAAJAAMAAAANABQAAAAJAAMAAAAOABQAAAAJAAMAAAAPABQAAAAJAAMAAAAQABQAAAAGAAMAAAALABIAAAAKAAAAAAAKABIAAAAIAAAAAAAKABMAAAAIAAIAAAAKABQAAAAIAAMAAAARABIAAAALAAMAAAAQABEAAAAIAAAAAAARABEAAAALAAAAAAAJABMAAAABAAMAAAARABQAAAADAAMAAAAOABEAAAAAAAAAAAA=")
 tile_set = ExtResource("4_rvvs5")
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("5_usq6i")]
+position = Vector2(27, 62)

@@ -1,18 +1,15 @@
 [gd_scene format=3 uid="uid://cbx2p766c676s"]
 
 [ext_resource type="Script" uid="uid://cgv57xhdophgb" path="res://godot-jam-93/script/components/health_display.gd" id="1_1wn21"]
-[ext_resource type="Texture2D" uid="uid://cvg7so3etna8w" path="res://godot-jam-93/assets/sprites/ui_pack.png" id="2_8kom2"]
+[ext_resource type="Texture2D" uid="uid://bk5fk046uj8ro" path="res://godot-jam-93/assets/sprites/UIjunk.png" id="2_1wn21"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_klvj8"]
-atlas = ExtResource("2_8kom2")
-region = Rect2(675, 7, 34, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kom2"]
+atlas = ExtResource("2_1wn21")
+region = Rect2(97, 0, 6, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_os5th"]
-load_path = "res://.godot/imported/ui_pack.png-35fb256348036d971157465075bb9cf1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6geb"]
-atlas = SubResource("CompressedTexture2D_os5th")
-region = Rect2(627, 7, 34, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4gj2"]
+atlas = ExtResource("2_1wn21")
+region = Rect2(105, 0, 6, 32)
 
 [node name="HealthDisplay" type="Control" unique_id=382223720]
 layout_mode = 3
@@ -24,9 +21,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -3.0
+offset_right = 22.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 1.5707964
 step = 5.0
-value = 90.0
-texture_under = SubResource("AtlasTexture_klvj8")
-texture_progress = SubResource("AtlasTexture_c6geb")
+value = 50.0
+fill_mode = 3
+texture_over = SubResource("AtlasTexture_8kom2")
+texture_progress = SubResource("AtlasTexture_v4gj2")

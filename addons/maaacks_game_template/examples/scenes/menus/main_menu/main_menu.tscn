@@ -4,7 +4,234 @@
 [ext_resource type="Script" uid="uid://bdet8115mn02d" path="res://addons/maaacks_game_template/examples/scenes/menus/main_menu/main_menu.gd" id="2_lk0wa"]
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_qhsni"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
+[ext_resource type="Texture2D" uid="uid://dcm2hebp2asyr" path="res://godot-jam-93/assets/sprites/title.png" id="5_1wns4"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_qhsni"]
+[ext_resource type="Texture2D" uid="uid://bwx2x2upidec3" path="res://godot-jam-93/assets/sprites/junkTower.png" id="7_bgnsu"]
+
+[sub_resource type="Animation" id="Animation_dsclc"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q1t3s"]
+resource_name = "sway_1"
+length = 8.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1666666, 2.1666665, 4.1666665, 6.1666665, 8.166667),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.39999992, 2.3999999, 4.4, 6.4, 8.4),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bgnsu"]
+resource_name = "sway_2"
+length = 8.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1666666, 2.1666665, 4.1666665, 6.1666665, 8.166667),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.39999992, 2.3999999, 4.4, 6.4, 8.4),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i1y08"]
+resource_name = "sway_3"
+length = 8.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1666666, 2.1666665, 4.1666665, 6.1666665, 8.166667),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.39999992, 2.3999999, 4.4, 6.4, 8.4),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D4:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 2.6, 4.6, 6.6, 8.599999),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gysq3"]
+resource_name = "sway_4"
+length = 8.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1666666, 2.1666665, 4.1666665, 6.1666665, 8.166667),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.39999992, 2.3999999, 4.4, 6.4, 8.4),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D4:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 2.6, 4.6, 6.6, 8.599999),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0), Vector2(20, 0), Vector2(10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1y08"]
+_data = {
+&"RESET": SubResource("Animation_dsclc"),
+&"sway_1": SubResource("Animation_q1t3s"),
+&"sway_2": SubResource("Animation_bgnsu"),
+&"sway_3": SubResource("Animation_i1y08"),
+&"sway_4": SubResource("Animation_gysq3")
+}
 
 [node name="MainMenu" unique_id=869232425 instance=ExtResource("1_pss7b")]
 script = ExtResource("2_lk0wa")
@@ -12,6 +239,24 @@ level_select_packed_scene = null
 confirm_new_game = true
 options_packed_scene = ExtResource("3_qhsni")
 credits_packed_scene = ExtResource("4_qhsni")
+
+[node name="TextureRect" type="TextureRect" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="0" unique_id=2073365333]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_right = 240.0
+offset_bottom = 224.0
+grow_horizontal = 2
+texture = ExtResource("5_1wns4")
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="1" unique_id=359406872]
+visible = false
+text = "Twin Junker Shooter"
+
+[node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(396616752) index="1" unique_id=1510335937]
+theme_override_constants/margin_top = 200
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" parent_id_path=PackedInt32Array(2017477786) index="1" unique_id=1495566523]
 unique_name_in_owner = true
@@ -38,6 +283,122 @@ text = "Are you sure you want to start a new game?
 
 All progress in the current game will be lost."
 title = "New Game"
+
+[node name="Node2D" type="Node2D" parent="." index="7" unique_id=63633726]
+z_index = -2
+position = Vector2(312, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" index="0" unique_id=539484941]
+position = Vector2(0, 240)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" index="1" unique_id=1194315212]
+position = Vector2(0, 144)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" index="2" unique_id=1258298076]
+position = Vector2(0, 48)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" index="3" unique_id=540755185]
+libraries/ = SubResource("AnimationLibrary_i1y08")
+autoplay = &"sway_1"
+
+[node name="Node2D2" type="Node2D" parent="." index="8" unique_id=1772248044]
+z_index = -2
+position = Vector2(640, 256)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2" index="0" unique_id=822351405]
+position = Vector2(0, 240)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D2" index="1" unique_id=1809923001]
+position = Vector2(0, 144)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D2" index="2" unique_id=564131686]
+position = Vector2(0, 48)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D2" index="3" unique_id=1529737098]
+libraries/ = SubResource("AnimationLibrary_i1y08")
+autoplay = &"sway_2"
+
+[node name="Node2D3" type="Node2D" parent="." index="9" unique_id=1265731720]
+z_index = -2
+position = Vector2(816, 168)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D3" index="0" unique_id=1542630502]
+position = Vector2(0, 336)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D3" index="1" unique_id=5559328]
+position = Vector2(0, 240)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D3" index="2" unique_id=693710788]
+position = Vector2(0, 144)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D3" index="3" unique_id=1224265811]
+position = Vector2(0, 48)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D3" index="4" unique_id=857137149]
+libraries/ = SubResource("AnimationLibrary_i1y08")
+autoplay = &"sway_3"
+
+[node name="Node2D4" type="Node2D" parent="." index="10" unique_id=2061030339]
+z_index = -2
+position = Vector2(136, 200)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D4" index="0" unique_id=520159932]
+position = Vector2(0, 336)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D4" index="1" unique_id=1056644525]
+position = Vector2(0, 240)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D4" index="2" unique_id=319330660]
+position = Vector2(0, 144)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D4" index="3" unique_id=1787408323]
+position = Vector2(0, 48)
+texture = ExtResource("7_bgnsu")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D4" index="4" unique_id=589116927]
+libraries/ = SubResource("AnimationLibrary_i1y08")
+autoplay = &"sway_4"
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]

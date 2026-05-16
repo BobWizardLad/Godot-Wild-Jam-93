@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bycujkkfhamed"]
 
 [ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_uxujo"]
+[ext_resource type="Theme" uid="uid://d1svfjs6tmjkh" path="res://example_project/resources/themes/expedition.tres" id="2_07lyo"]
 [ext_resource type="Script" uid="uid://bam78uxl5tbhb" path="res://addons/maaacks_game_template/examples/scenes/windows/pause_menu.gd" id="2_qmawy"]
 [ext_resource type="PackedScene" uid="uid://xvu2k02xdqi6" path="res://addons/maaacks_game_template/examples/scenes/windows/pause_menu_options_window.tscn" id="3_07lyo"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="4_jwgb0"]
 [ext_resource type="Texture2D" uid="uid://br2on3j237i4h" path="res://godot-jam-93/assets/sprites/tutorial.png" id="4_qmawy"]
+
+[sub_resource type="Theme" id="Theme_qmawy"]
+default_font_size = 0
 
 [node name="PauseMenu" unique_id=156357199 instance=ExtResource("1_uxujo")]
 process_mode = 3
@@ -15,6 +19,7 @@ offset_right = 128.0
 offset_bottom = 157.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource("2_07lyo")
 script = ExtResource("2_qmawy")
 options_menu_scene = ExtResource("3_07lyo")
 main_menu_scene_path = ""
@@ -23,6 +28,9 @@ main_menu_confirmation_node_path = NodePath("MainMenuConfirmation")
 exit_confirmation_node_path = NodePath("ExitConfirmation")
 menu_container_node_path = NodePath("..")
 pauses_game = true
+
+[node name="ContentContainer" parent="." index="0" unique_id=1755486830]
+theme = SubResource("Theme_qmawy")
 
 [node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="0" unique_id=1049966061]
 text = "Paused"
