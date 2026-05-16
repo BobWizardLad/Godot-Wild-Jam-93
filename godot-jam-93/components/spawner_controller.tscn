@@ -4,6 +4,17 @@
 
 [node name="SpawnerController" type="Node" unique_id=1917664061]
 script = ExtResource("1_rqq4t")
+spawn_interval = 0.8
+wave_cooldown_interval = 10.0
+health_scale = 1.01
+damage_scale = 1.05
+speed_scale = 1.02
 
 [node name="SpawnIntervalTimer" type="Timer" parent="." unique_id=903734110]
 one_shot = true
+
+[node name="WaveCooldownTimer" type="Timer" parent="." unique_id=927743432]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="WaveCooldownTimer" to="." method="_on_wave_cooldown_timer_timeout"]

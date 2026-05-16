@@ -12,8 +12,8 @@ var bullet_speed: float
 @export var bullet_speed_base: float
 var fire_cooldown: float
 @export var fire_cooldown_base: float
-var bullet_damage: int
-@export var bullet_damage_base: int
+
+@export var damage_base: int
 var bullet_is_heavy_strike: bool
 @export var bullet_is_heavy_strike_base: bool
 
@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 func reset_gunner_stats() -> void:
 	bullet_speed = bullet_speed_base
 	fire_cooldown = fire_cooldown_base
-	bullet_damage = bullet_damage_base
+	damage = damage_base
 	bullet_is_heavy_strike = bullet_is_heavy_strike_base
 
 ## Function that returns the calculated velocity of a unit.

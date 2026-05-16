@@ -8,7 +8,7 @@ func handle_detected_body_or_area(collided_node: Node2D):
 	## Collide and disable
 	if collided_node is Unit && attack_cooldown.is_stopped():
 		attacked_body.emit(collided_node) # Notify attack instance
-		collided_node.take_damage(damage, self, is_heavy_strike)
+		collided_node.take_damage(get_parent().damage, self, is_heavy_strike)
 		attack_cooldown.start()
 	else:
 		return

@@ -8,4 +8,4 @@ func init_effect_value() -> void:
 	damage_increase = randi_range(damage_increase_range.x, damage_increase_range.y)
 
 func get_effect(player: Player):
-	player.bullet_damage += damage_increase
+	player.damage += damage_increase

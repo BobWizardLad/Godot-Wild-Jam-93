@@ -15,6 +15,12 @@ extends Node
 @export var spawn_chance: Array[float]
 
 @export var spawn_interval: float
+@export var wave_cooldown_interval: float
+
+@export_group("Spawn Scaling")
+@export var health_scale: float
+@export var damage_scale: float
+@export var speed_scale: float
 
 @onready var spawners: Array[SpawnerNode]
 @onready  var spawn_interval_timer: Timer = $SpawnIntervalTimer
@@ -26,6 +32,8 @@ signal wave_ended
 signal wave_begin
 
 func _ready() -> void:
+	assert(get_tree().get_first_node_in_group("EndlessGameManager") != null, "No EndlessGameManager in tree!")
+	
 	# Check to see if the sum of spawn odds are correct (between 1 and 0)
 	var spawn_odds_sum: float = 0.0
 	for each in spawn_chance:
@@ -37,17 +45,29 @@ func _ready() -> void:
 	
 	# Get all spawners in global group and add them to my references at the end of the first frame
 	call_deferred("register_spawners_in_tree")
+	
+	
 
 func _process(_delta: float) -> void:
-	if get_tree().get_node_count_in_group("Enemy") == 0:
+	if get_tree().get_node_count_in_group("Enemy") == 0 and $WaveCooldownTimer.is_stopped():
 		wave_ended.emit()
+		$WaveCooldownTimer.start(wave_cooldown_interval)
 	if wave_spawning and spawns_left > 0 and spawn_interval_timer.is_stopped():
-		spawners[randi_range(0, spawners.size()-1)].spawn_unit(get_spawn_from_pool())
+		spawners[randi_range(0, spawners.size()-1)].spawn_unit(
+			get_spawn_from_pool(),
+			pow(speed_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count),
+			pow(damage_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count),
+			pow(health_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count)
+		)
 		spawns_left -= 1
 		spawn_interval_timer.start(spawn_interval)
 	elif spawns_left <= 0:
 		spawns_left = 0
 		wave_spawning = false
+
+## Returns an index for a valid spawner that the player cannot see
+func get_valid_spawner_index() -> int:
+	return -1
 
 func register_spawners_in_tree():
 	for each in get_tree().get_nodes_in_group("Spawner"):
@@ -74,8 +94,9 @@ func get_spawn_from_pool() -> PackedScene:
 			return spawn_pool[each]
 	return spawn_pool[0] # Return the first option if we do not reach a conclusion
 
-func _on_button_pressed() -> void:
-	start_wave(15)
-
 func link_wave_count() -> void:
 	wave_begin.connect(get_tree().get_first_node_in_group("EndlessGameManager").update_wave_count.bind(1))
+
+
+func _on_wave_cooldown_timer_timeout() -> void:
+	start_wave(1+(2*get_tree().get_first_node_in_group("EndlessGameManager").wave_count))

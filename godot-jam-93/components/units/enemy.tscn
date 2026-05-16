@@ -200,6 +200,7 @@ radius = 13.038404
 collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_f6xrv")
+damage = 10
 SPEED = 55.0
 max_health = 20
 current_health = 20
