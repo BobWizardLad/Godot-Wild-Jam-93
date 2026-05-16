@@ -9,14 +9,16 @@ atlas = ExtResource("1_f1xch")
 region = Rect2(64, 0, 48, 48)
 
 [node name="PlayerUpgradeTreeController" type="Node2D" unique_id=1398468966 node_paths=PackedStringArray("connections_out")]
+z_index = 5
 script = ExtResource("1_1u7k3")
 connections_out = [NodePath("JointNorth"), NodePath("JointEast"), NodePath("JointSouth"), NodePath("JointWest")]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1684120553]
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_ywpcy")
 
 [node name="JointNorth" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
-position = Vector2(0, -21)
+position = Vector2(0, -42)
 node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointNorth" index="1" unique_id=2080798212]
@@ -26,7 +28,7 @@ position = Vector2(0, -3)
 position = Vector2(0, -3)
 
 [node name="JointEast" parent="." unique_id=1445459894 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
-position = Vector2(21, 0)
+position = Vector2(42, 0)
 joint = 1
 node_parent = NodePath("..")
 
@@ -37,8 +39,7 @@ position = Vector2(4, 0)
 position = Vector2(4, 0)
 
 [node name="JointSouth" parent="." unique_id=1271823985 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
-position = Vector2(0, 21)
-joint = 2
+position = Vector2(0, 42)
 node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointSouth" index="1" unique_id=2080798212]
@@ -48,7 +49,7 @@ position = Vector2(0, 3)
 position = Vector2(0, 3)
 
 [node name="JointWest" parent="." unique_id=2097431221 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
-position = Vector2(-21, 0)
+position = Vector2(-42, 0)
 joint = 3
 node_parent = NodePath("..")
 

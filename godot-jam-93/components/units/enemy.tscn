@@ -111,6 +111,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3fmpq"]
 resource_name = "standing"
@@ -130,7 +142,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rl4ja"]
-resource_name = "walk"
+resource_name = "walkL"
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -140,25 +152,79 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.01666665, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_3rqhp"]
+resource_name = "walkR"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fe2q1"]
 _data = {
 &"RESET": SubResource("Animation_f4rmt"),
 &"standing": SubResource("Animation_3fmpq"),
-&"walk": SubResource("Animation_rl4ja")
+&"walkL": SubResource("Animation_rl4ja"),
+&"walkR": SubResource("Animation_3rqhp")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vrtb2"]
+animation = &"walkL"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svww0"]
+animation = &"walkR"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n47yf"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_vrtb2")
+blend_point_0/pos = Vector2(-0.2, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_svww0")
+blend_point_1/pos = Vector2(0.2, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vuujy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kqisf"]
+states/End/position = Vector2(424, 148)
+states/Start/position = Vector2(424, 100)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_n47yf")
+states/walk/position = Vector2(627, 100)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_vuujy")]
+graph_offset = Vector2(28, 8)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
-radius = 3.0
-height = 13.0
+radius = 5.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
-radius = 13.038404
+radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
@@ -175,7 +241,12 @@ libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="SpriteAnimator" type="AnimationPlayer" parent="." unique_id=2120292566]
 libraries/ = SubResource("AnimationLibrary_fe2q1")
-autoplay = &"walk"
+autoplay = &"standing"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1889428840]
+tree_root = SubResource("AnimationNodeStateMachine_kqisf")
+anim_player = NodePath("../SpriteAnimator")
+parameters/walk/blend_position = Vector2(-0.020275772, 0.050632954)
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2
@@ -187,6 +258,8 @@ texture = ExtResource("2_3rqhp")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
+position = Vector2(-2, 9)
+rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_rcr0p")
 
 [node name="DamageArea" parent="." unique_id=1685658706 node_paths=PackedStringArray("attack_cooldown") instance=ExtResource("4_y0v0w")]
@@ -196,7 +269,7 @@ script = ExtResource("4_3rqhp")
 attack_cooldown = NodePath("AttackCooldown")
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
-position = Vector2(0, 3)
+position = Vector2(-2, 9)
 shape = SubResource("CircleShape2D_y0v0w")
 
 [node name="AttackCooldown" type="Timer" parent="DamageArea" unique_id=324694134]
