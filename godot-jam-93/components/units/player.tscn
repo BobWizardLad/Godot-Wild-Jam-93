@@ -1810,7 +1810,6 @@ z_as_relative = false
 y_sort_enabled = true
 collision_layer = 17
 script = ExtResource("1_onrkg")
-player_debug = true
 bullet_speed_base = 225.0
 fire_cooldown_base = 0.2
 damage_base = 15

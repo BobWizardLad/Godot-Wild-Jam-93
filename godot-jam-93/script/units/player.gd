@@ -60,6 +60,7 @@ func _physics_process(_delta: float) -> void:
 
 func _process(delta: float) -> void:
 	health_display.update_health_bar(current_health)
+	health_display.update_health_bar_max(max_health)
 	if current_health == 0:
 		player_death_sequence()
 	if Input.is_action_pressed("shoot"):
@@ -72,8 +73,6 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Resets all stats of the player to their defined base stats
 ## Resets their values to what they were at scene instantiation before upgrades
 func reset_player_stats() -> void:
-	var percent_health = float(current_health) / max_health
-	
 	bullet_speed = bullet_speed_base
 	fire_cooldown = fire_cooldown_base
 	damage = damage_base
@@ -83,7 +82,6 @@ func reset_player_stats() -> void:
 	dash_cooldown_time = dash_cooldown_time_base
 	SPEED = speed_base
 	max_health = max_health_base
-	current_health = max_health * percent_health
 	
 
 func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
