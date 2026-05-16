@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="1_2eb2a"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_srku4"]
 [ext_resource type="PackedScene" uid="uid://dji0gqx1cto4t" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="3_vtfw0"]
-[ext_resource type="Script" uid="uid://cbc7c45d083bl" path="res://godot-jam-93/script/player_inventory_tree.gd" id="4_kwysj"]
 
 [sub_resource type="GDScript" id="GDScript_2eb2a"]
 resource_name = "test"
@@ -31,12 +30,12 @@ script = SubResource("GDScript_2eb2a")
 
 [node name="UpgradeFactory" parent="." unique_id=1908081772 instance=ExtResource("1_2eb2a")]
 
-[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory") instance=ExtResource("1_srku4")]
+[node name="Player" parent="." unique_id=580681997 node_paths=PackedStringArray("upgrade_tree_controller", "inventory", "upgrade_factory") instance=ExtResource("1_srku4")]
 upgrade_tree_controller = NodePath("../PlayerInventoryTree/Inventory/PlayerUpgradeTreeController")
 inventory = NodePath("../PlayerInventoryTree/Inventory")
+upgrade_factory = NodePath("../UpgradeFactory")
 
 [node name="PlayerInventoryTree" parent="." unique_id=300612940 instance=ExtResource("3_vtfw0")]
-script = ExtResource("4_kwysj")
 
 [node name="Panel" parent="PlayerInventoryTree" index="0" unique_id=115893013]
 mouse_filter = 1

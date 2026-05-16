@@ -3,7 +3,8 @@ extends Area2D
 
 signal attacked_body(body: Node2D)
 
-@export var damage: int
+## Depreciated for use!
+#@export var damage: int
 @export var is_heavy_strike: bool
 
 func _physics_process(delta: float) -> void:

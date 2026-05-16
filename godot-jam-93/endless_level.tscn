@@ -57,6 +57,7 @@ mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Interface" unique_id=214660920]
+visible = false
 offset_left = 17.0
 offset_top = 85.0
 offset_right = 109.0

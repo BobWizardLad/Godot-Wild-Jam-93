@@ -206,6 +206,7 @@ script = ExtResource("1_vccp7")
 encircle_pattern = SubResource("CircleShape2D_vccp7")
 stalking_cooldown = 11.0
 radius_attack_range = 55.0
+damage = 12
 SPEED = 65.0
 max_health = 25
 current_health = 25
@@ -242,7 +243,6 @@ collision_layer = 0
 collision_mask = 16
 script = ExtResource("4_vccp7")
 offset_length = 15.0
-damage = 15
 
 [node name="DamageCollider" type="CollisionShape2D" parent="StrikeArea" unique_id=494215728]
 position = Vector2(0, 3)

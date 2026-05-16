@@ -6,6 +6,10 @@ extends Unit
 
 @export var nav_target: Node2D
 
+@export var damage: int
+
+var damage_area: DamageArea
+
 signal pickup_holder_died(position: Vector2)
 
 # Move towards the player
