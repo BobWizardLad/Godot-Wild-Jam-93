@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dcm2hebp2asyr" path="res://godot-jam-93/assets/sprites/title.png" id="5_1wns4"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_qhsni"]
 [ext_resource type="Texture2D" uid="uid://bwx2x2upidec3" path="res://godot-jam-93/assets/sprites/junkTower.png" id="7_bgnsu"]
+[ext_resource type="Texture2D" uid="uid://cb1nr50ofjgum" path="res://godot-jam-93/assets/sprites/menuBackground.png" id="8_dsclc"]
 
 [sub_resource type="GDScript" id="GDScript_bgnsu"]
 resource_name = "Heap1"
@@ -302,6 +303,9 @@ text = "Heaps"
 [node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(396616752) index="1" unique_id=1510335937]
 theme_override_constants/margin_top = 200
 
+[node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" parent_id_path=PackedInt32Array(2017477786) index="0" unique_id=2044537792]
+text = "Start"
+
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" parent_id_path=PackedInt32Array(2017477786) index="1" unique_id=1495566523]
 unique_name_in_owner = true
 visible = false
@@ -447,6 +451,12 @@ frame = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D4" index="4" unique_id=589116927]
 libraries/ = SubResource("AnimationLibrary_i1y08")
 autoplay = &"sway_4"
+
+[node name="MenuBackground" type="Sprite2D" parent="." index="11" unique_id=1469066765]
+z_index = -10
+position = Vector2(482.66666, 272.5)
+scale = Vector2(2.011111, 2.011111)
+texture = ExtResource("8_dsclc")
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
