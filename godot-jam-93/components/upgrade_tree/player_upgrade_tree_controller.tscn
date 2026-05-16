@@ -38,6 +38,7 @@ position = Vector2(4, 0)
 
 [node name="JointSouth" parent="." unique_id=1271823985 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_6i0j1")]
 position = Vector2(0, 21)
+joint = 2
 node_parent = NodePath("..")
 
 [node name="ShapeCast2D" parent="JointSouth" index="1" unique_id=2080798212]
