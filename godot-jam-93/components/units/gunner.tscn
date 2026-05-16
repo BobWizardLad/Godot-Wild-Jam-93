@@ -192,11 +192,10 @@ path_desired_distance = 5.0
 target_desired_distance = 15.0
 
 [node name="GunCast" type="ShapeCast2D" parent="." unique_id=1767890453]
-visible = false
 shape = SubResource("CircleShape2D_s21kk")
+collision_mask = 24
 
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("2_3fmpq")]
-visible = false
 bullet_resource = ExtResource("3_s21kk")
 bullet_lifetime = 2.0
 sfx_shoot = ExtResource("2_rl4ja")
