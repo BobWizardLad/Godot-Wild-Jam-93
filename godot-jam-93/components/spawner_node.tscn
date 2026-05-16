@@ -4,3 +4,5 @@
 
 [node name="SpawnerNode" type="Node2D" unique_id=819696957]
 script = ExtResource("1_u3n1a")
+
+[node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=782999674]

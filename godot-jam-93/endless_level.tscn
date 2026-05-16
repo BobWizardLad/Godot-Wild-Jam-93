@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="4_tuos5"]
 [ext_resource type="PackedScene" uid="uid://b8df8bbivw34b" path="res://godot-jam-93/components/units/striker.tscn" id="5_06gfm"]
 [ext_resource type="PackedScene" uid="uid://8jxnthdulhfh" path="res://godot-jam-93/components/pickups/ultra_rare_pickup.tscn" id="5_edg85"]
-[ext_resource type="Script" uid="uid://bdmh716eo0kgj" path="res://godot-jam-93/script/spawner_node.gd" id="6_8tt0i"]
 [ext_resource type="PackedScene" uid="uid://bshfqnr4d8e5a" path="res://godot-jam-93/components/gameplay_interface.tscn" id="6_tuos5"]
 [ext_resource type="PackedScene" uid="uid://cfk378hqn6rwi" path="res://godot-jam-93/components/upgrade_tree/upgrade_factory.tscn" id="7_5vh6q"]
 [ext_resource type="PackedScene" uid="uid://dji0gqx1cto4t" path="res://godot-jam-93/components/player_inventory_tree.tscn" id="7_7sqls"]
+[ext_resource type="PackedScene" uid="uid://dcu5dt4ql2nys" path="res://godot-jam-93/components/spawner_node.tscn" id="17_umo6c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8tt0i"]
 vertices = PackedVector2Array(778.28125, 583, 999.4531, 583, 245, 616.10156, 392, 456.10156, 1192, 522, 231, 486.10156, 7.9921875, 40, 1322, 40, 344.02344, 90, 296.02344, 90, 744, 392, 617, 392, 330, 454.89844, 1289, 522, 231, 440, 1192, 218, 744, 250, 392, 410, 995.59375, 538, 775.71094, 538, 1289, 664, 1163, 664, 7.0078125, 378, 294.97656, 329, 40.023438, 378, 330, 410, 245, 570, 345.14063, 551.8672, 297.14063, 553.1328, 151, 551, 183, 570, 1322, 218, 617, 250, 342.97656, 329, 169, 440, 295.85938, 507, 151, 511, 343.85938, 507, 169, 484.89844, 1163, 697, 39.023438, 697, 183, 614.89844, 122.15625, 511, 120.828125, 551)
@@ -73,50 +73,65 @@ upgrade_factory = NodePath("../../UpgradeFactory")
 
 [node name="Spawners" type="Node2D" parent="." unique_id=486939272]
 
-[node name="SpawnerNode" type="Node2D" parent="Spawners" unique_id=1945685764]
-position = Vector2(87, 657)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode" parent="Spawners" unique_id=819696957 instance=ExtResource("17_umo6c")]
+position = Vector2(67, 92)
 
-[node name="SpawnerNode2" type="Node2D" parent="Spawners" unique_id=1152722895]
-position = Vector2(1215, 588)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode2" parent="Spawners" unique_id=655484051 instance=ExtResource("17_umo6c")]
+position = Vector2(210, 113)
 
-[node name="SpawnerNode3" type="Node2D" parent="Spawners" unique_id=1024308496]
-position = Vector2(687, 418)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode3" parent="Spawners" unique_id=1801834298 instance=ExtResource("17_umo6c")]
+position = Vector2(63, 283)
 
-[node name="SpawnerNode4" type="Node2D" parent="Spawners" unique_id=730284874]
-position = Vector2(1275, 191)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode4" parent="Spawners" unique_id=113418128 instance=ExtResource("17_umo6c")]
+position = Vector2(221, 295)
 
-[node name="SpawnerNode5" type="Node2D" parent="Spawners" unique_id=1982694254]
-position = Vector2(1273, 71)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode5" parent="Spawners" unique_id=909845366 instance=ExtResource("17_umo6c")]
+position = Vector2(933, 123)
 
-[node name="SpawnerNode6" type="Node2D" parent="Spawners" unique_id=1544995810]
-position = Vector2(373, 672)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode6" parent="Spawners" unique_id=296315477 instance=ExtResource("17_umo6c")]
+position = Vector2(1172, 68)
 
-[node name="SpawnerNode7" type="Node2D" parent="Spawners" unique_id=1831574169]
-position = Vector2(45, 71)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode7" parent="Spawners" unique_id=431793135 instance=ExtResource("17_umo6c")]
+position = Vector2(1243, 153)
 
-[node name="SpawnerNode8" type="Node2D" parent="Spawners" unique_id=861279055]
-position = Vector2(40, 349)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode8" parent="Spawners" unique_id=1896631243 instance=ExtResource("17_umo6c")]
+position = Vector2(1045, 169)
 
-[node name="SpawnerNode9" type="Node2D" parent="Spawners" unique_id=1117956856]
-position = Vector2(687, 64)
-script = ExtResource("6_8tt0i")
-metadata/_custom_type_script = "uid://bdmh716eo0kgj"
+[node name="SpawnerNode9" parent="Spawners" unique_id=602794759 instance=ExtResource("17_umo6c")]
+position = Vector2(1082, 387)
+
+[node name="SpawnerNode10" parent="Spawners" unique_id=364998566 instance=ExtResource("17_umo6c")]
+position = Vector2(1126, 311)
+
+[node name="SpawnerNode11" parent="Spawners" unique_id=550740529 instance=ExtResource("17_umo6c")]
+position = Vector2(1160, 485)
+
+[node name="SpawnerNode12" parent="Spawners" unique_id=2139404367 instance=ExtResource("17_umo6c")]
+position = Vector2(1022, 637)
+
+[node name="SpawnerNode13" parent="Spawners" unique_id=1935623644 instance=ExtResource("17_umo6c")]
+position = Vector2(845, 627)
+
+[node name="SpawnerNode14" parent="Spawners" unique_id=645338148 instance=ExtResource("17_umo6c")]
+position = Vector2(678, 625)
+
+[node name="SpawnerNode15" parent="Spawners" unique_id=347940340 instance=ExtResource("17_umo6c")]
+position = Vector2(674, 202)
+
+[node name="SpawnerNode16" parent="Spawners" unique_id=910307048 instance=ExtResource("17_umo6c")]
+position = Vector2(550, 330)
+
+[node name="SpawnerNode17" parent="Spawners" unique_id=1283977297 instance=ExtResource("17_umo6c")]
+position = Vector2(111, 636)
+
+[node name="SpawnerNode18" parent="Spawners" unique_id=1517517 instance=ExtResource("17_umo6c")]
+position = Vector2(231, 523)
+
+[node name="SpawnerNode19" parent="Spawners" unique_id=746338283 instance=ExtResource("17_umo6c")]
+position = Vector2(112, 449)
+
+[node name="SpawnerNode20" parent="Spawners" unique_id=133137963 instance=ExtResource("17_umo6c")]
+position = Vector2(307, 628)
 
 [node name="Level" type="Node2D" parent="." unique_id=2052618107]
 

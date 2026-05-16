@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 		wave_ended.emit()
 		$WaveCooldownTimer.start(wave_cooldown_interval)
 	if wave_spawning and spawns_left > 0 and spawn_interval_timer.is_stopped():
-		spawners[randi_range(0, spawners.size()-1)].spawn_unit(
+		spawners[get_valid_spawner_index()].spawn_unit(
 			get_spawn_from_pool(),
 			pow(speed_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count),
 			pow(damage_scale, get_tree().get_first_node_in_group("EndlessGameManager").wave_count),
@@ -67,7 +67,13 @@ func _process(_delta: float) -> void:
 
 ## Returns an index for a valid spawner that the player cannot see
 func get_valid_spawner_index() -> int:
-	return -1
+	var valid_spawners: Array[SpawnerNode]
+	for each in spawners:
+		if not each.is_onscreen():
+			valid_spawners.append(each)
+	if valid_spawners.size() == 0:
+		push_error("Why is every spawner onscreen at once?? @ Spawner Controller nerd")
+	return randi_range(0, valid_spawners.size()-1)
 
 func register_spawners_in_tree():
 	for each in get_tree().get_nodes_in_group("Spawner"):

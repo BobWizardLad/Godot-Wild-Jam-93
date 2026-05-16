@@ -4,6 +4,8 @@ extends Node2D
 # spawn a handed-in unit
 # enable or disable
 
+@onready var on_screen_notifier: VisibleOnScreenNotifier2D = $OnScreenNotifier
+
 func _ready() -> void:
 	add_to_group("Spawner", true)
 
@@ -23,3 +25,5 @@ func spawn_unit(unit: PackedScene, speed_scale: float, damage_scale: float, heal
 	get_parent().add_child(inst_unit)
 
 ## Checks to see if the player is nearby, to help prevent 'ambush' spawns
+func is_onscreen():
+	return on_screen_notifier.is_on_screen()
