@@ -13,7 +13,6 @@ agent_radius = 5.0
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_yrp48")]
 position = Vector2(374, 171)
-player_debug = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=906359513]
 zoom = Vector2(2.5, 2.5)
@@ -22,4 +21,4 @@ zoom = Vector2(2.5, 2.5)
 navigation_polygon = SubResource("NavigationPolygon_wyhur")
 
 [node name="Enemy" parent="." unique_id=744279334 instance=ExtResource("3_wyhur")]
-position = Vector2(296, 137)
+position = Vector2(275, 165)

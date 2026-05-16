@@ -194,8 +194,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_s21kk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s21kk"]
-radius = 7.0
-height = 18.0
+radius = 6.0
+height = 26.0
 
 [node name="Gunner" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
@@ -242,8 +242,7 @@ texture = ExtResource("4_s21kk")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-visible = false
-position = Vector2(0, 2)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_s21kk")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

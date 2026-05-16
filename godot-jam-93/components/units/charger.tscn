@@ -147,6 +147,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3fmpq"]
 resource_name = "standing"
@@ -166,7 +178,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rl4ja"]
-resource_name = "walk"
+resource_name = "walkL"
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -176,25 +188,79 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.01666665, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_5yspa"]
+resource_name = "walkR"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iwlck"]
 _data = {
 &"RESET": SubResource("Animation_f4rmt"),
 &"standing": SubResource("Animation_3fmpq"),
-&"walk": SubResource("Animation_rl4ja")
+&"walkL": SubResource("Animation_rl4ja"),
+&"walkR": SubResource("Animation_5yspa")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vrtb2"]
+animation = &"walkL"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svww0"]
+animation = &"walkR"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n47yf"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_vrtb2")
+blend_point_0/pos = Vector2(-0.2, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_svww0")
+blend_point_1/pos = Vector2(0.2, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vuujy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ejifn"]
+states/End/position = Vector2(424, 148)
+states/Start/position = Vector2(424, 100)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_n47yf")
+states/walk/position = Vector2(627, 100)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_vuujy")]
+graph_offset = Vector2(28, 8)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yspa"]
-radius = 3.0
-height = 14.0
+radius = 5.0
+height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
-radius = 13.038404
+radius = 11.0
 
 [node name="Charger" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
@@ -213,7 +279,12 @@ libraries/ = SubResource("AnimationLibrary_y0v0w")
 
 [node name="SpriteAnimator" type="AnimationPlayer" parent="." unique_id=890460197]
 libraries/ = SubResource("AnimationLibrary_iwlck")
-autoplay = &"walk"
+autoplay = &"walkL"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=339141600]
+tree_root = SubResource("AnimationNodeStateMachine_ejifn")
+anim_player = NodePath("../SpriteAnimator")
+parameters/walk/blend_position = Vector2(-0.020275772, 0.050632954)
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2
@@ -229,6 +300,7 @@ texture = ExtResource("2_5yspa")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
+position = Vector2(-2, 6)
 shape = SubResource("CapsuleShape2D_5yspa")
 
 [node name="DamageArea" parent="." unique_id=1685658706 node_paths=PackedStringArray("attack_cooldown") instance=ExtResource("3_dnfwk")]
@@ -239,7 +311,7 @@ attack_cooldown = NodePath("AttackCooldown")
 is_heavy_strike = true
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
-position = Vector2(0, 3)
+position = Vector2(-2, 6)
 shape = SubResource("CircleShape2D_y0v0w")
 
 [node name="AttackCooldown" type="Timer" parent="DamageArea" unique_id=1472576812]
