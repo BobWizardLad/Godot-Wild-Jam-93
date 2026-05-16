@@ -186,7 +186,6 @@ position = Vector2(111, 120)
 upgrade_tree_controller = NodePath("../PlayerInventoryTree/Inventory/PlayerUpgradeTreeController")
 inventory = NodePath("../PlayerInventoryTree/Inventory")
 upgrade_factory = NodePath("../UpgradeFactory")
-player_debug = false
 
 [node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=509651857]
 zoom = Vector2(2, 2)

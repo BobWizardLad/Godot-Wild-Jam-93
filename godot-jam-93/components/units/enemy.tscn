@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/units/enemy.gd" id="1_f6xrv"]
 [ext_resource type="Texture2D" uid="uid://b0ntlqt5anlng" path="res://godot-jam-93/assets/sprites/NMEcommon.png" id="2_3rqhp"]
+[ext_resource type="Script" uid="uid://blvob45dth56j" path="res://godot-jam-93/script/enemy_animation_blender.gd" id="2_fe2q1"]
 [ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/damageareas/melee_area.gd" id="4_3rqhp"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="4_y0v0w"]
 
@@ -195,28 +196,33 @@ _data = {
 &"walkR": SubResource("Animation_3rqhp")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vrtb2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fe2q1"]
 animation = &"walkL"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svww0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fd1nq"]
 animation = &"walkR"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n47yf"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_vrtb2")
-blend_point_0/pos = Vector2(-0.2, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_svww0")
-blend_point_1/pos = Vector2(0.2, 0)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vuujy"]
+animation = &"walkL"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_fe2q1"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_fe2q1")
+blend_point_0/pos = -0.1
+blend_point_1/node = SubResource("AnimationNodeAnimation_fd1nq")
+blend_point_1/pos = 0.1
+blend_point_2/node = SubResource("AnimationNodeAnimation_vuujy")
+blend_point_2/pos = 0.0
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vuujy"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kqisf"]
-states/End/position = Vector2(424, 148)
+states/End/position = Vector2(424, 165)
 states/Start/position = Vector2(424, 100)
-states/walk/node = SubResource("AnimationNodeBlendSpace2D_n47yf")
-states/walk/position = Vector2(627, 100)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_vuujy")]
+states/Walk/node = SubResource("AnimationNodeBlendSpace1D_fe2q1")
+states/Walk/position = Vector2(600, 101)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_vuujy")]
 graph_offset = Vector2(28, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
@@ -236,6 +242,11 @@ max_health = 20
 current_health = 20
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
+[node name="EnemyAnimationBlender" type="Node" parent="." unique_id=208227157 node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("2_fe2q1")
+animation_tree = NodePath("../AnimationTree")
+metadata/_custom_type_script = "uid://drr70m5ej8jcp"
+
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")
 
@@ -246,7 +257,7 @@ autoplay = &"standing"
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1889428840]
 tree_root = SubResource("AnimationNodeStateMachine_kqisf")
 anim_player = NodePath("../SpriteAnimator")
-parameters/walk/blend_position = Vector2(-0.020275772, 0.050632954)
+parameters/Walk/blend_position = -0.49875104
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2
