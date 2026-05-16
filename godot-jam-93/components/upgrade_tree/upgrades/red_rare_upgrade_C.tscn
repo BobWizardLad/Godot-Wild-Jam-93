@@ -9,7 +9,7 @@ atlas = ExtResource("2_3ivui")
 region = Rect2(8, 104, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qai4b"]
-size = Vector2(26, 26)
+size = Vector2(48, 48)
 
 [node name="RedRareUpgradeC" type="Node2D" unique_id=671990377 node_paths=PackedStringArray("root_connection", "connections_out")]
 script = ExtResource("1_fg1hv")
@@ -17,10 +17,11 @@ root_connection = NodePath("RootJoint")
 connections_out = [NodePath("Joint1"), NodePath("Joint2"), NodePath("Joint3")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817062948]
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_l7cbr")
 
 [node name="RootJoint" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_3jk1l")]
-position = Vector2(-12, 0)
+position = Vector2(-24, 0)
 joint = 2
 node_parent = NodePath("..")
 is_root = true
@@ -31,15 +32,15 @@ is_root = true
 shape = SubResource("RectangleShape2D_qai4b")
 
 [node name="Joint1" parent="." unique_id=912110716 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_3jk1l")]
-position = Vector2(0, -16)
+position = Vector2(0, -32)
 joint = 2
 node_parent = NodePath("..")
 
 [node name="Joint2" parent="." unique_id=1005251389 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_3jk1l")]
-position = Vector2(16, 0)
+position = Vector2(32, 0)
 joint = 3
 node_parent = NodePath("..")
 
 [node name="Joint3" parent="." unique_id=1822809991 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_3jk1l")]
-position = Vector2(0, 16)
+position = Vector2(0, 32)
 node_parent = NodePath("..")

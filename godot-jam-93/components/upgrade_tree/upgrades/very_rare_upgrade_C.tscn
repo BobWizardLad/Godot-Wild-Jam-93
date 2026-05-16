@@ -9,17 +9,20 @@ atlas = ExtResource("2_y5pxg")
 region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvyo6"]
+size = Vector2(32, 32)
 
 [node name="VeryRareUpgradeC" type="Node2D" unique_id=448960259 node_paths=PackedStringArray("root_connection")]
+z_index = 2
 script = ExtResource("1_602p8")
 root_connection = NodePath("RootJoint")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=449702681]
 rotation = 1.5707964
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_5ok0c")
 
 [node name="RootJoint" parent="." unique_id=1547983137 node_paths=PackedStringArray("node_parent") instance=ExtResource("3_pamhe")]
-position = Vector2(-4, 0)
+position = Vector2(-8, 0)
 joint = 4
 node_parent = NodePath("..")
 is_root = true
