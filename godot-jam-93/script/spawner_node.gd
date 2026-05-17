@@ -6,6 +6,8 @@ extends Node2D
 
 @onready var on_screen_notifier: VisibleOnScreenNotifier2D = $OnScreenNotifier
 
+@export var points_on_kill: int = 20
+
 func _ready() -> void:
 	add_to_group("Spawner", true)
 
@@ -20,7 +22,7 @@ func spawn_unit(unit: PackedScene, speed_scale: float, damage_scale: float, heal
 	inst_unit.max_health *= health_scale
 	inst_unit.current_health = inst_unit.max_health
 	inst_unit.nav_target = get_tree().get_first_node_in_group("Player")
-	inst_unit.died.connect(get_tree().get_first_node_in_group("EndlessGameManager").update_points.bind(1)) # TODO Point per kill
+	inst_unit.died.connect(get_tree().get_first_node_in_group("EndlessGameManager").update_points.bind(points_on_kill)) # TODO Point per kill
 	inst_unit.pickup_holder_died.connect(get_tree().get_first_node_in_group("PickupSpawner").spawn_pickup)
 	get_parent().add_child(inst_unit)
 

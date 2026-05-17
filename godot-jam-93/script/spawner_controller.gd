@@ -99,7 +99,7 @@ func get_spawn_from_pool() -> PackedScene:
 		percentile -= spawn_chance[each]
 		if percentile <= 0.0:
 			return spawn_pool[each]
-	return spawn_pool[0] # Return the first option if we do not reach a conclusion
+	return spawn_pool[0] # Return the first option if we do not reach a conclusions
 
 func link_wave_count() -> void:
 	wave_begin.connect(get_tree().get_first_node_in_group("EndlessGameManager").update_wave_count.bind(1))

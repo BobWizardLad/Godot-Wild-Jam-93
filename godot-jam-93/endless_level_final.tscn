@@ -85,23 +85,17 @@ upgrade_factory = NodePath("../../UpgradeFactory")
 [node name="SpawnerNode" parent="Spawners" unique_id=819696957 instance=ExtResource("17_o2wdy")]
 position = Vector2(67, 92)
 
-[node name="SpawnerNode2" parent="Spawners" unique_id=655484051 instance=ExtResource("17_o2wdy")]
-position = Vector2(210, 113)
-
 [node name="SpawnerNode3" parent="Spawners" unique_id=1801834298 instance=ExtResource("17_o2wdy")]
-position = Vector2(63, 283)
+position = Vector2(684, 419)
 
 [node name="SpawnerNode4" parent="Spawners" unique_id=113418128 instance=ExtResource("17_o2wdy")]
 position = Vector2(221, 295)
 
 [node name="SpawnerNode5" parent="Spawners" unique_id=909845366 instance=ExtResource("17_o2wdy")]
-position = Vector2(933, 123)
+position = Vector2(904, 22)
 
 [node name="SpawnerNode6" parent="Spawners" unique_id=296315477 instance=ExtResource("17_o2wdy")]
-position = Vector2(1172, 68)
-
-[node name="SpawnerNode7" parent="Spawners" unique_id=431793135 instance=ExtResource("17_o2wdy")]
-position = Vector2(1243, 153)
+position = Vector2(1141, 37)
 
 [node name="SpawnerNode8" parent="Spawners" unique_id=1896631243 instance=ExtResource("17_o2wdy")]
 position = Vector2(1045, 169)
@@ -110,13 +104,10 @@ position = Vector2(1045, 169)
 position = Vector2(1082, 387)
 
 [node name="SpawnerNode10" parent="Spawners" unique_id=364998566 instance=ExtResource("17_o2wdy")]
-position = Vector2(1126, 311)
+position = Vector2(376, 419)
 
 [node name="SpawnerNode11" parent="Spawners" unique_id=550740529 instance=ExtResource("17_o2wdy")]
-position = Vector2(1160, 485)
-
-[node name="SpawnerNode12" parent="Spawners" unique_id=2139404367 instance=ExtResource("17_o2wdy")]
-position = Vector2(1022, 637)
+position = Vector2(1208, 537)
 
 [node name="SpawnerNode13" parent="Spawners" unique_id=1935623644 instance=ExtResource("17_o2wdy")]
 position = Vector2(845, 627)
@@ -127,20 +118,17 @@ position = Vector2(678, 625)
 [node name="SpawnerNode15" parent="Spawners" unique_id=347940340 instance=ExtResource("17_o2wdy")]
 position = Vector2(674, 202)
 
-[node name="SpawnerNode16" parent="Spawners" unique_id=910307048 instance=ExtResource("17_o2wdy")]
-position = Vector2(550, 330)
-
 [node name="SpawnerNode17" parent="Spawners" unique_id=1283977297 instance=ExtResource("17_o2wdy")]
-position = Vector2(111, 636)
+position = Vector2(0, 655)
 
 [node name="SpawnerNode18" parent="Spawners" unique_id=1517517 instance=ExtResource("17_o2wdy")]
-position = Vector2(231, 523)
+position = Vector2(355, 630)
 
 [node name="SpawnerNode19" parent="Spawners" unique_id=746338283 instance=ExtResource("17_o2wdy")]
-position = Vector2(112, 449)
+position = Vector2(153, 491)
 
 [node name="SpawnerNode20" parent="Spawners" unique_id=133137963 instance=ExtResource("17_o2wdy")]
-position = Vector2(307, 628)
+position = Vector2(383, 170)
 
 [node name="Level" type="Node2D" parent="." unique_id=2052618107]
 
