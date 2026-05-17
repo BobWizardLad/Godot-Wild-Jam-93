@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://81viffneqgh7"]
 
+[ext_resource type="PackedScene" uid="uid://c33maklt8rrc6" path="res://godot-jam-93/components/units/gunner.tscn" id="1_wyhur"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_yrp48"]
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_wyhur"]
-[ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="3_wyhur"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wyhur"]
 vertices = PackedVector2Array(551.0625, 203.88281, 659.3125, -19.046875, 684.65625, 371.07813, 549.7578, 230, 539.9297, 182.84375, 474.82813, 231.10156, 472.84375, 296, 296.10938, 265, 425, 232.10156, 292.89063, 120, 425, 207.10938, 433.5078, 184, 503, 184.72656, 503, 140.64063, 490.84375, 119.96875, 40.976563, -25.9375, 485.0625, 120.03125, 473.96875, 139.74219, 474.89063, 184, 219.10938, 120, 40.007813, 381.90625, 215.89063, 265, 503.07813, 296, 502.07813, 230)
@@ -12,8 +12,8 @@ agent_radius = 5.0
 
 [node name="EnemyTest" type="Node2D" unique_id=849474123]
 
-[node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_wyhur")]
-nav_target = NodePath("../Player")
+[node name="Gunner" parent="." unique_id=744279334 instance=ExtResource("1_wyhur")]
+position = Vector2(353, 259)
 
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_yrp48")]
 position = Vector2(374, 171)
