@@ -3,6 +3,9 @@ extends UpgradeTreeNode
 ## Is a draggable version of the UpgradeTreeNode by the mouse
 
 @onready var tooltip_template: PackedScene = load("res://godot-jam-93/components/UI/tool_tip.tscn")
+@onready var pickup_sfx: AudioStream = load("res://godot-jam-93/assets/sfx/puzzleUp.ogg")
+@onready var drop_sfx: AudioStream = load("res://godot-jam-93/assets/sfx/puzzleDown.ogg")
+
 
 var is_grabbed: bool
 ## Is the mouse hovering this for the purpose of inputs?
@@ -85,6 +88,24 @@ func show_tooltip() -> void:
 		get_parent().add_child(tooltip_instance)
 	else:
 		return
+
+func play_pickup_sfx():
+	var player: AudioStreamPlayer = AudioStreamPlayer.new()
+	player.bus = "SFX"
+	player.volume_db = -12.0
+	player.stream = pickup_sfx
+	player.finished.connect(player.queue_free)
+	add_child(player)
+	player.play()
+
+func play_drop_sfx():
+	var player: AudioStreamPlayer = AudioStreamPlayer.new()
+	player.bus = "SFX"
+	player.volume_db = -12.0
+	player.stream = drop_sfx
+	player.finished.connect(player.queue_free)
+	add_child(player)
+	player.play()
 
 func remove_tooltip() -> void:
 	tooltip_instance.queue_free()

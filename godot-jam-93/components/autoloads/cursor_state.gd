@@ -10,10 +10,13 @@ signal draggable_node_dropped(node: DraggableUpgradeTreeNode)
 ## current_draggable_node is changed using this function (DO THIS!!!)
 func set_current_draggable_node(new_value: DraggableUpgradeTreeNode):
 	if new_value == null:
+		current_draggable_node.play_drop_sfx()
 		draggable_node_dropped.emit(current_draggable_node)
 		current_draggable_node = new_value
+		
 	else:
 		current_draggable_node = new_value
+		current_draggable_node.play_pickup_sfx()
 		draggable_node_picked.emit(current_draggable_node)
 	print("hoopla")
 
