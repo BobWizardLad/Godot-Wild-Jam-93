@@ -5,5 +5,4 @@
 [node name="AppConfig" type="Node" unique_id=1177605314]
 script = ExtResource("1_o0k5w")
 main_menu_scene_path = "uid://byvydukidk6i2"
-game_scene_path = "uid://bll4mrjy7pvwf"
 ending_scene_path = "res://addons/maaacks_game_template/examples/scenes/end_credits/end_credits.tscn"

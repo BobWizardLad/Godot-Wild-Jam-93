@@ -283,6 +283,7 @@ func skew_animation():
 script = ExtResource("2_lk0wa")
 level_select_packed_scene = null
 confirm_new_game = true
+game_scene_path = "uid://ckw4w4nme7q4j"
 options_packed_scene = ExtResource("3_qhsni")
 credits_packed_scene = ExtResource("4_qhsni")
 
