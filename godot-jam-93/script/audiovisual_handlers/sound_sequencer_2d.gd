@@ -27,6 +27,7 @@ func get_active_players_count(track: AudioStream) -> int:
 func create_player_and_play(track: AudioStream) -> void:
 	var player = AudioStreamPlayer2D.new()
 	player.stream = track
+	player.bus = "SFX"
 	player.finished.connect(cleanup_idle_players)
 	active_players.append(player)
 	add_child(player)

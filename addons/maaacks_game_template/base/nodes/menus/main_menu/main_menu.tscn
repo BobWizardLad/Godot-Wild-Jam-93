@@ -13,7 +13,7 @@ resource_name = "MOTD"
 script/source = "extends Label
 
 var messages: Array[String] = [
-	\"𓆣 Now with more yummy bugs 𓆣\",
+	\"Now with more yummy bugs\",
 	\"A story of bullets, more bullets, and bugs\",
 	\"Made with love and very little time!\",
 	\"Hi Mom!\",
@@ -146,7 +146,7 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "HEAPS"
+text = "Heaps"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_j7612")
