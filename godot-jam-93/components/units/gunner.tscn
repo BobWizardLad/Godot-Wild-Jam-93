@@ -167,11 +167,11 @@ collision_mask = 4
 script = ExtResource("1_s21kk")
 follow_distance = 125.0
 bullet_speed_base = 135.0
-fire_cooldown_base = 1.0
+fire_cooldown_base = 0.8
 damage_base = 12
-SPEED = 55.0
-max_health = 20
-current_health = 20
+SPEED = 75.0
+max_health = 25
+current_health = 25
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]

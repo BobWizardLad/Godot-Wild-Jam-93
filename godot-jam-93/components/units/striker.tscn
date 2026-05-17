@@ -242,10 +242,10 @@ encircle_pattern = SubResource("CircleShape2D_vccp7")
 stalking_cooldown = 5.0
 radius_attack_range = 55.0
 attack_cooldown_time = 3.0
-damage = 12
-SPEED = 65.0
-max_health = 25
-current_health = 25
+damage = 20
+SPEED = 130.0
+max_health = 29
+current_health = 29
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
 [node name="EnemyAnimationBlender" type="Node" parent="." unique_id=1129148367 node_paths=PackedStringArray("animation_tree")]
@@ -298,7 +298,6 @@ shape = SubResource("CircleShape2D_y0v0w")
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
-debug_enabled = true
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

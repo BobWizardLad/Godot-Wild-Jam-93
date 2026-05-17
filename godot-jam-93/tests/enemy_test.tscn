@@ -24,3 +24,5 @@ navigation_polygon = SubResource("NavigationPolygon_wyhur")
 [node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_6j5i3")]
 position = Vector2(105, 81)
 nav_target = NodePath("../Player")
+max_health = 31
+current_health = 31
