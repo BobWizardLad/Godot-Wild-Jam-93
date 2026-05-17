@@ -5,6 +5,7 @@ extends Node2D
 ## layering of the same or different sound effect instances
 
 @export var max_players_per_sound: int
+@export var player_volume: float
 
 signal all_players_finished
 
@@ -28,6 +29,7 @@ func create_player_and_play(track: AudioStream) -> void:
 	var player = AudioStreamPlayer2D.new()
 	player.stream = track
 	player.bus = "SFX"
+	player.volume_db = player_volume
 	player.finished.connect(cleanup_idle_players)
 	active_players.append(player)
 	add_child(player)

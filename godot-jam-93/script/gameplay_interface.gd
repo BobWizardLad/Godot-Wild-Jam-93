@@ -7,6 +7,8 @@ extends Control
 
 @onready var interface_player: AnimationPlayer = $InterfacePlayer
 
+@export var typing_sfx: AudioStream
+
 func update_points(value: int) -> void:
 	points.text = str(value)
 
@@ -21,3 +23,6 @@ func trigger_wave_clear_msg() -> void:
 
 func trigger_wave_start_msg() -> void:
 	interface_player.play("wave_start")
+
+func queue_typewriter_sfx() -> void:
+	$SoundSequencer2D._queue_audio_track(typing_sfx)

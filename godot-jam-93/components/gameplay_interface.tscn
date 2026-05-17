@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b8rqxqrxiv3hc" path="res://godot-jam-93/script/gameplay_interface.gd" id="1_8s8gw"]
 [ext_resource type="Theme" uid="uid://d1svfjs6tmjkh" path="res://example_project/resources/themes/expedition.tres" id="1_vpcue"]
+[ext_resource type="AudioStream" uid="uid://b6e4qbn4kcrou" path="res://godot-jam-93/assets/music/wave_transition.mp3" id="3_0wby6"]
+[ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/audiovisual_handlers/sound_sequencer_2d.tscn" id="3_cc4xw"]
+[ext_resource type="AudioStream" uid="uid://ti8ldp2obr36" path="res://godot-jam-93/assets/sfx/type.ogg" id="4_cc4xw"]
+[ext_resource type="AudioStream" uid="uid://cdfmgyatg86mg" path="res://godot-jam-93/assets/music/wave_begin.ogg" id="6_g15qf"]
+[ext_resource type="AudioStream" uid="uid://ckmwud37t48qo" path="res://godot-jam-93/assets/sfx/death.ogg" id="7_oa0vn"]
 
 [sub_resource type="Animation" id="Animation_8s8gw"]
 length = 0.001
@@ -77,6 +82,42 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WaveTransitionPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NextWavePlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerDeathSFX:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vpcue"]
 resource_name = "wave_clear"
@@ -94,11 +135,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveTransitionPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0wby6"]
 resource_name = "wave_start"
 length = 2.4
-step = 0.05
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,10 +176,105 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.35, 0.4007509, 0.44905573, 0.4991496, 0.54745436, 0.59933734, 0.64943117, 0.7013141, 0.7496189, 1.048393, 1.0949087, 1.1485808, 1.1986747, 1.2487684, 1.2988623, 1.3507453, 1.397261, 1.450933, 1.4974488, 1.5493317, 1.6023402, 1.8027157, 1.9029034, 1.999513),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextWavePlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8v22r"]
 resource_name = "you_died"
-length = 2.2
+length = 3.0
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -135,10 +283,10 @@ tracks/0/path = NodePath("YouDied:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.85, 0.90000004, 0.95000005, 1.1500001, 1.2, 1.25, 1.3, 1.45, 1.6, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["Y", "Yo", "You", "You D", "You Di", "You Die", "You Died.", "You Died..", "You Died..."]
+"values": ["Y", "Yo", "You", "You D", "You Di", "You Die", "You Died", "You Died.", "You Died..", "You Died..."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -147,7 +295,7 @@ tracks/1/path = NodePath("YouDied/Label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2.05),
+"times": PackedFloat32Array(0.85, 1.85, 2.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -159,10 +307,63 @@ tracks/2/path = NodePath("YouDied/Panel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0.85, 1.6500001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.77254903)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.85, 0.90000004, 0.95000005, 1.1511481, 1.1997204, 1.2510681, 1.3010283, 1.4522961, 1.6007885, 1.7478931),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}, {
+"args": [],
+"method": &"queue_typewriter_sfx"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerDeathSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0wby6"]
@@ -182,6 +383,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_vpcue")
 script = ExtResource("1_8s8gw")
+typing_sfx = ExtResource("4_cc4xw")
+
+[node name="SoundSequencer2D" parent="." unique_id=615471713 instance=ExtResource("3_cc4xw")]
+position = Vector2(477, 276)
+max_players_per_sound = 3
+player_volume = 4.855
+
+[node name="WaveTransitionPlayer" type="AudioStreamPlayer" parent="." unique_id=1458642077]
+stream = ExtResource("3_0wby6")
+volume_db = -4.692
+bus = &"SFX"
+
+[node name="NextWavePlayer" type="AudioStreamPlayer" parent="." unique_id=905470705]
+stream = ExtResource("6_g15qf")
+volume_db = -4.692
+bus = &"SFX"
+
+[node name="PlayerDeathSFX" type="AudioStreamPlayer" parent="." unique_id=961620614]
+stream = ExtResource("7_oa0vn")
+bus = &"SFX"
 
 [node name="InterfacePlayer" type="AnimationPlayer" parent="." unique_id=1307193259]
 libraries/ = SubResource("AnimationLibrary_0wby6")
