@@ -12,6 +12,7 @@ default_font_size = 0
 
 [node name="PauseMenu" unique_id=156357199 instance=ExtResource("1_uxujo")]
 process_mode = 3
+texture_filter = 2
 custom_minimum_size = Vector2(256, 312)
 offset_left = -128.0
 offset_top = -155.0
@@ -54,6 +55,7 @@ text = "Controls"
 horizontal_alignment = 1
 
 [node name="GuideGraphic" type="TextureRect" parent="ContentContainer/BoxContainer/TutorialMargin/BoxContainer" index="1" unique_id=256008079]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("4_qmawy")
 
