@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_xpg47")
+bullet_speed_range = Vector2i(25, 75)
 name = &"Bullet Velocity"
 description = "Increases the speed your bullets move at."
 synergy_amplification = 1.25

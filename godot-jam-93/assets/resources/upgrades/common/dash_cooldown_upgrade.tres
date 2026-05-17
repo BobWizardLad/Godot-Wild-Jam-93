@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DashCooldownUpgrade" format=3 uid="uid://c2cqqx018yqed"]
+
+[ext_resource type="Script" uid="uid://ccjug53c6yyhj" path="res://godot-jam-93/script/upgrade_tree/upgrades/dash_cooldown_upgrade.gd" id="1_d41hm"]
+
+[resource]
+script = ExtResource("1_d41hm")
+dash_cooldown_mod_range = Vector2(0.85, 0.95)
+name = &"Dash Cooldown"
+description = "Dash more often! Wait around less! Zooom!"
+metadata/_custom_type_script = "uid://ccjug53c6yyhj"
