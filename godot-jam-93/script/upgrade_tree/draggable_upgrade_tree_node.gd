@@ -1,11 +1,14 @@
 class_name DraggableUpgradeTreeNode
 extends UpgradeTreeNode
-
 ## Is a draggable version of the UpgradeTreeNode by the mouse
+
+@onready var tooltip_template: PackedScene = load("res://godot-jam-93/components/UI/tool_tip.tscn")
 
 var is_grabbed: bool
 ## Is the mouse hovering this for the purpose of inputs?
 var mouse_is_hover: bool
+## The active tooltip instance; delete when mouse leaves or when picked up
+var tooltip_instance: ToolTip
 
 ## Initialize a node
 func _init(
@@ -74,8 +77,23 @@ func align_root_to_joint(vector: Vector2) -> float:
 	push_warning("DraggableUpgradeTreeNode: Invalid normal vector given. Beware uncommon rotation!")
 	return -1
 
+func show_tooltip() -> void:
+	if upgrades.size() > 0:
+		tooltip_instance = tooltip_template.instantiate()
+		for each in upgrades:
+			tooltip_instance.add_new_label(each.create_tooltip_label())
+		get_parent().add_child(tooltip_instance)
+	else:
+		return
+
+func remove_tooltip() -> void:
+	tooltip_instance.queue_free()
+	tooltip_instance = null
+
 func _on_drag_area_mouse_entered() -> void:
+	show_tooltip()
 	mouse_is_hover = true
 
 func _on_drag_area_mouse_exited() -> void:
+	remove_tooltip()
 	mouse_is_hover = false

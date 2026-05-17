@@ -6,6 +6,7 @@
 script = ExtResource("1_8eewa")
 health_mod_range = Vector2i(15, 45)
 name = &"Health Upgrade"
+description = "Gives you more max health to live longer (hopefully!)"
 synergy = 1
 synergy_amplification = 1.25
 metadata/_custom_type_script = "uid://bvyjv2ah4pjet"

@@ -25,6 +25,7 @@ ProjectUISoundController="*res://addons/maaacks_game_template/base/nodes/autoloa
 AppConfig="*res://addons/maaacks_game_template/base/nodes/autoloads/app_config/app_config.tscn"
 SceneLoader="*res://addons/maaacks_game_template/base/nodes/autoloads/scene_loader/scene_loader.tscn"
 CursorState="*uid://dkxmtmr8fuil0"
+GlobalHitIndicator="*uid://bi658h4l6u2c4"
 
 [display]
 

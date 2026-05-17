@@ -30,6 +30,7 @@ var dash_cooldown_time: float
 
 @onready var dash_cooldown: Timer = $DashCooldown
 @onready var dash_duration: Timer = $DashDuration
+@onready var dash_cooldown_indicator: DashIndicator = $DashIndicator
 var is_dashing: bool = false
 var dash_direction: Vector2
 
@@ -119,6 +120,7 @@ func derive_unit_velocity() -> Vector2:
 ## state when dash is pressed.
 func dash_movement():
 	dash_cooldown.start(dash_cooldown_time)
+	dash_cooldown_indicator.cooldown_timer_started()
 	dash_duration.start(dash_duration_time)
 	is_dashing = true
 	dash_direction = direction.normalized()

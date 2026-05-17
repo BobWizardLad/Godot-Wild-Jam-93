@@ -6,5 +6,6 @@
 script = ExtResource("1_1ig8d")
 damage_increase_range = Vector2i(5, 15)
 name = &"Attack Upgrade"
+description = "Increases how much damage your bullets deal"
 synergy_amplification = 1.25
 metadata/_custom_type_script = "uid://etlahay3i2tg"

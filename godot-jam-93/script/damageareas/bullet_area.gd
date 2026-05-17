@@ -15,6 +15,8 @@ func handle_detected_body_or_area(collided_node: Node):
 	if collided_node is Unit && !has_collided:
 		bullet_area_has_collided.emit() # Notify any modifiers that this bullet has collided
 		attacked_body.emit(collided_node) # Notify attack instance
+		if collided_node is Enemy:
+			GlobalHitIndicator.spawn_notifier(global_position, str(get_parent().damage)) # damage number
 		collided_node.take_damage(get_parent().damage, self, get_parent().is_heavy_strike)
 		has_collided = true
 	else:
