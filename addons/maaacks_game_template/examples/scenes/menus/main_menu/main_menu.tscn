@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_qhsni"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_game_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
 [ext_resource type="Texture2D" uid="uid://dcm2hebp2asyr" path="res://godot-jam-93/assets/sprites/title.png" id="5_1wns4"]
+[ext_resource type="AudioStream" uid="uid://bklje6mbiawrn" path="res://godot-jam-93/assets/music/It's a Fight.wav" id="5_q1t3s"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_qhsni"]
 [ext_resource type="Texture2D" uid="uid://bwx2x2upidec3" path="res://godot-jam-93/assets/sprites/junkTower.png" id="7_bgnsu"]
 [ext_resource type="Texture2D" uid="uid://cb1nr50ofjgum" path="res://godot-jam-93/assets/sprites/menuBackground.png" id="8_dsclc"]
@@ -285,6 +286,10 @@ confirm_new_game = true
 options_packed_scene = ExtResource("3_qhsni")
 credits_packed_scene = ExtResource("4_qhsni")
 
+[node name="BackgroundMusicPlayer" parent="." index="1" unique_id=1141822549]
+stream = ExtResource("5_q1t3s")
+volume_db = -6.455
+
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="0" unique_id=2073365333]
 layout_mode = 1
 anchors_preset = 5
@@ -298,10 +303,14 @@ texture = ExtResource("5_1wns4")
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="1" unique_id=359406872]
 visible = false
-text = "Heaps"
 
 [node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(396616752) index="1" unique_id=1510335937]
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_top = 220
+
+[node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" parent_id_path=PackedInt32Array(930520368) index="0" unique_id=1037003361]
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7176471)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 3
 
 [node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" parent_id_path=PackedInt32Array(2017477786) index="0" unique_id=2044537792]
 text = "Start"

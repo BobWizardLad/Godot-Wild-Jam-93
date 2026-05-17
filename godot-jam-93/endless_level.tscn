@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bo4rp2ibw5jls" path="res://godot-jam-93/components/pickups/pickup_spawner.tscn" id="1_2asc2"]
 [ext_resource type="PackedScene" uid="uid://bqvxin4hxu3yw" path="res://godot-jam-93/components/game_state_manager.tscn" id="1_06gfm"]
 [ext_resource type="TileSet" uid="uid://bbbx62xw1pmuj" path="res://godot-jam-93/assets/resources/junkfloor.tres" id="1_aph6e"]
+[ext_resource type="AudioStream" uid="uid://diditv2vlmk6y" path="res://godot-jam-93/assets/music/level_music.wav" id="1_l2nfg"]
 [ext_resource type="PackedScene" uid="uid://q8kr5ops2rob" path="res://godot-jam-93/components/spawner_controller.tscn" id="1_u5g52"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_wstwg"]
 [ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_4wduo"]
@@ -31,6 +32,12 @@ agent_radius = 5.0
 
 [node name="EndlessLevel" type="Node2D" unique_id=368954809]
 process_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1389340183]
+process_mode = 3
+stream = ExtResource("1_l2nfg")
+autoplay = true
+bus = &"Music"
 
 [node name="PickupSpawner" parent="." unique_id=296766545 instance=ExtResource("1_2asc2")]
 pickups_pool = Array[PackedScene]([ExtResource("2_umo6c"), ExtResource("3_pnaco"), ExtResource("4_l2nfg"), ExtResource("5_edg85")])

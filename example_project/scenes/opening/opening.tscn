@@ -9,12 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://ori73nqwsixj" path="res://godot-jam-93/assets/sprites/wildComic5.png" id="7_7x411"]
 [ext_resource type="Texture2D" uid="uid://r7oarac4thgr" path="res://godot-jam-93/assets/sprites/wildComic6.png" id="8_uqqfr"]
 [ext_resource type="Texture2D" uid="uid://b3r7pqs41evuu" path="res://godot-jam-93/assets/sprites/wildComic7.png" id="9_65bdu"]
+[ext_resource type="AudioStream" uid="uid://diditv2vlmk6y" path="res://godot-jam-93/assets/music/level_music.wav" id="10_r6xl7"]
 
 [node name="Opening" unique_id=1930105641 instance=ExtResource("1_ke3tw")]
 images = Array[Texture2D]([ExtResource("2_35ra8"), ExtResource("3_r6xl7"), ExtResource("4_enoq1"), ExtResource("5_kfxgn"), ExtResource("6_ndbst"), ExtResource("7_7x411"), ExtResource("8_uqqfr"), ExtResource("9_65bdu")])
 fade_in_time = 0.6
 fade_out_time = 0.4
 visible_time = 5.0
+
+[node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1317385298]
+stream = ExtResource("10_r6xl7")
+volume_db = -6.303
 
 [node name="ImagesContainer" parent="." index="1" unique_id=1471559661]
 theme_override_constants/margin_left = 64
