@@ -53,6 +53,7 @@ _data = {
 }
 
 [node name="Label" type="Label" unique_id=607971542]
+texture_filter = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "15"

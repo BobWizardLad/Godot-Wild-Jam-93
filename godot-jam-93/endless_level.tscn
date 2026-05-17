@@ -53,6 +53,7 @@ script = ExtResource("1_wstwg")
 pause_menu_packed = ExtResource("2_7sqls")
 
 [node name="GameplayInterface" parent="Interface" unique_id=1266861447 instance=ExtResource("6_tuos5")]
+texture_filter = 2
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 

@@ -1627,6 +1627,18 @@ animation = &"running_2"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_couud"]
 animation = &"running_4"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ow1yg"]
+animation = &"running_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rgevn"]
+animation = &"running_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0j7wi"]
+animation = &"running_6"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3pxa5"]
+animation = &"running_6"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pir3r"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_1kub6")
 blend_point_0/pos = Vector2(0, -0.7)
@@ -1635,7 +1647,15 @@ blend_point_1/pos = Vector2(0.7, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_0lm1f")
 blend_point_2/pos = Vector2(0, 0.7)
 blend_point_3/node = SubResource("AnimationNodeAnimation_couud")
-blend_point_3/pos = Vector2(-0.7, 0)
+blend_point_3/pos = Vector2(-0.6, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_ow1yg")
+blend_point_4/pos = Vector2(-0.6, 0.7)
+blend_point_5/node = SubResource("AnimationNodeAnimation_rgevn")
+blend_point_5/pos = Vector2(-0.6, -0.7)
+blend_point_6/node = SubResource("AnimationNodeAnimation_0j7wi")
+blend_point_6/pos = Vector2(0.7, -0.7)
+blend_point_7/node = SubResource("AnimationNodeAnimation_3pxa5")
+blend_point_7/pos = Vector2(0.7, 0.7)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1kub6"]
@@ -1840,8 +1860,8 @@ parameters/conditions/idling = false
 parameters/conditions/running = false
 parameters/BasicAttack/blend_position = Vector2(0, 0)
 parameters/Dash/blend_position = Vector2(0, 0)
-parameters/Idle/blend_position = Vector2(0, 0)
-parameters/Run/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(0.0008109808, 0.0073206425)
+parameters/Run/blend_position = Vector2(-0.4939173, -0.53147876)
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=463791001]
 libraries/ = SubResource("AnimationLibrary_jhk7o")

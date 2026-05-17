@@ -227,7 +227,7 @@ graph_offset = Vector2(28, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
 radius = 5.0
-height = 24.0
+height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0v0w"]
 radius = 11.0
@@ -265,11 +265,11 @@ one_shot = true
 autostart = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
+position = Vector2(2, -9)
 texture = ExtResource("2_3rqhp")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-position = Vector2(-2, 9)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_rcr0p")
 
@@ -280,7 +280,6 @@ script = ExtResource("4_3rqhp")
 attack_cooldown = NodePath("AttackCooldown")
 
 [node name="DamageCollider" type="CollisionShape2D" parent="DamageArea" unique_id=494215728]
-position = Vector2(-2, 9)
 shape = SubResource("CircleShape2D_y0v0w")
 
 [node name="AttackCooldown" type="Timer" parent="DamageArea" unique_id=324694134]

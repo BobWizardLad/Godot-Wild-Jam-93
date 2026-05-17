@@ -158,8 +158,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_s21kk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s21kk"]
-radius = 6.0
-height = 26.0
+radius = 5.0
+height = 20.0
 
 [node name="Gunner" type="CharacterBody2D" unique_id=744279334]
 collision_layer = 36
@@ -186,26 +186,29 @@ one_shot = true
 autostart = true
 
 [node name="SoundSequencer2D" parent="." unique_id=615471713 instance=ExtResource("2_f4rmt")]
+position = Vector2(0, 5)
 
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
 
 [node name="GunCast" type="ShapeCast2D" parent="." unique_id=1767890453]
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_s21kk")
 collision_mask = 24
 
 [node name="GunController" parent="." unique_id=2088718377 instance=ExtResource("2_3fmpq")]
+position = Vector2(0, 5)
 bullet_resource = ExtResource("3_s21kk")
 bullet_lifetime = 2.0
 sfx_shoot = ExtResource("2_rl4ja")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=642814402]
+position = Vector2(0, 5)
 texture = ExtResource("4_s21kk")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844398025]
-position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_s21kk")
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]

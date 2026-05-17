@@ -1,12 +1,13 @@
-[gd_scene format=3 uid="uid://81viffneqgh7"]
+[gd_scene format=4 uid="uid://81viffneqgh7"]
 
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_yrp48"]
-[ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="2_6j5i3"]
+[ext_resource type="TileSet" uid="uid://bwsv4vrextrq1" path="res://godot-jam-93/assets/resources/junkyard.tres" id="2_wyhur"]
+[ext_resource type="PackedScene" uid="uid://c33maklt8rrc6" path="res://godot-jam-93/components/units/gunner.tscn" id="3_wyhur"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wyhur"]
-vertices = PackedVector2Array(1164.0078, 23.96875, 1165.9766, 550, 28.9375, 550, 22.0625, 19.023438)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(17, 14, 24, 555, 1171, 555, 1169, 19)])
+vertices = PackedVector2Array(551.0625, 203.88281, 659.3125, -19.046875, 684.65625, 371.07813, 549.7578, 230, 539.9297, 182.84375, 474.82813, 231.10156, 472.84375, 296, 296.10938, 265, 425, 232.10156, 292.89063, 120, 425, 207.10938, 433.5078, 184, 503, 184.72656, 503, 140.64063, 490.84375, 119.96875, 40.976563, -25.9375, 485.0625, 120.03125, 473.96875, 139.74219, 474.89063, 184, 219.10938, 120, 40.007813, 381.90625, 215.89063, 265, 503.07813, 296, 502.07813, 230)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(11, 10, 9), PackedInt32Array(4, 12, 13, 1), PackedInt32Array(1, 13, 14), PackedInt32Array(15, 1, 14, 16), PackedInt32Array(15, 16, 17, 11, 9), PackedInt32Array(17, 18, 11), PackedInt32Array(15, 9, 19), PackedInt32Array(20, 15, 19, 21), PackedInt32Array(2, 20, 21, 7, 6), PackedInt32Array(2, 6, 22), PackedInt32Array(3, 2, 22, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(36, -31, 35, 387, 690, 376, 664, -24)])
 agent_radius = 5.0
 
 [node name="EnemyTest" type="Node2D" unique_id=849474123]
@@ -21,8 +22,20 @@ zoom = Vector2(2.5, 2.5)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1934372970]
 navigation_polygon = SubResource("NavigationPolygon_wyhur")
 
-[node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_6j5i3")]
-position = Vector2(105, 81)
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D" unique_id=1773232692]
+visible = false
+position = Vector2(-77, 27)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(298, 233, 368, 233, 365, 98, 301, 98)
+
+[node name="Polygon2D2" type="Polygon2D" parent="NavigationRegion2D" unique_id=2083642640]
+visible = false
+polygon = PackedVector2Array(430, 227, 480, 226, 478, 291, 498, 291, 497, 225, 545, 225, 546, 205, 537, 188, 498, 190, 498, 142, 488, 125, 479, 141, 480, 189, 437, 189, 430, 208)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1639321213]
+tile_map_data = PackedByteArray("AAAOAAUAAAAAAAEAAAAOAAYAAAAAAAEAAAAOAAcAAAABAAIAAAAPAAcAAAACAAMAAAAQAAcAAAACAAMAAAARAAcAAAADAAIAAAARAAYAAAAAAAEAAAARAAUAAAAAAAEAAAARAAQAAAADAAAAAAAQAAQAAAACAAMAAAAPAAQAAAACAAMAAAAOAAQAAAABAAAAAAAeAAQAAAAAAAAAAAAeAAUAAAAAAAEAAAAeAAYAAAACAAEAAAAeAAcAAAAAAAEAAAAcAAYAAAACAAMAAAAdAAYAAAACAAMAAAAfAAYAAAACAAMAAAAgAAYAAAACAAMAAAAbAAYAAAABAAMAAAAeAAgAAAAAAAIAAAAhAAYAAAADAAMAAAA=")
+tile_set = ExtResource("2_wyhur")
+
+[node name="Gunner" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_wyhur")]
+position = Vector2(177, 211)
 nav_target = NodePath("../Player")
-max_health = 31
-current_health = 31
