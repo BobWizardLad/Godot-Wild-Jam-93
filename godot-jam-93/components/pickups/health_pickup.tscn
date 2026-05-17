@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfvv0yqn26pqe"]
 
-[ext_resource type="Script" path="res://godot-jam-93/script/components/health_pickup.gd" id="1_c76be"]
+[ext_resource type="Script" uid="uid://bghu3fdfm8v5d" path="res://godot-jam-93/script/components/health_pickup.gd" id="1_c76be"]
+[ext_resource type="AudioStream" uid="uid://cvl1gw3ylj545" path="res://godot-jam-93/assets/sfx/pickup.ogg" id="2_insft"]
 [ext_resource type="Texture2D" uid="uid://dgxsd3naaeqdq" path="res://godot-jam-93/assets/sprites/Icons_Alchemy.png" id="2_jd4qq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c76be"]
@@ -13,6 +14,10 @@ region = Rect2(32, 96, 16, 16)
 [node name="HealthPickup" type="Area2D" unique_id=1288070350]
 script = ExtResource("1_c76be")
 healing_value = 30
+
+[node name="PickupPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1146822623]
+stream = ExtResource("2_insft")
+volume_db = 8.0
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=126460468]
 shape = SubResource("CircleShape2D_c76be")

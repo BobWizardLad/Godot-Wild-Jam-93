@@ -4,4 +4,3 @@ extends Pickup
 
 func handle_detected_body(body: Player):
 	body.current_health += healing_value
-	queue_free()

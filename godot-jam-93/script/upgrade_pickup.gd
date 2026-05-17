@@ -4,4 +4,3 @@ extends Pickup
 
 func handle_detected_body(body: Player):
 	body.roll_upgrade(type)
-	queue_free()

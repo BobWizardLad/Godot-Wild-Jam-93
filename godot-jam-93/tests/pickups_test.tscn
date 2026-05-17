@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cpcuc2t30oy70"]
 
+[ext_resource type="PackedScene" uid="uid://bhlu1y2e6q7r" path="res://godot-jam-93/components/pickups/common_pickup.tscn" id="2_3doan"]
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="2_igjhv"]
 [ext_resource type="PackedScene" uid="uid://dfvv0yqn26pqe" path="res://godot-jam-93/components/pickups/health_pickup.tscn" id="3_3doan"]
+[ext_resource type="PackedScene" uid="uid://b3y8pqbk2v8ea" path="res://godot-jam-93/components/pickups/rare_pickup.tscn" id="4_71n43"]
 
 [sub_resource type="GDScript" id="GDScript_qsked"]
 resource_name = "Test"
@@ -20,11 +22,11 @@ script = SubResource("GDScript_qsked")
 player_debug = true
 current_health = 1
 
-[node name="HealthPickup" parent="." unique_id=1288070350 instance=ExtResource("3_3doan")]
-position = Vector2(200, 89)
+[node name="CommonPickup" parent="." unique_id=1288070350 instance=ExtResource("2_3doan")]
+position = Vector2(75, 119)
 
-[node name="HealthPickup2" parent="." unique_id=757014465 instance=ExtResource("3_3doan")]
-position = Vector2(302, 260)
+[node name="HealthPickup" parent="." unique_id=959819096 instance=ExtResource("3_3doan")]
+position = Vector2(150, 86)
 
-[node name="HealthPickup3" parent="." unique_id=1977044668 instance=ExtResource("3_3doan")]
-position = Vector2(467, 176)
+[node name="RarePickup" parent="." unique_id=1152745906 instance=ExtResource("4_71n43")]
+position = Vector2(164, 159)
