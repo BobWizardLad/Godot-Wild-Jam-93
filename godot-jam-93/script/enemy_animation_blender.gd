@@ -1,3 +1,4 @@
+class_name EnemyAnimationBlender
 extends AnimationBlender
 
 ## Updates the blend position variable for all animation states.
