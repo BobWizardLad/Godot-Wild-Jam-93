@@ -34,7 +34,6 @@ process_mode = 1
 
 [node name="PickupSpawner" parent="." unique_id=296766545 instance=ExtResource("1_2asc2")]
 pickups_pool = Array[PackedScene]([ExtResource("2_umo6c"), ExtResource("3_pnaco"), ExtResource("4_l2nfg"), ExtResource("5_edg85")])
-pickup_chance = 0.1
 
 [node name="EndlessGameManager" parent="." unique_id=1943298023 instance=ExtResource("1_06gfm")]
 
