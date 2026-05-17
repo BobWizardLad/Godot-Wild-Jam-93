@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://8jxnthdulhfh"]
 
 [ext_resource type="Script" uid="uid://bra3pxxw4r6lw" path="res://godot-jam-93/script/upgrade_pickup.gd" id="1_tvd8r"]
+[ext_resource type="AudioStream" uid="uid://cvl1gw3ylj545" path="res://godot-jam-93/assets/sfx/pickup.ogg" id="2_f2aof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c76be"]
 radius = 11.0
@@ -15,6 +16,10 @@ region = Rect2(160, 0, 16, 16)
 [node name="RarePickup" type="Area2D" unique_id=1288070350]
 script = ExtResource("1_tvd8r")
 type = 2
+
+[node name="PickupPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1786476200]
+stream = ExtResource("2_f2aof")
+volume_db = 8.0
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=126460468]
 shape = SubResource("CircleShape2D_c76be")

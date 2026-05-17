@@ -12,6 +12,9 @@ agent_radius = 5.0
 
 [node name="EnemyTest" type="Node2D" unique_id=849474123]
 
+[node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_wyhur")]
+nav_target = NodePath("../Player")
+
 [node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_yrp48")]
 position = Vector2(374, 171)
 player_debug = true
@@ -35,7 +38,3 @@ polygon = PackedVector2Array(430, 227, 480, 226, 478, 291, 498, 291, 497, 225, 5
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1639321213]
 tile_map_data = PackedByteArray("AAAOAAUAAAAAAAEAAAAOAAYAAAAAAAEAAAAOAAcAAAABAAIAAAAPAAcAAAACAAMAAAAQAAcAAAACAAMAAAARAAcAAAADAAIAAAARAAYAAAAAAAEAAAARAAUAAAAAAAEAAAARAAQAAAADAAAAAAAQAAQAAAACAAMAAAAPAAQAAAACAAMAAAAOAAQAAAABAAAAAAAeAAQAAAAAAAAAAAAeAAUAAAAAAAEAAAAeAAYAAAACAAEAAAAeAAcAAAAAAAEAAAAcAAYAAAACAAMAAAAdAAYAAAACAAMAAAAfAAYAAAACAAMAAAAgAAYAAAACAAMAAAAbAAYAAAABAAMAAAAeAAgAAAAAAAIAAAAhAAYAAAADAAMAAAA=")
 tile_set = ExtResource("2_wyhur")
-
-[node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_wyhur")]
-position = Vector2(144, 223)
-nav_target = NodePath("../Player")

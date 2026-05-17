@@ -11,7 +11,7 @@ signal died
 var direction: Vector2
 
 var is_forced_moving: bool = false
-
+var is_dead: bool = false
 var is_invincible: bool = false
 ## Flag for if the player is currently attacking.
 @export var max_health: int
@@ -35,6 +35,7 @@ func take_damage(value: int, source: Node2D = self, heavy_strike: bool = false):
 			current_health = max_health
 		if current_health <= 0:
 			current_health = 0
+			is_dead = true
 			died.emit()
 		if heavy_strike:
 			forced_move(-1 * global_position.direction_to(source.global_position), 115.0, 0.3)
@@ -72,7 +73,7 @@ func forced_move(forced_direction: Vector2, speed: float, time: float):
 	velocity = forced_direction * speed
 	get_tree().create_timer(time).timeout.connect(stop_forced_moving)
 
-## By default (and usually at least) a unit is freed qhen they die
+## By default (and usually at least) a unit is freed when they die
 func die() -> void:
 	queue_free()
 
