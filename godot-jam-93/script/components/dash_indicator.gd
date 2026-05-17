@@ -11,7 +11,6 @@ func _ready():
 	min_value = 0
 
 func _process(delta: float) -> void:
-	print(dash_cooldown_timer.time_left)
 	value = dash_cooldown_timer.time_left
 
 func cooldown_timer_started():
