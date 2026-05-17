@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1ig8d")
-damage_increase_range = Vector2i(5, 15)
+damage_increase_range = Vector2i(2, 10)
 name = &"Attack Upgrade"
 description = "Increases how much damage your bullets deal"
 synergy_amplification = 1.25

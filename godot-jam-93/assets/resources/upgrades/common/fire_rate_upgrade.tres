@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_gn5wb")
-cooldown_mod_range = Vector2(0.8, 0.9)
+cooldown_mod_range = Vector2(0.85, 0.95)
 name = &"Fire Rate"
 description = "Makes you fire faster!"
 synergy_amplification = 1.25
