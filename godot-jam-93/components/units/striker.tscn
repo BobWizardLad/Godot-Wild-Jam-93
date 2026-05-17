@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://b8df8bbivw34b"]
 
 [ext_resource type="Script" uid="uid://cyav1k5gwuw1v" path="res://godot-jam-93/script/units/striker.gd" id="1_vccp7"]
+[ext_resource type="AudioStream" uid="uid://7i6sfa4qbnum" path="res://godot-jam-93/assets/sfx/boom.ogg" id="2_kyjv2"]
 [ext_resource type="Texture2D" uid="uid://c38yssrrlkir7" path="res://godot-jam-93/assets/sprites/NMEstriker.png" id="2_vccp7"]
 [ext_resource type="Script" uid="uid://blvob45dth56j" path="res://godot-jam-93/script/enemy_animation_blender.gd" id="2_vrtb2"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_svww0"]
+[ext_resource type="Texture2D" uid="uid://dctc05hm0o87r" path="res://godot-jam-93/assets/sprites/explosion.png" id="4_svww0"]
 [ext_resource type="Script" uid="uid://bidg1k1ll68et" path="res://godot-jam-93/script/damageareas/strike_area.gd" id="4_vccp7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vccp7"]
@@ -34,6 +36,107 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_vccp7")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vrtb2"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_svww0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3fmpq"]
@@ -102,6 +205,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vrtb2"]
 _data = {
 &"RESET": SubResource("Animation_f4rmt"),
+&"death": SubResource("Animation_vrtb2"),
 &"standing": SubResource("Animation_3fmpq"),
 &"walkL": SubResource("Animation_rl4ja"),
 &"walkR": SubResource("Animation_vccp7")
@@ -217,15 +321,24 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_tqage")
 blend_point_2/pos = 0.0
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b2fp4"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x7mwf"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svww0"]
+advance_mode = 2
+advance_condition = &"dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kyjv2"]
-states/End/position = Vector2(424, 148)
+states/End/position = Vector2(424, 230)
 states/Start/position = Vector2(424, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_b2fp4")
 states/Walk/position = Vector2(634, 106)
-transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_x7mwf")]
+states/death/node = SubResource("AnimationNodeAnimation_b2fp4")
+states/death/position = Vector2(541, 192)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_x7mwf"), "Walk", "death", SubResource("AnimationNodeStateMachineTransition_svww0")]
 graph_offset = Vector2(28, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
@@ -248,6 +361,10 @@ max_health = 29
 current_health = 29
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=645396293]
+stream = ExtResource("2_kyjv2")
+volume_db = -4.608
+
 [node name="EnemyAnimationBlender" type="Node" parent="." unique_id=1129148367 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("2_vrtb2")
 animation_tree = NodePath("../AnimationTree")
@@ -263,6 +380,7 @@ libraries/ = SubResource("AnimationLibrary_y0v0w")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=483976138]
 tree_root = SubResource("AnimationNodeStateMachine_kyjv2")
 anim_player = NodePath("../SpriteAnimator")
+parameters/conditions/dead = false
 parameters/Walk/blend_position = -0.16236472
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]

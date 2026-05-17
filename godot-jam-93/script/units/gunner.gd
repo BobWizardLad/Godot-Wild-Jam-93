@@ -17,9 +17,17 @@ var fire_cooldown: float
 var bullet_is_heavy_strike: bool
 @export var bullet_is_heavy_strike_base: bool
 
+var gunner_death_triggered: bool = false
+
 func _ready() -> void:
 	super()
 	reset_gunner_stats()
+
+func _process(_delta: float) -> void:
+	if is_dead and !gunner_death_triggered:
+		sprite_animator.play("death")
+		gunner_death_triggered = true
+	super(_delta)
 
 func _physics_process(_delta: float) -> void:
 	gun_cast.target_position = to_local(nav_agent.target_position)
@@ -37,6 +45,8 @@ func reset_gunner_stats() -> void:
 
 ## Function that returns the calculated velocity of a unit.
 func derive_unit_velocity() -> Vector2:
+	if is_dead:
+		return Vector2.ZERO
 	if nav_agent.distance_to_target() <= follow_distance && (gun_cast.is_colliding() && gun_cast.get_collider(0) is Player):
 		sprite_animator.play("standing")
 		return Vector2.ZERO

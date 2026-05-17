@@ -29,7 +29,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if current_health <= 0:
 		pickup_holder_died.emit(global_position)
-		die()
 
 func _physics_process(_delta: float) -> void:
 	super(_delta)

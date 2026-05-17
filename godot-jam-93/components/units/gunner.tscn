@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dltyno6xrpy8d" path="res://godot-jam-93/script/units/gunner.gd" id="1_s21kk"]
 [ext_resource type="PackedScene" uid="uid://hk01m0jo1lwv" path="res://godot-jam-93/components/gun_controller.tscn" id="2_3fmpq"]
+[ext_resource type="AudioStream" uid="uid://7i6sfa4qbnum" path="res://godot-jam-93/assets/sfx/boom.ogg" id="2_5jtp7"]
 [ext_resource type="PackedScene" uid="uid://byq5u2aic3fq7" path="res://godot-jam-93/components/audiovisual_handlers/sound_sequencer_2d.tscn" id="2_f4rmt"]
 [ext_resource type="AudioStream" uid="uid://tyl2fv1ue14r" path="res://godot-jam-93/assets/sfx/zap-freesound-clean.wav" id="2_rl4ja"]
+[ext_resource type="Texture2D" uid="uid://dctc05hm0o87r" path="res://godot-jam-93/assets/sprites/explosion.png" id="3_rl4ja"]
 [ext_resource type="PackedScene" uid="uid://bi4moickma36" path="res://godot-jam-93/components/projectiles/enemy_bullet.tscn" id="3_s21kk"]
 [ext_resource type="Texture2D" uid="uid://cmsl0b36ir75u" path="res://godot-jam-93/assets/sprites/NMEshooter.png" id="4_s21kk"]
 
@@ -113,6 +115,107 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_s21kk")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeathSFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5jtp7"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_rl4ja")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3fmpq"]
 resource_name = "standing"
@@ -151,6 +254,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5jtp7"]
 _data = {
 &"RESET": SubResource("Animation_f4rmt"),
+&"death": SubResource("Animation_5jtp7"),
 &"standing": SubResource("Animation_3fmpq"),
 &"walk": SubResource("Animation_rl4ja")
 }
@@ -173,6 +277,10 @@ SPEED = 75.0
 max_health = 25
 current_health = 25
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=308866589]
+stream = ExtResource("2_5jtp7")
+volume_db = -4.608
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")
