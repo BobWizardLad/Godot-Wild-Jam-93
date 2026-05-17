@@ -15,9 +15,11 @@ script/source = "extends Label
 var messages: Array[String] = [
 	\"Now with more yummy bugs\",
 	\"A story of bullets, more bullets, and bugs\",
-	\"Made with love and very little time!\",
+	\"Made with love in 9 days!!\",
 	\"Hi Mom!\",
-	\"I'm trapped in a 3 day old game project HELP ME!\",
+	\"What's updog???\",
+	\"Shoutout to Godot Wild Jam!!\",
+	\"I'M THE TRASHMAN! I EAT GARBAGE!!!\",
 	\"Did you know this message is equally as likely to appear as every other message?!?!\"
 ]
 
