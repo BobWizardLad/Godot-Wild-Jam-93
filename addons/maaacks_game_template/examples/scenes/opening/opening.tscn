@@ -2,12 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://sikc02ddepyt" path="res://addons/maaacks_game_template/base/nodes/opening/opening.tscn" id="1_tjbcx"]
 [ext_resource type="Texture2D" uid="uid://5rltpvy6c5b" path="res://addons/maaacks_game_template/examples/assets/godot_engine_logo/logo_vertical_color_dark.png" id="2_5ncfi"]
+[ext_resource type="Texture2D" uid="uid://ccivwp0ly42iq" path="res://godot-jam-93/assets/sprites/wildComic1.png" id="3_hgin8"]
+[ext_resource type="Texture2D" uid="uid://bjjkbvvpcfgmx" path="res://godot-jam-93/assets/sprites/wildComic2.png" id="4_6jsqo"]
+[ext_resource type="Texture2D" uid="uid://dvguwl0wvlrmm" path="res://godot-jam-93/assets/sprites/wildComic3.png" id="5_7ekh3"]
+[ext_resource type="Texture2D" uid="uid://r8ian50hxedu" path="res://godot-jam-93/assets/sprites/wildComic4.png" id="6_tjhr2"]
+[ext_resource type="Texture2D" uid="uid://ori73nqwsixj" path="res://godot-jam-93/assets/sprites/wildComic5.png" id="7_rn6l0"]
+[ext_resource type="Texture2D" uid="uid://r7oarac4thgr" path="res://godot-jam-93/assets/sprites/wildComic6.png" id="8_5q6wu"]
+[ext_resource type="Texture2D" uid="uid://b3r7pqs41evuu" path="res://godot-jam-93/assets/sprites/wildComic7.png" id="9_md7lm"]
 
 [node name="Opening" unique_id=1930105641 instance=ExtResource("1_tjbcx")]
-images = Array[Texture2D]([ExtResource("2_5ncfi")])
+images = Array[Texture2D]([ExtResource("2_5ncfi"), ExtResource("3_hgin8"), ExtResource("4_6jsqo"), ExtResource("5_7ekh3"), ExtResource("6_tjhr2"), ExtResource("7_rn6l0"), ExtResource("8_5q6wu"), ExtResource("9_md7lm")])
 
 [node name="ImagesContainer" parent="." index="1" unique_id=1471559661]
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="2" unique_id=114557066]
+z_index = -10
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-19, -18, 990, -19, 971, 551, -21, 550)
