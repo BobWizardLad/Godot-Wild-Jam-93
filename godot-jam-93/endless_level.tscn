@@ -199,10 +199,6 @@ upgrade_factory = NodePath("../UpgradeFactory")
 [node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=509651857]
 zoom = Vector2(2, 2)
 
-[node name="Gunner" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("3_8tt0i")]
-position = Vector2(168, 326)
-nav_target = NodePath("../Player")
-
 [connection signal="points_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_points"]
 [connection signal="wave_count_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_wave_count"]
 [connection signal="wave_ended" from="SpawnerController" to="Interface/GameplayInterface" method="trigger_wave_clear_msg"]
