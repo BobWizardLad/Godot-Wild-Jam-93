@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1tw0kbb42rvb"]
+
+[ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_ofmmw"]
+[ext_resource type="PackedScene" uid="uid://cpxwh8pvrcosw" path="res://godot-jam-93/components/units/enemy.tscn" id="2_irswd"]
+
+[node name="TestNotifier" type="Node2D" unique_id=203168949]
+editor_description = "Test the hit notifier system that flashes damage numbers."
+
+[node name="Player" parent="." unique_id=580681997 instance=ExtResource("1_ofmmw")]
+position = Vector2(208, 150)
+player_debug = true
+
+[node name="Enemy" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_irswd")]
+position = Vector2(529, 83)
+nav_target = NodePath("../Player")
+
+[node name="Enemy2" parent="." unique_id=2038685482 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_irswd")]
+position = Vector2(365, 359)
+nav_target = NodePath("../Player")
+
+[node name="Enemy3" parent="." unique_id=1055094878 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_irswd")]
+position = Vector2(638, 402)
+nav_target = NodePath("../Player")
