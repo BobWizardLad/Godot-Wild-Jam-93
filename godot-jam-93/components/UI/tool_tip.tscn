@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://kg27y4i6kc6a"]
+
+[ext_resource type="Theme" uid="uid://d1svfjs6tmjkh" path="res://example_project/resources/themes/expedition.tres" id="1_3s3xf"]
+[ext_resource type="Script" uid="uid://buo7dpqtajsku" path="res://godot-jam-93/script/tool_tip.gd" id="2_klohs"]
+
+[node name="ToolTip" type="PanelContainer" unique_id=1534803212]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.7764706)
+z_index = 16
+offset_right = 116.0
+offset_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("1_3s3xf")
+script = ExtResource("2_klohs")
+display_offset = Vector2(25, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1930732012]
+layout_mode = 2
+mouse_filter = 2

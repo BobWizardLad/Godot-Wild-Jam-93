@@ -9,3 +9,8 @@ func init_effect_value() -> void:
 
 func get_effect(player: Player):
 	player.dash_speed *= dash_speed_increase
+
+func create_tooltip_label() -> UpgradeLabel:
+	var new_label: UpgradeLabel = label_template.instantiate()
+	new_label.set_label_data(name, description, str("%.2f" % dash_speed_increase) + "x")
+	return new_label

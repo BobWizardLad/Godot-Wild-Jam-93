@@ -9,3 +9,8 @@ func init_effect_value() -> void:
 
 func get_effect(player: Player):
 	player.dash_cooldown_time *= dash_cooldown_mod
+
+func create_tooltip_label() -> UpgradeLabel:
+	var new_label: UpgradeLabel = label_template.instantiate()
+	new_label.set_label_data(name, description, str("%.2f" % dash_cooldown_mod) + "x")
+	return new_label

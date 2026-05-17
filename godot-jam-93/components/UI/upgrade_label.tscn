@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://4bfu2h8ti4fu"]
+
+[ext_resource type="Script" uid="uid://bsp1ak5xsltxs" path="res://godot-jam-93/script/upgrade_label.gd" id="1_k2nop"]
+
+[node name="UpgradeLabel" type="HBoxContainer" unique_id=477656365]
+process_mode = 3
+offset_right = 301.0
+offset_bottom = 54.0
+mouse_filter = 2
+script = ExtResource("1_k2nop")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=1142773269]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="HBoxContainer" unique_id=611185888]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Attack"
+autowrap_mode = 2
+
+[node name="Effect" type="Label" parent="HBoxContainer" unique_id=2136963720]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Makes bullets do more damage"
+autowrap_mode = 2
+
+[node name="Value" type="Label" parent="." unique_id=352854322]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "+10"
+autowrap_mode = 2
