@@ -18,3 +18,6 @@ func trigger_game_over() -> void:
 
 func trigger_wave_clear_msg() -> void:
 	interface_player.play("wave_clear")
+
+func trigger_wave_start_msg() -> void:
+	interface_player.play("wave_start")

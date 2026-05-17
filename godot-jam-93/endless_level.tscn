@@ -200,6 +200,7 @@ zoom = Vector2(2, 2)
 
 [connection signal="points_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_points"]
 [connection signal="wave_count_changed" from="EndlessGameManager" to="Interface/GameplayInterface" method="update_wave_count"]
+[connection signal="wave_begin" from="SpawnerController" to="Interface/GameplayInterface" method="trigger_wave_start_msg"]
 [connection signal="wave_ended" from="SpawnerController" to="Interface/GameplayInterface" method="trigger_wave_clear_msg"]
 [connection signal="pressed" from="Interface/Button" to="SpawnerController" method="_on_button_pressed"]
 [connection signal="died" from="Player" to="EndlessGameManager" method="process_game_over"]
