@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_d41hm")
 dash_cooldown_mod_range = Vector2(0.85, 0.95)
+name = &"Dash Cooldown"
+description = "Dash more often! Wait around less! Zooom!"
 metadata/_custom_type_script = "uid://ccjug53c6yyhj"

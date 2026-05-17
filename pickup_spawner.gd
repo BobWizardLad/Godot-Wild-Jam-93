@@ -19,7 +19,7 @@ func spawn_pickup(pickup_position: Vector2) -> void:
 		get_tree().current_scene.add_child(pickup)
 
 func calculate_pickup_chance(wave_count: int) -> float:
-	return .666 * (1.5/wave_count)
+	return .4 * (2.5/wave_count)
 
 ## Decides what randomized spawn will occour
 ## Spawns are decided by subtracting the spawn chance from the rolled

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeavyStrikeUpgrade" format=3 uid="uid://ct5xtufucefar"]
+
+[ext_resource type="Script" uid="uid://opljbdcmcy17" path="res://godot-jam-93/script/upgrade_tree/upgrades/heavy_strike_upgrade.gd" id="1_a5p4h"]
+
+[resource]
+script = ExtResource("1_a5p4h")
+name = &"Heavy Strike"
+description = "When you shoot an enemy, they get knocked back!"
+synergy = 3
+synergy_amplification = 1.0
+metadata/_custom_type_script = "uid://opljbdcmcy17"

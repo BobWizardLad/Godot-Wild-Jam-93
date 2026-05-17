@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bbndo504estgw" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_B.tscn" id="18_5fotf"]
 [ext_resource type="PackedScene" uid="uid://b3xm7tb12sqox" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_C.tscn" id="19_q72w1"]
 [ext_resource type="PackedScene" uid="uid://dtr0seeicwnfr" path="res://godot-jam-93/components/upgrade_tree/upgrades/very_rare_upgrade_D.tscn" id="20_fghhc"]
+[ext_resource type="Resource" uid="uid://ct5xtufucefar" path="res://godot-jam-93/assets/resources/upgrades/common/heavy_strike_upgrade.tres" id="26_nw0at"]
 [ext_resource type="Resource" uid="uid://c2cqqx018yqed" path="res://godot-jam-93/assets/resources/upgrades/common/dash_cooldown_upgrade.tres" id="28_5fotf"]
 
 [node name="UpgradeFactory" type="Node" unique_id=1908081772]
@@ -35,11 +36,11 @@ script = ExtResource("1_qwg1m")
 common_upgrade_archetypes = Array[PackedScene]([ExtResource("2_043ts"), ExtResource("3_c3iiw"), ExtResource("4_o7rfa")])
 rare_upgrade_archetypes = Array[PackedScene]([ExtResource("5_6p7pd"), ExtResource("6_0car0"), ExtResource("7_6vqpi"), ExtResource("8_ybhfn"), ExtResource("9_nw0at"), ExtResource("10_5fotf"), ExtResource("11_q72w1"), ExtResource("12_fghhc"), ExtResource("13_pgxtt"), ExtResource("14_bwaoj"), ExtResource("15_xdxnl"), ExtResource("16_iksk3")])
 very_rare_upgrade_archetypes = Array[PackedScene]([ExtResource("17_nw0at"), ExtResource("18_5fotf"), ExtResource("19_q72w1"), ExtResource("20_fghhc")])
-common_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc"), ExtResource("28_5fotf")])
-common_max_upgrades = 2
-rare_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc"), ExtResource("28_5fotf")])
+common_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc")])
+common_max_upgrades = 1
+rare_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc")])
 rare_max_upgrades = 3
-very_rare_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("3_ru7vh"), ExtResource("4_3kt5c"), ExtResource("6_4i77v"), ExtResource("6_3kt5c"), ExtResource("5_nwtbq"), ExtResource("9_berxc"), ExtResource("28_5fotf")])
+very_rare_upgrade_pool = Array[ExtResource("2_bqmbf")]([ExtResource("26_nw0at"), ExtResource("28_5fotf")])
 very_rare_max_upgrades = 1
 spawn_min_Y = 100.0
 spawn_max_Y = 440.0
