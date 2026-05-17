@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://81viffneqgh7"]
 
 [ext_resource type="PackedScene" uid="uid://cobai2bnueykf" path="res://godot-jam-93/components/units/player.tscn" id="1_yrp48"]
-[ext_resource type="PackedScene" uid="uid://b8df8bbivw34b" path="res://godot-jam-93/components/units/striker.tscn" id="2_6j5i3"]
+[ext_resource type="PackedScene" uid="uid://dshwr3eoubxlh" path="res://godot-jam-93/components/units/charger.tscn" id="2_6j5i3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wyhur"]
 vertices = PackedVector2Array(1164.0078, 23.96875, 1165.9766, 550, 28.9375, 550, 22.0625, 19.023438)
@@ -21,6 +21,6 @@ zoom = Vector2(2.5, 2.5)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1934372970]
 navigation_polygon = SubResource("NavigationPolygon_wyhur")
 
-[node name="Striker" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_6j5i3")]
-position = Vector2(153, 141)
+[node name="Charger" parent="." unique_id=744279334 node_paths=PackedStringArray("nav_target") instance=ExtResource("2_6j5i3")]
+position = Vector2(105, 81)
 nav_target = NodePath("../Player")
