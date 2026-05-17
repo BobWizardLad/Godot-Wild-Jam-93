@@ -22,9 +22,10 @@ func end_strike_collision():
 ## Offset is applied
 func handle_detected_body_or_area(collided_node: Node2D):
 	## Collide and disable
-	if collided_node is Unit && is_striking:
+	if collided_node is Player && is_striking:
 		strike_connected.emit() # Notify when a strike attempt succeeds
 		attacked_body.emit(collided_node) # Notify attack instance
 		collided_node.take_damage(get_parent().damage, self, is_heavy_strike)
+		end_strike_collision()
 	else:
 		return

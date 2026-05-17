@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8df8bbivw34b"]
 
-[ext_resource type="Script" path="res://godot-jam-93/script/units/striker.gd" id="1_vccp7"]
+[ext_resource type="Script" uid="uid://cyav1k5gwuw1v" path="res://godot-jam-93/script/units/striker.gd" id="1_vccp7"]
 [ext_resource type="Texture2D" uid="uid://c38yssrrlkir7" path="res://godot-jam-93/assets/sprites/NMEstriker.png" id="2_vccp7"]
 [ext_resource type="Script" uid="uid://blvob45dth56j" path="res://godot-jam-93/script/enemy_animation_blender.gd" id="2_vrtb2"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_svww0"]
@@ -239,8 +239,9 @@ collision_layer = 36
 collision_mask = 4
 script = ExtResource("1_vccp7")
 encircle_pattern = SubResource("CircleShape2D_vccp7")
-stalking_cooldown = 11.0
+stalking_cooldown = 5.0
 radius_attack_range = 55.0
+attack_cooldown_time = 3.0
 damage = 12
 SPEED = 65.0
 max_health = 25
@@ -265,7 +266,7 @@ anim_player = NodePath("../SpriteAnimator")
 parameters/Walk/blend_position = -0.16236472
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 autostart = true
 
@@ -297,7 +298,9 @@ shape = SubResource("CircleShape2D_y0v0w")
 [node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=1277527883]
 path_desired_distance = 5.0
 target_desired_distance = 15.0
+debug_enabled = true
 
 [connection signal="timeout" from="PathfinderTimer" to="." method="_on_pathfinder_timer_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="StalkingAttemptCooldown" to="." method="_on_stalking_attempt_cooldown_timeout"]
+[connection signal="strike_connected" from="StrikeArea" to="." method="_on_strike_area_strike_connected"]
