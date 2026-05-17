@@ -76,6 +76,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_vrtb2"]
 resource_name = "death"
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -364,6 +365,7 @@ metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=645396293]
 stream = ExtResource("2_kyjv2")
 volume_db = -4.608
+bus = &"SFX"
 
 [node name="EnemyAnimationBlender" type="Node" parent="." unique_id=1129148367 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("2_vrtb2")

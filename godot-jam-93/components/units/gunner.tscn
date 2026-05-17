@@ -281,6 +281,7 @@ metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=308866589]
 stream = ExtResource("2_5jtp7")
 volume_db = -4.608
+bus = &"SFX"
 
 [node name="SoftAnimationPlayer" type="AnimationPlayer" parent="." unique_id=47649866]
 libraries/ = SubResource("AnimationLibrary_y0v0w")

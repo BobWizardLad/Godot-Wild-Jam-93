@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://67ge1j8y4ic7" path="res://godot-jam-93/script/units/charger.gd" id="1_l4p5j"]
 [ext_resource type="Texture2D" uid="uid://bgrm5d6f4g61s" path="res://godot-jam-93/assets/sprites/NMEcharger.png" id="2_5yspa"]
+[ext_resource type="AudioStream" uid="uid://7i6sfa4qbnum" path="res://godot-jam-93/assets/sfx/boom.ogg" id="2_37erq"]
 [ext_resource type="Script" uid="uid://i07wgvjn8a6v" path="res://godot-jam-93/script/components/charger_animation_blender.gd" id="2_rpyoj"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="3_dnfwk"]
 [ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/damageareas/melee_area.gd" id="4_5yspa"]
+[ext_resource type="Texture2D" uid="uid://dctc05hm0o87r" path="res://godot-jam-93/assets/sprites/explosion.png" id="4_ejifn"]
 [ext_resource type="Texture2D" uid="uid://2wblhy3sufk7" path="res://godot-jam-93/assets/sprites/NMEchargerATK.png" id="4_rpyoj"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
@@ -94,6 +96,74 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_37erq"]
+resource_name = "death"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ejifn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathSFX")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_3fmpq"]
@@ -320,6 +390,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iwlck"]
 _data = {
 &"RESET": SubResource("Animation_f4rmt"),
+&"death": SubResource("Animation_37erq"),
 &"standing": SubResource("Animation_3fmpq"),
 &"walkL": SubResource("Animation_rl4ja"),
 &"walkR": SubResource("Animation_5yspa"),
@@ -357,6 +428,9 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_ciit4")
 blend_point_1/pos = 0.1
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_usl02"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ciit4"]
 advance_mode = 2
 
@@ -368,14 +442,24 @@ advance_condition = &"windup"
 advance_mode = 2
 advance_condition = &"walk"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x6o2i"]
+advance_mode = 2
+advance_condition = &"dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jwhtu"]
+advance_mode = 2
+advance_condition = &"dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ejifn"]
-states/End/position = Vector2(363, 204)
+states/End/position = Vector2(235, 196)
 states/Start/position = Vector2(424, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_37erq")
-states/Walk/position = Vector2(564, 100)
+states/Walk/position = Vector2(570, 100)
 states/Windup/node = SubResource("AnimationNodeBlendSpace1D_usl02")
 states/Windup/position = Vector2(570, 209)
-transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_ciit4"), "Walk", "Windup", SubResource("AnimationNodeStateMachineTransition_1bve4"), "Windup", "Walk", SubResource("AnimationNodeStateMachineTransition_gs827")]
+states/death/node = SubResource("AnimationNodeAnimation_usl02")
+states/death/position = Vector2(399, 209)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_ciit4"), "Walk", "Windup", SubResource("AnimationNodeStateMachineTransition_1bve4"), "Windup", "Walk", SubResource("AnimationNodeStateMachineTransition_gs827"), "Walk", "death", SubResource("AnimationNodeStateMachineTransition_x6o2i"), "Windup", "death", SubResource("AnimationNodeStateMachineTransition_jwhtu")]
 graph_offset = Vector2(-96, 38)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yspa"]
@@ -398,6 +482,11 @@ max_health = 25
 current_health = 25
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=672272783]
+stream = ExtResource("2_37erq")
+volume_db = -4.608
+bus = &"SFX"
+
 [node name="EnemyAnimationBlender" type="Node" parent="." unique_id=1085812000 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("2_rpyoj")
 animation_tree = NodePath("../AnimationTree")
@@ -413,9 +502,10 @@ autoplay = &"walkL"
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=339141600]
 tree_root = SubResource("AnimationNodeStateMachine_ejifn")
 anim_player = NodePath("../SpriteAnimator")
+parameters/conditions/dead = false
 parameters/conditions/walk = false
 parameters/conditions/windup = false
-parameters/Walk/blend_position = 0.38471421808168516
+parameters/Walk/blend_position = 0.006907
 parameters/Windup/blend_position = 0.0
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]

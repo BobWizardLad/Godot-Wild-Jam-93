@@ -14,7 +14,7 @@ var is_charging: bool = false
 ## Navigates to player, then charges at them
 func derive_unit_velocity() -> Vector2:
 	
-	if is_windup:
+	if is_windup || is_dead:
 		return Vector2.ZERO
 	# If already charging, use the charge for velocity
 	elif is_charging:

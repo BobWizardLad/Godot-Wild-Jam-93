@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://br4037ka8frwj" path="res://godot-jam-93/script/units/enemy.gd" id="1_f6xrv"]
 [ext_resource type="Texture2D" uid="uid://b0ntlqt5anlng" path="res://godot-jam-93/assets/sprites/NMEcommon.png" id="2_3rqhp"]
 [ext_resource type="Script" uid="uid://blvob45dth56j" path="res://godot-jam-93/script/enemy_animation_blender.gd" id="2_fe2q1"]
+[ext_resource type="AudioStream" uid="uid://7i6sfa4qbnum" path="res://godot-jam-93/assets/sfx/boom.ogg" id="2_n47yf"]
 [ext_resource type="Script" uid="uid://x8lxktm5skhp" path="res://godot-jam-93/script/damageareas/melee_area.gd" id="4_3rqhp"]
+[ext_resource type="Texture2D" uid="uid://dctc05hm0o87r" path="res://godot-jam-93/assets/sprites/explosion.png" id="4_fd1nq"]
 [ext_resource type="PackedScene" uid="uid://e1tasvsvxsru" path="res://godot-jam-93/components/damage_area/damage_area.tscn" id="4_y0v0w"]
 
 [sub_resource type="Animation" id="Animation_eju5v"]
@@ -124,6 +126,97 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_3rqhp")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_fe2q1"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_fd1nq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathSFX")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_3fmpq"]
 resource_name = "standing"
@@ -191,6 +284,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fe2q1"]
 _data = {
 &"RESET": SubResource("Animation_f4rmt"),
+&"death": SubResource("Animation_fe2q1"),
 &"standing": SubResource("Animation_3fmpq"),
 &"walkL": SubResource("Animation_rl4ja"),
 &"walkR": SubResource("Animation_3rqhp")
@@ -214,15 +308,24 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_vuujy")
 blend_point_2/pos = 0.0
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n47yf"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vuujy"]
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kqisf"]
+advance_mode = 2
+advance_condition = &"dead"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kqisf"]
 states/End/position = Vector2(424, 165)
 states/Start/position = Vector2(424, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_fe2q1")
 states/Walk/position = Vector2(600, 101)
-transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_vuujy")]
+states/death/node = SubResource("AnimationNodeAnimation_n47yf")
+states/death/position = Vector2(722, 174)
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_vuujy"), "Walk", "death", SubResource("AnimationNodeStateMachineTransition_kqisf")]
 graph_offset = Vector2(28, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rcr0p"]
@@ -242,6 +345,11 @@ max_health = 20
 current_health = 20
 metadata/_custom_type_script = "uid://dgrhh1v7iwqrq"
 
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="." unique_id=986317959]
+stream = ExtResource("2_n47yf")
+volume_db = -4.608
+bus = &"SFX"
+
 [node name="EnemyAnimationBlender" type="Node" parent="." unique_id=208227157 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("2_fe2q1")
 animation_tree = NodePath("../AnimationTree")
@@ -257,7 +365,8 @@ autoplay = &"standing"
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1889428840]
 tree_root = SubResource("AnimationNodeStateMachine_kqisf")
 anim_player = NodePath("../SpriteAnimator")
-parameters/Walk/blend_position = -0.49875104
+parameters/conditions/dead = false
+parameters/Walk/blend_position = 0.006907
 
 [node name="PathfinderTimer" type="Timer" parent="." unique_id=175771820]
 wait_time = 0.2
